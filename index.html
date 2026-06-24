@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kishan Kumar Singh — Senior Software Engineer</title>
+  <meta name="description" content="Senior Full Stack Engineer with 5+ years building production web systems in PHP, Laravel, TypeScript, Node.js, React.js, and Python. New Delhi, India.">
+  <meta property="og:title" content="Kishan Kumar Singh — Senior Software Engineer">
+  <meta property="og:description" content="Senior Full Stack Engineer with 5+ years building production web systems in PHP, Laravel, TypeScript, Node.js, React.js, and Python. New Delhi, India.">
+  <meta property="og:url" content="https://kishansinghsw20.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables & Reset */
+    :root {
+      --bg-color: #0a0a0f;
+      --bg-alt: #0d0d14;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --primary: #6366f1;
+      --secondary: #22d3ee;
+      --text-main: #f1f5f9;
+      --text-muted: #64748b;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --transition: 60ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .mt-4 {
+      margin-top: 16px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 100px 0;
+      transition: opacity var(--transition), transform var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bg-alt {
+      background-color: var(--bg-alt);
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .nav-brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text-main);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #fff;
+      border: 1px solid var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: #4f46e5;
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--text-muted);
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+    
+    /* Hero Section */
+    #hero {
+      position: relative;
+      min-height: calc(100vh - 70px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 24px 24px;
+      padding: 60px 0;
+    }
+    
+    .hero-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(10, 10, 15, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--success);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 22px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-body {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-value {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .metric-label {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.15);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card-link {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-link:hover {
+      color: var(--primary);
+    }
+
+    .card-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .card-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      border-radius: 4px;
+      font-size: 11px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-live {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+    }
+
+    .badge-down {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--warning);
+    }
+    
+    .badge-open {
+      background: rgba(168, 85, 247, 0.1);
+      color: #a855f7;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .badge-live .badge-dot { background-color: var(--success); animation: pulse 2s infinite; }
+    .badge-down .badge-dot { background-color: var(--warning); }
+    .badge-open .badge-dot { background-color: #a855f7; }
+
+    /* Achievements */
+    .achievement-card {
+      text-align: left;
+    }
+
+    .achievement-value {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--warning);
+      margin-bottom: 12px;
+    }
+
+    .achievement-desc {
+      font-size: 15px;
+      color: var(--text-main);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), rgba(99, 102, 241, 0));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: -36px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--primary);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .timeline-role {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .timeline-company {
+      font-size: 16px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .timeline-bullets {
+      list-style: disc;
+      padding-left: 20px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .timeline-bullets li {
+      margin-bottom: 8px;
+    }
+
+    /* Tech Stack */
+    .stack-group {
+      margin-bottom: 24px;
+    }
+
+    .stack-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .stack-tag {
+      padding: 6px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .ai-card {
+      border-color: var(--primary);
+      background: linear-gradient(to right, rgba(99, 102, 241, 0.05), transparent);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all var(--transition);
+    }
+
+    .contact-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .contact-icon {
+      color: var(--primary);
+      width: 32px;
+      height: 32px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-val {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Mobile */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-right .btn-ghost {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 40px;
+      }
+
+      .hero-top {
+        flex-direction: column-reverse;
+        gap: 16px;
+      }
+
+      .grid-2, .grid-3, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .timeline-header {
+        flex-direction: column;
+      }
+      
+      footer {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-brand">KS</div>
+      <div class="nav-links">
+        <a href="#projects">Work</a>
+        <a href="#achievements">Impact</a>
+        <a href="#experience">Experience</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download class="btn btn-ghost">Download Resume</a>
+        <button class="mobile-menu-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-content">
+        <div class="hero-top">
+          <div class="eyebrow mono">Senior Software Engineer · Full Stack</div>
+          <div class="status-pill">
+            <div class="status-dot"></div>
+            Available for opportunities
+          </div>
+        </div>
+        <h1 class="hero-title">Kishan Kumar Singh</h1>
+        <p class="hero-subtitle">Building production systems that scale.</p>
+        <p class="hero-body">
+          5+ years shipping full-stack web applications — from UK telecom platforms to global pharma expos, HRMS systems to dine-in ordering apps. PHP, TypeScript, Node.js, React.js, Python. Real systems. Real users. Live in the market.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download class="btn btn-ghost">Download Resume</a>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-value mono" data-target="99.8" data-suffix="%">0</div>
+            <div class="metric-label">Performance gain</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value mono" data-target="10000" data-suffix="+">0</div>
+            <div class="metric-label">SMS leads/campaign</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value mono" data-target="6" data-suffix="">0</div>
+            <div class="metric-label">Live client websites</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value mono" data-target="4" data-suffix="">0</div>
+            <div class="metric-label">Payment gateways</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value mono" data-target="5" data-suffix="+">0</div>
+            <div class="metric-label">Years in production</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE CLIENT WORK -->
+    <section id="projects" class="bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Ships. Doesn't sit in drafts.</h2>
+          <p class="section-subtitle">6 live websites built for real clients, running in the market today.</p>
+        </div>
+        
+        <div class="grid grid-2">
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Business Leads UK</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> LIVE
+              </div>
+            </div>
+            <a href="https://businessleadsuk.com" target="_blank" class="card-link mono">businessleadsuk.com ↗</a>
+            <p class="card-desc mt-4">UK business mobile quote comparison platform — helps companies with 5+ connections compare SIM-only and handset deals across all major UK networks and reduce monthly bills.</p>
+            <div class="card-footer">
+              <span class="tag mono">CodeIgniter</span>
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">GTM</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Allegan Global Solutions</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> LIVE
+              </div>
+            </div>
+            <a href="https://alleganglobalsolutions.com" target="_blank" class="card-link mono">alleganglobalsolutions.com ↗</a>
+            <p class="card-desc mt-4">Global event management and business platform — organises large-scale exhibitions, conferences, and industry summits across pharma, healthcare, AI, manufacturing, EV, and energy sectors. 15,000+ business visitors · 1,000+ speakers · 15+ countries.</p>
+            <div class="card-footer">
+              <span class="tag mono">Laravel</span>
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">REST API</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">India Pharma Global Expo</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> LIVE
+              </div>
+            </div>
+            <a href="https://indiapharmaglobalexpo.com" target="_blank" class="card-link mono">indiapharmaglobalexpo.com ↗</a>
+            <p class="card-desc mt-4">Premier international exhibition and conference platform for pharmaceuticals, biotechnology, APIs, HealthTech, and PharmaTech innovation — India Pharma Global Expo 2027.</p>
+            <div class="card-footer">
+              <span class="tag mono">CodeIgniter</span>
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">MySQL</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Pharma Next Global Summit</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> LIVE
+              </div>
+            </div>
+            <a href="https://pharmanextglobalsummit.com" target="_blank" class="card-link mono">pharmanextglobalsummit.com ↗</a>
+            <p class="card-desc mt-4">International pharmaceutical summit platform — connecting global industry leaders across pharma, biotech, and life sciences.</p>
+            <div class="card-footer">
+              <span class="tag mono">CodeIgniter</span>
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">MySQL</span>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Apna Dental</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> LIVE
+              </div>
+            </div>
+            <a href="https://apnadental.com" target="_blank" class="card-link mono">apnadental.com ↗</a>
+            <p class="card-desc mt-4">Full e-commerce platform for a dental products store — product catalogue, cart, customer reviews, and admin panel built in Core PHP.</p>
+            <div class="card-footer">
+              <span class="tag mono">Core PHP</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">JavaScript</span>
+              <span class="tag mono">AJAX</span>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Automist Global</h3>
+              <div class="badge badge-down">
+                <div class="badge-dot"></div> ⚠ Offline
+              </div>
+            </div>
+            <a href="https://automistglobal.in" target="_blank" class="card-link mono">automistglobal.in ↗</a>
+            <p class="card-desc mt-4">Corporate website for an industrial automation and mist systems company. Site is offline due to hosting expiry — not a code issue.</p>
+            <div class="card-footer">
+              <span class="tag mono">Core PHP</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Results, not titles.</h2>
+        </div>
+        
+        <div class="grid grid-3">
+          <div class="card achievement-card">
+            <div class="achievement-value mono">99.8%</div>
+            <div class="achievement-desc">SQL performance gain: 22s → 0.044s on a critical production module</div>
+          </div>
+          <div class="card achievement-card">
+            <div class="achievement-value mono">10,000+</div>
+            <div class="achievement-desc">SMS leads processed per campaign without timeout (Twilio + cron queue)</div>
+          </div>
+          <div class="card achievement-card">
+            <div class="achievement-value mono">4</div>
+            <div class="achievement-desc">Payment gateways (Razorpay, PhonePe, Cashfree, PayU) with dynamic routing in one product</div>
+          </div>
+          <div class="card achievement-card">
+            <div class="achievement-value mono">~0%</div>
+            <div class="achievement-desc">Client no-show rate after automating MS Teams reminders via Microsoft Graph API</div>
+          </div>
+          <div class="card achievement-card">
+            <div class="achievement-value mono">25%</div>
+            <div class="achievement-desc">Dev-time reduction via AI-assisted coding across team workflows</div>
+          </div>
+          <div class="card achievement-card">
+            <div class="achievement-value mono">12+ mo</div>
+            <div class="achievement-desc">Production bug backlog cleared solo, incl. critical Froala Editor failure blocking all users</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL PROJECTS -->
+    <section id="more-projects" class="bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">More things I've built.</h2>
+        </div>
+        
+        <div class="grid grid-3">
+          <!-- Card A -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Clocktales HRMS</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> LIVE
+              </div>
+            </div>
+            <a href="https://clocktales.com" target="_blank" class="card-link mono">clocktales.com ↗</a>
+            <p class="card-desc mt-4">Multi-company HR management system — role-based attendance, automated leave calculation, complex shift scheduling. Built from scratch, live in production.</p>
+            <div class="card-footer">
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">CodeIgniter</span>
+              <span class="tag mono">React.js</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">Microservices</span>
+            </div>
+          </div>
+
+          <!-- Card B -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Oyly Dine-In Ordering App</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> LIVE
+              </div>
+            </div>
+            <a href="https://oyly.in" target="_blank" class="card-link mono">oyly.in ↗</a>
+            <p class="card-desc mt-4">Full backend API for a live restaurant ordering platform. Real-time order sync between customer app and kitchen terminals via high-frequency polling schema.</p>
+            <div class="card-footer">
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">CodeIgniter 3</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">REST API</span>
+            </div>
+          </div>
+
+          <!-- Card C -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Smart Bid & Buy</h3>
+              <div class="badge badge-open">
+                <div class="badge-dot"></div> OPEN SOURCE
+              </div>
+            </div>
+            <a href="https://github.com/KishanSinghsw20/smart_bid_and_buy" target="_blank" class="card-link mono">github.com ↗</a>
+            <p class="card-desc mt-4">Full-stack e-commerce auction platform — real-time bidding logic, user auth, admin management dashboard.</p>
+            <div class="card-footer">
+              <span class="tag mono">Python</span>
+              <span class="tag mono">Django</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GITHUB REPOS -->
+    <section id="github">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Open source & public work.</h2>
+        </div>
+        
+        <div class="grid grid-3" id="github-repos">
+          <!-- Repos will be injected here via JS -->
+        </div>
+        <div style="margin-top: 32px; text-align: center;">
+          <a href="https://github.com/KishanSinghsw20" target="_blank" class="btn btn-ghost">View all repos on GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Where I've built things.</h2>
+        </div>
+        
+        <div class="timeline">
+          <!-- Entry 1 -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Senior Software Development Engineer</h3>
+              <div class="timeline-meta">
+                <span class="badge badge-live">Current</span>
+                <span>Oct 2025 – Present</span>
+              </div>
+            </div>
+            <div class="timeline-company">Innostax Software Labs Pvt. Ltd., Gurugram</div>
+            <ul class="timeline-bullets">
+              <li>Sole engineer owning SugarCRM v6.5 production ecosystem for banking clients (realwired.com)</li>
+              <li>Cleared 12+ month production bug backlog solo — including Froala Editor failure blocking all users' content management workflows</li>
+              <li>Integrated AI-powered Review Forms across realwired.com subdomains for banking customers</li>
+              <li>Enforced Git Flow (Feature Branch → PR → Admin Review) for full deployment auditability</li>
+              <li>Used Claude, ChatGPT, Ollama to accelerate root cause analysis and document undocumented legacy system behaviour</li>
+            </ul>
+            <div class="card-footer">
+              <span class="tag mono">SugarCRM v6.5</span>
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">Froala Editor</span>
+              <span class="tag mono">Git Flow</span>
+              <span class="tag mono">AI Tools</span>
+            </div>
+          </div>
+
+          <!-- Entry 2 -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Software Developer</h3>
+              <div class="timeline-meta">
+                <span>Aug 2024 – Oct 2025</span>
+              </div>
+            </div>
+            <div class="timeline-company">Goolean Technologies Pvt. Ltd., Gurugram</div>
+            <ul class="timeline-bullets">
+              <li>Mentored 2 Senior Developers and 2 Interns on FastAPI and React.js</li>
+              <li>Led modernisation pilot migrating PHP monolith to microservices architecture</li>
+              <li>Built full REST API backend for Oyly (oyly.in) — live dine-in platform with real-time kitchen order sync via high-frequency polling</li>
+              <li>Built Clocktales HRMS (clocktales.com) from scratch: attendance, shift management, automated leave calculation, serving multiple companies live</li>
+              <li>Integrated 4 payment gateways (Razorpay, PhonePe, Cashfree, PayU) with dynamic routing</li>
+              <li>Reduced team API boilerplate ~25% via GitHub Copilot and ChatGPT</li>
+            </ul>
+            <div class="card-footer">
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">CodeIgniter</span>
+              <span class="tag mono">React.js</span>
+              <span class="tag mono">FastAPI</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">Microservices</span>
+              <span class="tag mono">Payment APIs</span>
+            </div>
+          </div>
+
+          <!-- Entry 3 -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Junior Software Developer</h3>
+              <div class="timeline-meta">
+                <span>Aug 2022 – Jul 2024</span>
+              </div>
+            </div>
+            <div class="timeline-company">Nablasol Digital Service Pvt. Ltd., New Delhi</div>
+            <ul class="timeline-bullets">
+              <li>Built and launched commercial Microsoft Teams Connector for SugarCRM via MS Graph API — automated meeting scheduling, invites, reminders for US legal clients (v11/12/13) achieving near-zero no-show rate</li>
+              <li>Engineered high-volume SMS campaign system (Twilio + CodeIgniter) with cron-based queue handling 10,000+ leads per run without server timeouts</li>
+              <li>Managed end-to-end US client delivery — requirements, sprint demos, production deploys</li>
+            </ul>
+            <div class="card-footer">
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">SugarCRM</span>
+              <span class="tag mono">Microsoft Graph API</span>
+              <span class="tag mono">Twilio</span>
+              <span class="tag mono">CodeIgniter</span>
+            </div>
+          </div>
+
+          <!-- Entry 4 -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Software Developer Intern</h3>
+              <div class="timeline-meta">
+                <span>Aug 2021 – Aug 2022</span>
+              </div>
+            </div>
+            <div class="timeline-company">Nablasol Digital Service Pvt. Ltd., New Delhi</div>
+            <ul class="timeline-bullets">
+              <li>99.8% performance improvement — refactored raw SQL loops into optimised SugarBean queries, cutting execution from 22s to 0.044s on a critical production module</li>
+              <li>Developed 3 custom SugarCRM modules + enhanced 10+ core modules (Backbone.js + PHP)</li>
+            </ul>
+            <div class="card-footer">
+              <span class="tag mono">PHP</span>
+              <span class="tag mono">SugarCRM</span>
+              <span class="tag mono">Backbone.js</span>
+              <span class="tag mono">MySQL</span>
+            </div>
+          </div>
+
+          <!-- Entry 5 -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Web Developer Intern</h3>
+              <div class="timeline-meta">
+                <span>Feb 2021 – Jul 2021</span>
+              </div>
+            </div>
+            <div class="timeline-company">Achiever Solutions Pvt. Ltd., New Delhi</div>
+            <ul class="timeline-bullets">
+              <li>Built full-stack apps in Core PHP 7 + MySQL with custom Admin Panels and CRUD</li>
+              <li>Implemented AJAX for real-time content updates across multiple client websites</li>
+            </ul>
+            <div class="card-footer">
+              <span class="tag mono">Core PHP 7</span>
+              <span class="tag mono">MySQL</span>
+              <span class="tag mono">JavaScript</span>
+              <span class="tag mono">AJAX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="stack">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">My weapons of choice.</h2>
+        </div>
+        
+        <div class="grid grid-2">
+          <div>
+            <div class="stack-group">
+              <div class="stack-label mono">Languages</div>
+              <div class="stack-tags">
+                <div class="stack-tag">PHP</div>
+                <div class="stack-tag">JavaScript ES6+</div>
+                <div class="stack-tag">TypeScript</div>
+                <div class="stack-tag">Python</div>
+                <div class="stack-tag">HTML5</div>
+                <div class="stack-tag">CSS3</div>
+              </div>
+            </div>
+            <div class="stack-group">
+              <div class="stack-label mono">Frameworks</div>
+              <div class="stack-tags">
+                <div class="stack-tag">Laravel</div>
+                <div class="stack-tag">CodeIgniter</div>
+                <div class="stack-tag">Node.js</div>
+                <div class="stack-tag">React.js</div>
+                <div class="stack-tag">FastAPI</div>
+                <div class="stack-tag">Django</div>
+                <div class="stack-tag">Backbone.js</div>
+                <div class="stack-tag">jQuery</div>
+              </div>
+            </div>
+            <div class="stack-group">
+              <div class="stack-label mono">Backend/APIs</div>
+              <div class="stack-tags">
+                <div class="stack-tag">REST API Design</div>
+                <div class="stack-tag">Microservices</div>
+                <div class="stack-tag">System Design</div>
+                <div class="stack-tag">SugarCRM (Logic Hooks, Module Builder)</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="stack-group">
+              <div class="stack-label mono">Databases</div>
+              <div class="stack-tags">
+                <div class="stack-tag">MySQL</div>
+                <div class="stack-tag">PostgreSQL</div>
+                <div class="stack-tag">MSSQL</div>
+                <div class="stack-tag">Redis</div>
+              </div>
+            </div>
+            <div class="stack-group">
+              <div class="stack-label mono">DevOps/Tools</div>
+              <div class="stack-tags">
+                <div class="stack-tag">Git</div>
+                <div class="stack-tag">Git Flow</div>
+                <div class="stack-tag">Docker</div>
+                <div class="stack-tag">CI/CD</div>
+                <div class="stack-tag">Linux/SSH</div>
+                <div class="stack-tag">AWS (EC2, S3)</div>
+                <div class="stack-tag">Postman</div>
+                <div class="stack-tag">WinSCP</div>
+              </div>
+            </div>
+            <div class="stack-group">
+              <div class="stack-label mono">Security</div>
+              <div class="stack-tags">
+                <div class="stack-tag">JWT</div>
+                <div class="stack-tag">OAuth 2.0</div>
+                <div class="stack-tag">RBAC</div>
+                <div class="stack-tag">API Rate Limiting</div>
+                <div class="stack-tag">Secure Credential Handling</div>
+              </div>
+            </div>
+            <div class="stack-group">
+              <div class="stack-label mono">Integrations</div>
+              <div class="stack-tags">
+                <div class="stack-tag">Microsoft Graph API</div>
+                <div class="stack-tag">Twilio</div>
+                <div class="stack-tag">Razorpay</div>
+                <div class="stack-tag">PhonePe</div>
+                <div class="stack-tag">Cashfree</div>
+                <div class="stack-tag">PayU</div>
+                <div class="stack-tag">Froala Editor</div>
+              </div>
+            </div>
+            
+            <div class="card ai-card mt-4">
+              <h4 class="card-title">AI-Augmented Developer</h4>
+              <p class="card-desc">25% dev-time reduction using AI tools across team workflows</p>
+              <div class="stack-tags">
+                <div class="stack-tag">Claude</div>
+                <div class="stack-tag">GitHub Copilot</div>
+                <div class="stack-tag">ChatGPT</div>
+                <div class="stack-tag">Ollama</div>
+                <div class="stack-tag">Gemini</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Academic foundation.</h2>
+        </div>
+        
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Master of Computer Applications (MCA)</h3>
+              <div class="badge badge-down">
+                <div class="badge-dot"></div> In Progress
+              </div>
+            </div>
+            <p class="card-desc">Indira Gandhi National Open University (IGNOU), New Delhi</p>
+            <div class="card-footer">
+              <span class="tag mono">Expected 2026</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Bachelor of Computer Applications (BCA)</h3>
+              <div class="badge badge-live">
+                <div class="badge-dot"></div> Completed
+              </div>
+            </div>
+            <p class="card-desc">Indira Gandhi National Open University (IGNOU), New Delhi</p>
+            <div class="card-footer">
+              <span class="tag mono">2020 – 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <h2 class="section-title">Let's build something.</h2>
+          <p class="section-subtitle">Open to full-time senior roles and high-impact freelance projects. Reach out directly.</p>
+        </div>
+        
+        <div class="contact-grid">
+          <a href="mailto:kishansinghsw00@gmail.com" class="contact-card">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <div class="contact-info">
+              <span class="contact-label">Email</span>
+              <span class="contact-val">kishansinghsw00@gmail.com</span>
+            </div>
+          </a>
+          <a href="tel:+918810592193" class="contact-card">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <div class="contact-info">
+              <span class="contact-label">Phone</span>
+              <span class="contact-val">+91 88105 92193</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank" class="contact-card">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <div class="contact-info">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-val">linkedin.com/in/iofficial-kishansingh</span>
+            </div>
+          </a>
+          <a href="https://github.com/KishanSinghsw20" target="_blank" class="contact-card">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <div class="contact-info">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-val">github.com/KishanSinghsw20</span>
+            </div>
+          </a>
+        </div>
+        
+        <div style="text-align: center;">
+          <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download class="btn btn-primary" style="padding: 16px 32px; font-size: 18px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div>© 2026 Kishan Kumar Singh · Engineered for scale</div>
+      <div class="footer-links" style="align-items: center;">
+        <a href="https://github.com/KishanSinghsw20" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <div class="status-pill" style="margin-left: 16px;">
+          <div class="status-dot"></div>
+          Available to hire
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Trigger metric animations if they are in this section
+          const metrics = entry.target.querySelectorAll('.metric-value');
+          metrics.forEach(animateMetric);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Metric count-up animation
+    function animateMetric(el) {
+      if (el.dataset.animated) return;
+      el.dataset.animated = "true";
+      
+      const target = parseFloat(el.getAttribute('data-target'));
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 2000;
+      const startTime = performance.now();
+      
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = target * easeOutQuart;
+        
+        if (target % 1 !== 0) {
+          el.innerText = current.toFixed(1) + suffix;
+        } else {
+          el.innerText = Math.floor(current).toLocaleString() + suffix;
+        }
+        
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          if (target % 1 !== 0) el.innerText = target.toFixed(1) + suffix;
+          else el.innerText = target.toLocaleString() + suffix;
+        }
+      }
+      
+      requestAnimationFrame(update);
+    }
+
+    // Active Nav Link Highlighting
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (current && link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Fetch GitHub Repos
+    async function fetchRepos() {
+      const container = document.getElementById('github-repos');
+      if (!container) return;
+      try {
+        const res = await fetch('https://api.github.com/users/KishanSinghsw20/repos?sort=updated&per_page=6');
+        if (!res.ok) throw new Error('API failed');
+        const repos = await res.json();
+        
+        container.innerHTML = repos.map(repo => `
+          <div class="card">
+            <h3 class="card-title">
+              <a href="${repo.html_url}" target="_blank" class="card-link mono" style="font-size: 16px;">
+                ${repo.name} ↗
+              </a>
+            </h3>
+            <p class="card-desc" style="margin-top: 12px;">${repo.description || 'No description available.'}</p>
+            <div class="card-footer" style="margin-top: auto; padding-top: 16px;">
+              ${repo.language ? `<span class="tag mono"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--primary);margin-right:4px;"></span>${repo.language}</span>` : ''}
+              <span class="tag mono">★ ${repo.stargazers_count}</span>
+              <span class="tag mono" style="background:transparent;color:var(--text-muted);border:none;padding:0;">Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
+            </div>
+          </div>
+        `).join('');
+      } catch (e) {
+        container.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px 0;">Could not load repositories directly.</div>';
+      }
+    }
+    fetchRepos();
+  </script>
+</body>
+</html>
