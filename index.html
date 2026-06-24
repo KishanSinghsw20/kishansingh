@@ -18,532 +18,495 @@
   </script>
 
   <style>
+    /* JetBrains New UI Darcula Theme */
     :root {
-      /* Dark Theme (Default) */
-      --bg: #0a0a0f;
-      --bg-2: #0d0d14;
-      --panel: #111118;
-      --panel-2: #181824;
-      --border: #1e1e2e;
-      --border-2: #2a2a3e;
-      --tx: #f1f5f9;
-      --tx-2: #94a3b8;
-      --tx-3: #64748b;
-      --primary: #6366f1;
-      --primary-hover: #4f46e5;
-      --secondary: #22d3ee;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --accent-soft: rgba(99, 102, 241, 0.1);
-      --tab-active: #0a0a0f;
+      --jb-bg: #1e1f22;          /* Main editor bg */
+      --jb-tool-bg: #2b2d30;     /* Tool window bg */
+      --jb-panel-bg: #2b2d30;    /* Toolbar bg */
+      --jb-border: #393b40;      /* Borders */
+      --jb-text: #bcbec4;        /* Normal text */
+      --jb-text-muted: #868a91;  /* Muted text, line numbers */
+      --jb-accent: #3574f0;      /* Selection, primary button */
+      --jb-accent-hover: #295ec2;
+      --jb-success: #57965c;     /* Run icon */
+      --jb-warning: #c29e4a;
+      
+      --jb-kw: #cf8e6d;          /* Keyword */
+      --jb-str: #6aab73;         /* String */
+      --jb-fn: #56a8f5;          /* Function */
+      --jb-num: #2aacb8;         /* Number */
       
       --mono: "JetBrains Mono", monospace;
       --sans: "Inter", sans-serif;
-      --shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
     
     html[data-theme="light"] {
-      --bg: #f8fafc;
-      --bg-2: #f1f5f9;
-      --panel: #ffffff;
-      --panel-2: #f4f5f9;
-      --border: #e2e8f0;
-      --border-2: #cbd5e1;
-      --tx: #0f172a;
-      --tx-2: #475569;
-      --tx-3: #64748b;
-      --primary: #4f46e5;
-      --primary-hover: #4338ca;
-      --secondary: #0ea5e9;
-      --success: #059669;
-      --warning: #d97706;
-      --accent-soft: rgba(79, 70, 229, 0.1);
-      --tab-active: #ffffff;
-      --shadow: 0 24px 60px -28px rgba(0,0,0,0.15);
+      /* JetBrains New UI Light Theme */
+      --jb-bg: #ffffff;
+      --jb-tool-bg: #ebecf0;
+      --jb-panel-bg: #f2f3f5;
+      --jb-border: #d4d4d4;
+      --jb-text: #080808;
+      --jb-text-muted: #8c8c8c;
+      --jb-accent: #3574f0;
+      --jb-accent-hover: #295ec2;
+      --jb-success: #368a44;
+      --jb-warning: #b58022;
+      
+      --jb-kw: #0033b3;
+      --jb-str: #067d17;
+      --jb-fn: #00627a;
+      --jb-num: #1750eb;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
+    html, body { height: 100%; overflow: hidden; }
     body {
       font-family: var(--sans);
-      background: var(--bg);
-      color: var(--tx);
+      background: var(--jb-bg);
+      color: var(--jb-text);
       -webkit-font-smoothing: antialiased;
-      overflow: hidden;
     }
     
-    ::selection { background: var(--accent-soft); color: var(--primary); }
+    ::selection { background: var(--jb-accent); color: #fff; }
     ::-webkit-scrollbar { width: 10px; height: 10px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 6px; border: 3px solid var(--bg); }
-    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+    ::-webkit-scrollbar-thumb { background: var(--jb-border); border: 2px solid var(--jb-bg); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--jb-text-muted); }
 
-    /* ── SHELL ── */
-    .app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
+    /* ── IDE SHELL ── */
+    .ide { display: flex; flex-direction: column; height: 100vh; height: 100dvh; background: var(--jb-tool-bg); }
 
-    /* ── TITLE BAR ── */
-    .titlebar {
-      display: flex; align-items: center; gap: 12px; height: 40px; padding: 0 14px;
-      background: var(--bg-2); border-bottom: 1px solid var(--border); flex: none;
+    /* ── TOP TOOLBAR ── */
+    .jb-header {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 44px; padding: 0 12px; border-bottom: 1px solid var(--jb-border);
+      background: var(--jb-panel-bg); flex: none; user-select: none;
     }
-    .dots { display: flex; gap: 7px; }
-    .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .dot.r { background: #fb7185; }
-    .dot.y { background: #fbbf24; }
-    .dot.g { background: #34d399; }
-    .title-c {
-      flex: 1; text-align: center; font-family: var(--mono); font-size: 12px; color: var(--tx-3);
-      display: flex; align-items: center; justify-content: center; gap: 8px;
+    
+    .jb-header-left { display: flex; align-items: center; gap: 16px; }
+    
+    /* Hamburger Menu icon */
+    .jb-menu-btn {
+      width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--jb-text); transition: background 0.2s;
     }
-    .title-c .mod { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); }
-    .tbtn {
-      display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 11px; border-radius: 6px;
-      background: var(--panel-2); border: 1px solid var(--border); color: var(--tx-2);
-      font-family: var(--mono); font-size: 11px; cursor: pointer; transition: .15s;
-    }
-    .tbtn:hover { color: var(--primary); border-color: var(--primary); }
-    .tbtn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .jb-menu-btn:hover { background: rgba(255,255,255,0.1); }
+    .jb-menu-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; }
+    
+    .jb-project-name { font-size: 13px; font-weight: 600; color: var(--jb-text); display: flex; align-items: center; gap: 8px;}
+    .jb-project-name svg { width: 16px; height: 16px; color: var(--jb-text-muted); }
 
-    /* ── BODY ── */
-    .body { display: flex; flex: 1; min-height: 0; }
+    .jb-header-center { display: flex; align-items: center; gap: 8px; }
+    
+    /* Run Widget */
+    .jb-run-widget {
+      display: flex; align-items: center; background: var(--jb-bg);
+      border: 1px solid var(--jb-border); border-radius: 6px; height: 28px; padding: 0 4px;
+    }
+    .jb-run-config {
+      font-size: 12px; padding: 0 8px; display: flex; align-items: center; gap: 6px;
+      border-right: 1px solid var(--jb-border); cursor: pointer; height: 100%;
+    }
+    .jb-run-config:hover { background: rgba(255,255,255,0.05); }
+    .jb-run-btn {
+      width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+      color: var(--jb-success); cursor: pointer; border-radius: 4px; margin-left: 2px;
+    }
+    .jb-run-btn:hover { background: rgba(255,255,255,0.1); }
+    .jb-run-btn svg { width: 14px; height: 14px; fill: currentColor; }
 
-    /* ── ACTIVITY BAR ── */
-    .activity {
-      width: 52px; flex: none; background: var(--bg-2); border-right: 1px solid var(--border);
-      display: flex; flex-direction: column; align-items: center; padding: 10px 0; gap: 4px;
+    .jb-header-right { display: flex; align-items: center; gap: 8px; }
+    
+    /* Theme Toggle */
+    .jb-icon-btn {
+      width: 28px; height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--jb-text-muted); transition: 0.2s; background: transparent; border: none;
     }
-    .act {
-      width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      color: var(--tx-3); cursor: pointer; transition: .15s; position: relative;
-    }
-    .act svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-    .act:hover { color: var(--tx); }
-    .act.on { color: var(--primary); }
-    .act.on::before { content: ""; position: absolute; left: -10px; top: 8px; bottom: 8px; width: 2.5px; border-radius: 2px; background: var(--primary); }
-    .activity .gap { flex: 1; }
+    .jb-icon-btn:hover { background: rgba(255,255,255,0.1); color: var(--jb-text); }
+    .jb-icon-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;}
 
-    /* ── SIDEBAR ── */
-    .sidebar {
-      width: 256px; flex: none; background: var(--panel); border-right: 1px solid var(--border);
-      display: flex; flex-direction: column; overflow: hidden;
-      transition: width 0.3s ease;
-    }
-    .sidebar.closed { width: 0; border-right: none; }
-    
-    .side-h {
-      padding: 12px 16px 8px; font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--tx-3);
-    }
-    .tree { padding: 4px 8px 12px; overflow-y: auto; font-family: var(--mono); font-size: 13px; flex: 1; }
-    
-    .folder-row {
-      display: flex; align-items: center; gap: 7px; padding: 5px 8px; color: var(--tx);
-      font-weight: 600; border-radius: 6px; user-select: none; cursor: pointer;
-    }
-    .folder-row svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; color: var(--tx-2); }
-    
-    .sub-folder {
-      display: flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 6px;
-      color: var(--tx-2); cursor: pointer; transition: .13s; user-select: none; font-size: 12.5px;
-    }
-    .sub-folder:hover { background: var(--panel-2); color: var(--tx); }
-    .sf-chev { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; color: var(--tx-3); }
-    .sub-folder.closed .sf-chev { transform: rotate(-90deg); }
-    
-    .sub-nest {
-      padding-left: 14px; border-left: 1px solid var(--border); margin-left: 9px; overflow: hidden;
-      transition: max-height .28s ease;
-    }
-    .sub-nest.closed { max-height: 0 !important; }
-    
-    .file {
-      display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: 6px; color: var(--tx-2);
-      cursor: pointer; transition: .13s; position: relative;
-    }
-    .file .ic { font-size: 10px; font-weight: 700; padding: 1px 4px; border-radius: 3px; flex-shrink: 0; }
-    
-    .tsx-ic { background: #3178c6; color: #fff; }
-    .json-ic { background: #f9e2af; color: #11161f; }
-    .md-ic { background: #1793d1; color: #fff; }
-    .ts-ic { background: #3178c6; color: #fff; }
-    .env-ic { background: #34d399; color: #11161f; }
-    
-    .file:hover { background: var(--panel-2); color: var(--tx); }
-    .file.active { background: var(--accent-soft); color: var(--primary); }
-    .file.active::before { content: ""; position: absolute; left: 0; top: 5px; bottom: 5px; width: 2px; border-radius: 2px; background: var(--primary); }
+    /* ── MIDDLE WORKSPACE ── */
+    .jb-workspace { display: flex; flex: 1; min-height: 0; }
 
-    /* ── EDITOR ── */
-    .editor { flex: 1; display: flex; flex-direction: column; min-width: 0; background: var(--bg); position: relative; }
+    /* ── LEFT TOOL STRIPE ── */
+    .jb-tool-stripe-left {
+      width: 44px; display: flex; flex-direction: column; align-items: center;
+      padding: 8px 0; border-right: 1px solid var(--jb-border); flex: none;
+    }
+    .jb-tool-btn {
+      width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--jb-text-muted); margin-bottom: 4px; position: relative;
+    }
+    .jb-tool-btn:hover { background: rgba(255,255,255,0.1); color: var(--jb-text); }
+    .jb-tool-btn.active { color: var(--jb-accent); }
+    .jb-tool-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+    /* ── PROJECT VIEW (SIDEBAR) ── */
+    .jb-project-view {
+      width: 260px; display: flex; flex-direction: column; border-right: 1px solid var(--jb-border);
+      background: var(--jb-tool-bg); flex: none;
+    }
+    .jb-pv-header {
+      height: 32px; display: flex; align-items: center; padding: 0 12px;
+      font-size: 12px; font-weight: 600; color: var(--jb-text); user-select: none;
+    }
+    .jb-tree { flex: 1; overflow-y: auto; padding: 4px 8px; font-family: var(--sans); font-size: 13px; }
     
-    .tabs {
-      display: flex; height: 40px; background: var(--bg-2); border-bottom: 1px solid var(--border);
+    .jb-folder { display: flex; align-items: center; gap: 6px; padding: 4px 6px; cursor: pointer; border-radius: 4px; color: var(--jb-text); user-select: none;}
+    .jb-folder:hover { background: rgba(255,255,255,0.08); }
+    .jb-folder svg { width: 14px; height: 14px; fill: #61afef; } /* Blue folder icon */
+    .jb-folder .chev { width: 12px; height: 12px; fill: var(--jb-text-muted); stroke: none; transition: transform 0.2s;}
+    
+    .jb-file {
+      display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 22px;
+      cursor: pointer; border-radius: 4px; color: var(--jb-text); user-select: none;
+    }
+    .jb-file:hover { background: rgba(255,255,255,0.08); }
+    .jb-file.active { background: var(--jb-accent); color: #fff; }
+    .jb-file svg { width: 14px; height: 14px; flex: none; }
+
+    /* File Type Colors */
+    .ic-php { fill: #7a86b8; }
+    .ic-ts { fill: #3178c6; }
+    .ic-md { fill: #519aba; }
+    .ic-json { fill: #cbcb41; }
+    
+    /* ── EDITOR AREA ── */
+    .jb-editor-area {
+      flex: 1; display: flex; flex-direction: column; min-width: 0; background: var(--jb-bg);
+    }
+    
+    /* Tabs */
+    .jb-tabs {
+      display: flex; height: 36px; background: var(--jb-tool-bg); border-bottom: 1px solid var(--jb-border);
       overflow-x: auto; flex: none; scrollbar-width: none;
     }
-    .tabs::-webkit-scrollbar { height: 0; }
-    .tab {
-      display: flex; align-items: center; gap: 7px; padding: 0 15px; font-family: var(--mono); font-size: 12.5px;
-      color: var(--tx-3); border-right: 1px solid var(--border); cursor: pointer; white-space: nowrap;
-      border-top: 2px solid transparent; transition: .15s;
+    .jb-tabs::-webkit-scrollbar { height: 0; }
+    .jb-tab {
+      display: flex; align-items: center; gap: 6px; padding: 0 16px; font-size: 13px;
+      color: var(--jb-text-muted); border-right: 1px solid var(--jb-border); cursor: pointer;
+      position: relative; white-space: nowrap; user-select: none;
     }
-    .tab .ic { font-size: 10px; }
-    .tab:hover { color: var(--tx-2); }
-    .tab.active { background: var(--tab-active); color: var(--tx); border-top-color: var(--primary); }
+    .jb-tab:hover { background: rgba(255,255,255,0.05); }
+    .jb-tab.active { background: var(--jb-bg); color: var(--jb-text); }
+    .jb-tab.active::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--jb-accent); }
+    .jb-tab svg { width: 14px; height: 14px; }
 
-    /* ── SEC-PATH breadcrumb ── */
-    .sec-path {
-      display: flex; align-items: center; gap: 8px; padding: 9px 20px;
-      font-family: var(--mono); font-size: 11.5px; color: var(--tx-3);
-      background: var(--bg-2); border-bottom: 1px solid var(--border);
+    /* Editor Content */
+    .jb-editor-content { flex: 1; overflow-y: auto; display: flex; position: relative; scroll-behavior: smooth; }
+    
+    /* Gutter (Line numbers) */
+    .jb-gutter {
+      width: 48px; background: var(--jb-bg); border-right: 1px solid var(--jb-border);
+      display: flex; flex-direction: column; align-items: flex-end; padding: 24px 8px 24px 0;
+      font-family: var(--mono); font-size: 13px; color: var(--jb-text-muted); flex: none;
+      line-height: 1.6; user-select: none;
     }
-    .sec-path .crumb { color: var(--primary); }
-    .sec-path .sep { color: var(--tx-3); }
+    .jb-gutter span { display: block; }
 
-    /* ── SCROLL / MAIN CONTENT ── */
-    .scroll { flex: 1; overflow-y: auto; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; position: relative; }
+    /* Code Area */
+    .jb-code {
+      flex: 1; padding: 24px; font-family: var(--sans); font-size: 14px;
+      line-height: 1.6; overflow-x: auto;
+    }
 
-    /* ── HERO ── */
-    .hero {
-      position: relative; padding: 60px 52px; border-bottom: 1px solid var(--border);
-      background: radial-gradient(1000px circle at right center, var(--accent-soft), transparent 70%);
-      display: flex; align-items: center; justify-content: space-between; gap: 40px;
-    }
+    /* ── CONTENT SECTIONS (Rendered visually like code or rich panels) ── */
+    section { margin-bottom: 64px; }
     
-    .hero-content { flex: 1; max-width: 650px; z-index: 2; }
+    /* Hero Panel inside Editor */
+    .jb-hero {
+      display: flex; gap: 40px; align-items: center; padding: 20px;
+      background: rgba(53, 116, 240, 0.05); border: 1px solid rgba(53, 116, 240, 0.2);
+      border-radius: 8px; position: relative; overflow: hidden;
+    }
+    .jb-hero::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--jb-accent);
+    }
+    .hero-text { flex: 1; }
+    .hero-title { font-family: var(--sans); font-size: 42px; font-weight: 700; color: var(--jb-text); margin-bottom: 8px; letter-spacing: -0.02em;}
+    .hero-subtitle { font-family: var(--mono); font-size: 16px; color: var(--jb-kw); margin-bottom: 16px; }
+    .hero-blurb { font-size: 15px; color: var(--jb-text-muted); line-height: 1.7; margin-bottom: 24px; }
     
-    .hero-tag {
-      font-family: var(--mono); font-size: 13px; color: var(--primary);
-      background: var(--accent-soft); padding: 6px 14px; border-radius: 4px;
-      border: 1px solid rgba(99, 102, 241, 0.2); display: inline-flex; align-items: center;
-      margin-bottom: 24px;
+    .jb-btn {
+      display: inline-flex; align-items: center; height: 32px; padding: 0 16px;
+      border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: 0.2s;
     }
-    .hero-tag::before { content: '>'; color: var(--success); margin-right: 8px; }
-    .hero-tag::after { content: '▋'; margin-left: 4px; animation: blink 1s step-start infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    .hero-title {
-      font-family: var(--sans); font-weight: 700; font-size: clamp(38px, 5vw, 64px);
-      line-height: 1.1; letter-spacing: -0.025em; color: var(--tx); margin-bottom: 16px;
-    }
+    .jb-btn-primary { background: var(--jb-accent); color: #fff; border: 1px solid var(--jb-accent); }
+    .jb-btn-primary:hover { background: var(--jb-accent-hover); }
     
-    .hero-subtitle {
-      font-family: var(--mono); font-size: 18px; color: var(--tx-2); margin-bottom: 24px;
-    }
-    .hero-subtitle b { color: var(--primary); font-weight: 600; }
-    
-    .hero-blurb {
-      font-size: 16px; color: var(--tx-2); line-height: 1.75; margin-bottom: 32px;
-    }
-    
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    
-    .btn-lg {
-      display: inline-flex; align-items: center; justify-content: center;
-      height: 46px; padding: 0 24px; border-radius: 8px; font-weight: 600; font-size: 14px;
-      cursor: pointer; transition: .2s; border: 1px solid transparent; text-decoration: none;
-    }
-    .btn-fill { background: var(--primary); color: #fff; box-shadow: 0 8px 24px -8px var(--primary); }
-    .btn-fill:hover { background: var(--primary-hover); transform: translateY(-2px); }
-    .btn-out { background: var(--panel); color: var(--tx); border-color: var(--border-2); }
-    .btn-out:hover { border-color: var(--primary); color: var(--primary); }
-
-    .hero-image-wrap {
-      position: relative; width: 300px; height: 300px; flex: none; display: flex; align-items: center; justify-content: center;
-    }
-    
-    .orbit-ring {
-      position: absolute; inset: -20px; border-radius: 50%;
-      border: 1px dashed var(--border-2); animation: spin 20s linear infinite;
-    }
-    .orbit-ring::after {
-      content: ''; position: absolute; top: -5px; left: 50%; width: 10px; height: 10px;
-      background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary);
-    }
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-
     .hero-image {
-      position: relative; width: 260px; height: 260px; border-radius: 50%;
-      background: var(--panel); border: 2px solid var(--border); overflow: hidden;
-      z-index: 2; box-shadow: 0 0 30px var(--accent-soft);
+      width: 200px; height: 200px; border-radius: 50%; overflow: hidden;
+      border: 4px solid var(--jb-tool-bg); box-shadow: 0 0 20px rgba(53,116,240,0.3);
+      flex: none;
     }
     .hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* ── SECTIONS ── */
-    .sec { padding: 48px 52px; border-bottom: 1px solid var(--border); }
-    .sec.alt { background: var(--bg-2); }
-    .sec-label { font-family: var(--mono); font-size: 12px; color: var(--tx-3); margin-bottom: 8px; }
-    .sec-h { font-family: var(--sans); font-weight: 700; font-size: 32px; letter-spacing: -0.015em; color: var(--tx); }
-    .sec-sub { color: var(--tx-2); max-width: 680px; margin-top: 10px; line-height: 1.7; font-size: 15px; }
-
-    /* ── PROJECTS GRID ── */
-    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 28px; }
-    .proj {
-      padding: 24px; border-radius: 12px; background: var(--panel); border: 1px solid var(--border);
-      transition: .2s; display: flex; flex-direction: column;
-    }
-    .proj:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow); }
+    /* Syntax Highlighting text blocks */
+    .jb-h2 { font-family: var(--mono); font-size: 18px; color: var(--jb-kw); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;}
+    .jb-h2::before { content: 'public function'; color: var(--jb-accent); font-size: 14px;}
+    .jb-h2::after { content: '() {'; color: var(--jb-text); font-size: 14px;}
     
-    .proj-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-    .proj h4 { font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--tx); margin-bottom: 8px; }
-    .proj .link { font-family: var(--mono); font-size: 13px; color: var(--tx-3); display: flex; align-items: center; gap: 4px; }
-    .proj .link:hover { color: var(--primary); }
-    .proj p { font-size: 14px; color: var(--tx-2); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+    /* Project Cards (Array Items) */
+    .jb-array-item {
+      padding: 16px; border: 1px solid var(--jb-border); border-radius: 6px;
+      background: var(--jb-tool-bg); margin-bottom: 16px; margin-left: 24px;
+      position: relative; transition: 0.2s;
+    }
+    .jb-array-item:hover { border-color: var(--jb-accent); }
+    .jb-array-item::before {
+      content: ''; position: absolute; left: -24px; top: 24px; width: 24px; height: 1px;
+      background: var(--jb-border);
+    }
+    .proj-title { font-size: 16px; font-weight: 600; color: var(--jb-str); margin-bottom: 8px;}
+    .proj-title::before { content: '"'; } .proj-title::after { content: '" => ['; color: var(--jb-text); font-weight: 400;}
     
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .proj-tag {
-      font-family: var(--mono); font-size: 11px; background: var(--panel-2);
-      border: 1px solid var(--border); color: var(--tx-2); padding: 4px 10px; border-radius: 4px;
-    }
-
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
-      border-radius: 4px; font-size: 10px; font-weight: 600; font-family: var(--mono);
-      text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .badge-live { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); }
-    .badge-down { background: rgba(245, 158, 11, 0.1); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.2); }
-    .badge-open { background: rgba(168, 85, 247, 0.1); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.2); }
-
-    /* ── ACHIEVEMENTS GRID ── */
-    .ach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
-    .ach-card {
-      padding: 24px; border-radius: 12px; background: var(--panel); border: 1px solid var(--border);
-      transition: .2s;
-    }
-    .ach-card:hover { border-color: var(--warning); transform: translateY(-2px); }
-    .ach-val { font-family: var(--mono); font-size: 32px; font-weight: 700; color: var(--warning); margin-bottom: 8px; }
-    .ach-desc { font-size: 14px; color: var(--tx-2); line-height: 1.6; }
-
-    /* ── TIMELINE ── */
-    .timeline { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
-    .exp-card {
-      border-radius: 12px; background: var(--panel); border: 1px solid var(--border);
-      padding: 24px; transition: .2s;
-    }
-    .exp-card:hover { border-color: var(--primary); }
+    .proj-desc { font-size: 14px; color: var(--jb-text-muted); margin-bottom: 12px; padding-left: 16px;}
+    .proj-link { display: inline-block; font-family: var(--mono); font-size: 13px; color: var(--jb-fn); text-decoration: none; padding-left: 16px;}
+    .proj-link:hover { text-decoration: underline; }
     
-    .exp-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-    .exp-role { font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--tx); }
-    .exp-co { font-family: var(--mono); font-size: 12px; color: var(--primary); margin-top: 4px; }
-    .exp-date { font-family: var(--mono); font-size: 12px; color: var(--tx-3); }
-    
-    .exp-pts { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-    .exp-pts li { display: flex; gap: 10px; font-size: 14px; color: var(--tx-2); line-height: 1.6; }
-    .exp-pts li::before { content: "▹"; color: var(--primary); flex-shrink: 0; }
+    .proj-tags { padding-left: 16px; margin-top: 12px; display: flex; gap: 6px; }
+    .jb-tag { font-family: var(--mono); font-size: 11px; color: var(--jb-num); background: rgba(42, 172, 184, 0.1); padding: 2px 6px; border-radius: 3px; border: 1px solid rgba(42,172,184,0.2);}
 
-    /* ── SKILLS ── */
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
-    .skill-group { padding: 24px; border-radius: 12px; background: var(--panel); border: 1px solid var(--border); }
-    .skill-title { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      padding: 6px 12px; border-radius: 6px; background: var(--panel-2); border: 1px solid var(--border);
-      font-family: var(--mono); font-size: 12px; color: var(--tx); transition: .15s;
-    }
-    .chip:hover { border-color: var(--primary); color: var(--primary); }
+    .badge-live { display: inline-block; padding: 2px 6px; background: rgba(87,150,92,0.2); color: var(--jb-success); font-size: 11px; font-weight: bold; border-radius: 3px; margin-left: 8px;}
 
-    /* ── TERMINAL CONTACT ── */
-    .term {
-      background: #000; border: 1px solid var(--border-2); border-radius: 12px;
-      overflow: hidden; margin-top: 28px; max-width: 800px;
+    /* Achievements */
+    .ach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-left: 24px; }
+    .ach-card { padding: 20px; background: var(--jb-tool-bg); border: 1px solid var(--jb-border); border-radius: 6px; text-align: center; }
+    .ach-val { font-family: var(--mono); font-size: 28px; font-weight: bold; color: var(--jb-warning); margin-bottom: 8px; }
+    .ach-desc { font-size: 13px; color: var(--jb-text-muted); }
+
+    /* Experience */
+    .exp-item { margin-left: 24px; border-left: 2px solid var(--jb-border); padding-left: 20px; padding-bottom: 32px; position: relative;}
+    .exp-item::before { content: ''; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--jb-accent); }
+    .exp-role { font-size: 16px; font-weight: 600; color: var(--jb-text); }
+    .exp-co { font-family: var(--mono); font-size: 13px; color: var(--jb-fn); margin-top: 4px; }
+    .exp-date { font-family: var(--mono); font-size: 12px; color: var(--jb-text-muted); margin-top: 4px; margin-bottom: 12px; }
+    .exp-pts { list-style: none; color: var(--jb-text-muted); font-size: 14px; line-height: 1.6; }
+    .exp-pts li { position: relative; padding-left: 12px; margin-bottom: 6px; }
+    .exp-pts li::before { content: '-'; position: absolute; left: 0; color: var(--jb-accent); }
+
+    /* Stack */
+    .stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-left: 24px; }
+    .stack-group-title { font-family: var(--mono); font-size: 13px; color: var(--jb-kw); margin-bottom: 12px; }
+    .stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    /* ── BOTTOM TERMINAL TOOL WINDOW ── */
+    .jb-bottom-panel {
+      height: 250px; background: var(--jb-bg); border-top: 1px solid var(--jb-border);
+      display: flex; flex-direction: column; flex: none;
     }
-    html[data-theme="light"] .term { background: #1e293b; }
-    .term-bar {
-      display: flex; align-items: center; gap: 7px; padding: 10px 14px;
-      background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.1);
-      font-family: var(--mono); font-size: 11px; color: #94a3b8;
+    .jb-tool-header {
+      height: 32px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px;
+      background: var(--jb-tool-bg); border-bottom: 1px solid var(--jb-border); user-select: none;
     }
-    .term-body { padding: 24px; font-family: var(--mono); font-size: 14px; line-height: 2; color: #cbd5e1; }
-    .term-body .pr { color: var(--success); }
-    .term-body .lk { color: var(--secondary); text-decoration: none; }
-    .term-body .lk:hover { text-decoration: underline; }
-    .cur { display: inline-block; width: 8px; height: 16px; background: var(--primary); vertical-align: -2px; animation: cblink 1s steps(1) infinite; }
+    .jb-tool-title { font-size: 12px; font-weight: 600; color: var(--jb-text); display: flex; align-items: center; gap: 6px;}
+    .jb-tool-title svg { width: 14px; height: 14px; color: var(--jb-text-muted); }
+    .jb-tool-close { cursor: pointer; color: var(--jb-text-muted); }
+    .jb-tool-close:hover { color: var(--jb-text); }
     
-    @media (max-width: 768px) {
-      .sidebar { position: absolute; z-index: 50; height: 100%; width: 250px; transform: translateX(-100%); }
-      .sidebar.mobile-open { transform: translateX(0); }
-      .hero { flex-direction: column; text-align: left; padding: 40px 24px; }
-      .hero-image-wrap { margin-top: 20px; }
-      .ach-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .proj-grid { grid-template-columns: 1fr; }
-      .exp-head { flex-direction: column; gap: 8px; }
+    .jb-terminal-body {
+      flex: 1; padding: 12px 16px; font-family: var(--mono); font-size: 13px;
+      color: var(--jb-text); overflow-y: auto; line-height: 1.6;
     }
+    .term-prompt { color: var(--jb-success); font-weight: bold; }
+    .term-path { color: var(--jb-accent); font-weight: bold; }
+    .term-cmd { color: var(--jb-text); }
+    .term-out { color: var(--jb-text-muted); margin-top: 4px; margin-bottom: 16px; }
+    .term-link { color: var(--jb-fn); text-decoration: none; }
+    .term-link:hover { text-decoration: underline; }
+    .cur { display: inline-block; width: 8px; height: 15px; background: var(--jb-text); animation: blink 1s step-end infinite; vertical-align: -2px; margin-left: 4px;}
+    @keyframes blink { 50% { opacity: 0; } }
+
   </style>
 </head>
 <body>
 
-<div class="app">
-  <!-- Titlebar -->
-  <div class="titlebar">
-    <div class="dots">
-      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-    </div>
-    <div class="title-c">
-      Kishan_Portfolio - Visual Studio Code
-    </div>
-    <div style="display: flex; gap: 8px;">
-      <button class="tbtn" id="theme-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
-    </div>
-  </div>
-
-  <div class="body">
-    <!-- Activity Bar -->
-    <div class="activity">
-      <div class="act on" title="Explorer">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+<div class="ide">
+  <!-- Top Toolbar (New UI) -->
+  <div class="jb-header">
+    <div class="jb-header-left">
+      <div class="jb-menu-btn">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </div>
-      <a href="https://github.com/KishanSinghsw20" target="_blank" class="act" title="GitHub">
+      <div class="jb-project-name">
+        kishan-portfolio
+      </div>
+    </div>
+    
+    <div class="jb-header-center">
+      <div class="jb-run-widget">
+        <div class="jb-run-config">
+          <svg style="width:14px;height:14px;fill:var(--jb-fn)" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          Portfolio.php
+        </div>
+        <div class="jb-run-btn" title="Run Portfolio">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </div>
+      </div>
+    </div>
+    
+    <div class="jb-header-right">
+      <button class="jb-icon-btn" id="theme-toggle" title="Toggle Theme">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <a href="https://github.com/KishanSinghsw20" target="_blank" class="jb-icon-btn" title="GitHub">
         <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
       </a>
-      <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.docx" download class="act" title="Download Resume">
+      <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.docx" download class="jb-icon-btn" title="Download Resume">
         <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
       </a>
     </div>
+  </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-      <div class="side-h">EXPLORER</div>
-      <div class="tree">
-        <div class="folder-row">
-          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          PORTFOLIO
+  <div class="jb-workspace">
+    <!-- Left Tool Stripe -->
+    <div class="jb-tool-stripe-left">
+      <div class="jb-tool-btn active" title="Project">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+      </div>
+      <div class="jb-tool-btn" title="Commit">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><line x1="12" y1="3" x2="12" y2="9"></line><line x1="12" y1="15" x2="12" y2="21"></line></svg>
+      </div>
+    </div>
+
+    <!-- Project Tool Window -->
+    <div class="jb-project-view">
+      <div class="jb-pv-header">Project</div>
+      <div class="jb-tree">
+        <div class="jb-folder">
+          <svg class="chev" style="transform:rotate(90deg)" viewBox="0 0 24 24"><polygon points="8 5 18 12 8 19"></polygon></svg>
+          <svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path></svg>
+          kishan-portfolio
         </div>
-        
-        <div class="sub-nest">
-          <div class="sub-folder" onclick="toggleFolder('src-folder', this)">
-            <svg class="sf-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            <span class="sf-ic">📁</span> src
+        <div style="padding-left: 18px;">
+          <div class="jb-folder">
+            <svg class="chev" style="transform:rotate(90deg)" viewBox="0 0 24 24"><polygon points="8 5 18 12 8 19"></polygon></svg>
+            <svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path></svg>
+            src
           </div>
-          <div class="sub-nest" id="src-folder">
-            <div class="file active" onclick="scrollToSec('sec-hero', this)">
-              <span class="ic tsx-ic">TSX</span> hero.tsx
+          <div style="padding-left: 18px;">
+            <div class="jb-file active" onclick="scrollToSec('sec-hero', this)">
+              <svg class="ic-php" viewBox="0 0 24 24"><path d="M13.5 10c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-2 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-4-1c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-2 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm10.5-3c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path></svg>
+              Hero.php
             </div>
-            <div class="file" onclick="scrollToSec('sec-projects', this)">
-              <span class="ic json-ic">{}</span> projects.json
+            <div class="jb-file" onclick="scrollToSec('sec-projects', this)">
+              <svg class="ic-php" viewBox="0 0 24 24"><path d="M13.5 10c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-2 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-4-1c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-2 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm10.5-3c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path></svg>
+              Projects.php
             </div>
-            <div class="file" onclick="scrollToSec('sec-achievements', this)">
-              <span class="ic md-ic">M↓</span> achievements.md
+            <div class="jb-file" onclick="scrollToSec('sec-achievements', this)">
+              <svg class="ic-md" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14H7v-5l-2 2v-2.5l2-2h3v7.5zm7-2.5L14.5 17l-2.5-2.5V7h5v7.5z"></path></svg>
+              Achievements.md
             </div>
-            <div class="file" onclick="scrollToSec('sec-experience', this)">
-              <span class="ic ts-ic">TS</span> experience.ts
+            <div class="jb-file" onclick="scrollToSec('sec-experience', this)">
+              <svg class="ic-ts" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8.5 12H9v-5.5L6.5 11 5 9.5l4-4h1.5v9.5zm5.5.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm0-5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"></path></svg>
+              Experience.ts
             </div>
-            <div class="file" onclick="scrollToSec('sec-stack', this)">
-              <span class="ic env-ic">#</span> stack.sh
-            </div>
-            <div class="file" onclick="scrollToSec('sec-contact', this)">
-              <span class="ic env-ic">>_</span> contact.cmd
+            <div class="jb-file" onclick="scrollToSec('sec-stack', this)">
+              <svg class="ic-json" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4h-2v4H8v-4H6v-2h2v-2H6V9h2V7h2v2h2V7h2v2h2v2h-2v2h2v4z"></path></svg>
+              stack.json
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Editor -->
-    <div class="editor">
+    <!-- Editor Area -->
+    <div class="jb-editor-area">
       <!-- Tabs -->
-      <div class="tabs">
-        <div class="tab active" data-target="sec-hero"><span class="ic tsx-ic">TSX</span> hero.tsx</div>
-        <div class="tab" data-target="sec-projects"><span class="ic json-ic">{}</span> projects.json</div>
-        <div class="tab" data-target="sec-experience"><span class="ic ts-ic">TS</span> experience.ts</div>
-      </div>
-      
-      <!-- Breadcrumb -->
-      <div class="sec-path">
-        <span>portfolio</span> <span class="sep">></span> <span>src</span> <span class="sep">></span> <span class="crumb" id="breadcrumb-text">hero.tsx</span>
+      <div class="jb-tabs">
+        <div class="jb-tab active">
+          <svg class="ic-php" viewBox="0 0 24 24"><path d="M13.5 10c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-2 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-4-1c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-2 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm10.5-3c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path></svg>
+          Portfolio.php
+        </div>
       </div>
 
-      <!-- Scrollable Content -->
-      <div class="scroll" id="scroll-area">
+      <!-- Editor Content -->
+      <div class="jb-editor-content" id="scroll-area">
         
-        <!-- HERO -->
-        <section class="hero" id="sec-hero">
-          <div class="hero-content">
-            <div class="hero-tag">sudo init --senior-dev</div>
-            <h1 class="hero-title">Kishan Kumar Singh</h1>
-            <div class="hero-subtitle"><b>Backend & Full Stack Engineer</b></div>
-            <p class="hero-blurb">
-              5+ years shipping scalable web applications — from UK telecom platforms to global pharma expos. Architecting robust backends with PHP, Node.js, TypeScript, and Python. Live in the market.
-            </p>
-            <div class="hero-actions">
-              <a href="#sec-projects" class="btn-lg btn-fill">View Projects</a>
-              <a href="https://github.com/KishanSinghsw20" target="_blank" class="btn-lg btn-out">GitHub</a>
-            </div>
-          </div>
-          <div class="hero-image-wrap">
-            <div class="orbit-ring"></div>
-            <div class="hero-image">
-              <img src="assets/images/profile.png" alt="Kishan Kumar Singh" onerror="this.src='https://ui-avatars.com/api/?name=Kishan+Singh&background=6366f1&color=fff&size=260'"/>
-            </div>
-          </div>
-        </section>
+        <!-- Gutter Line Numbers -->
+        <div class="jb-gutter" id="gutter">
+          <!-- JS will populate 1 to 100 -->
+        </div>
 
-        <!-- PROJECTS -->
-        <section class="sec alt" id="sec-projects">
-          <div class="container" style="padding:0">
-            <div class="sec-label">// src/projects.json</div>
-            <h2 class="sec-h">Live Client Work</h2>
-            <p class="sec-sub">Production systems actively serving real users.</p>
+        <div class="jb-code">
+          
+          <!-- HERO -->
+          <section id="sec-hero">
+            <div class="jb-h2">Hero</div>
+            <div class="jb-hero">
+              <div class="hero-text">
+                <h1 class="hero-title">Kishan Kumar Singh</h1>
+                <div class="hero-subtitle">Senior Full Stack Engineer</div>
+                <p class="hero-blurb">
+                  5+ years shipping scalable web applications — from UK telecom platforms to global pharma expos. Architecting robust backends with PHP, Node.js, TypeScript, and Python. Live in the market.
+                </p>
+                <a href="#sec-projects" class="jb-btn jb-btn-primary">Execute run()</a>
+              </div>
+              <div class="hero-image">
+                <img src="assets/images/profile.png" alt="Kishan Kumar Singh" onerror="this.src='https://ui-avatars.com/api/?name=Kishan+Singh&background=3574f0&color=fff&size=260'"/>
+              </div>
+            </div>
+            <div style="font-family: var(--mono); color: var(--jb-text); margin-top: 16px;">}</div>
+          </section>
+
+          <!-- PROJECTS -->
+          <section id="sec-projects">
+            <div class="jb-h2">LiveProjects</div>
             
-            <div class="proj-grid">
-              <div class="proj">
-                <div class="proj-head">
-                  <h4>Business Leads UK</h4>
-                  <div class="badge badge-live"><div class="badge-dot"></div> LIVE</div>
-                </div>
-                <p>UK business mobile quote comparison platform for B2B telecommunications.</p>
-                <a href="https://businessleadsuk.com" target="_blank" class="link">businessleadsuk.com ↗</a>
-                <div class="proj-tags" style="margin-top: 16px;">
-                  <span class="proj-tag">CodeIgniter</span><span class="proj-tag">PHP</span><span class="proj-tag">MySQL</span>
-                </div>
+            <div class="jb-array-item">
+              <div class="proj-title">Business Leads UK</div>
+              <div class="badge-live">LIVE</div>
+              <div class="proj-desc">UK business mobile quote comparison platform for B2B telecommunications.</div>
+              <a href="https://businessleadsuk.com" target="_blank" class="proj-link">'https://businessleadsuk.com'</a>
+              <div class="proj-tags">
+                <span class="jb-tag">CodeIgniter</span><span class="jb-tag">PHP</span><span class="jb-tag">MySQL</span>
               </div>
-
-              <div class="proj">
-                <div class="proj-head">
-                  <h4>Allegan Global Solutions</h4>
-                  <div class="badge badge-live"><div class="badge-dot"></div> LIVE</div>
-                </div>
-                <p>Global event management platform for 15,000+ visitors across healthcare and AI sectors.</p>
-                <a href="https://alleganglobalsolutions.com" target="_blank" class="link">alleganglobalsolutions.com ↗</a>
-                <div class="proj-tags" style="margin-top: 16px;">
-                  <span class="proj-tag">Laravel</span><span class="proj-tag">PHP</span><span class="proj-tag">REST API</span>
-                </div>
-              </div>
-
-              <div class="proj">
-                <div class="proj-head">
-                  <h4>Clocktales HRMS</h4>
-                  <div class="badge badge-live"><div class="badge-dot"></div> LIVE</div>
-                </div>
-                <p>Multi-company HR system with role-based attendance, shifts, and automated leaves.</p>
-                <a href="https://clocktales.com" target="_blank" class="link">clocktales.com ↗</a>
-                <div class="proj-tags" style="margin-top: 16px;">
-                  <span class="proj-tag">React.js</span><span class="proj-tag">Microservices</span>
-                </div>
-              </div>
-              
-              <div class="proj">
-                <div class="proj-head">
-                  <h4>Oyly Dine-In App</h4>
-                  <div class="badge badge-live"><div class="badge-dot"></div> LIVE</div>
-                </div>
-                <p>Backend API for real-time order sync via high-frequency polling schema.</p>
-                <a href="https://oyly.in" target="_blank" class="link">oyly.in ↗</a>
-                <div class="proj-tags" style="margin-top: 16px;">
-                  <span class="proj-tag">CodeIgniter 3</span><span class="proj-tag">REST API</span>
-                </div>
-              </div>
+              <div style="font-family: var(--mono); color: var(--jb-text); position: absolute; bottom: 8px; left: 16px;">],</div>
             </div>
-          </div>
-        </section>
 
-        <!-- ACHIEVEMENTS -->
-        <section class="sec" id="sec-achievements">
-          <div class="container" style="padding:0">
-            <div class="sec-label"># achievements.md</div>
-            <h2 class="sec-h">Impact & Metrics</h2>
+            <div class="jb-array-item">
+              <div class="proj-title">Allegan Global Solutions</div>
+              <div class="badge-live">LIVE</div>
+              <div class="proj-desc">Global event management platform for 15,000+ visitors across healthcare and AI sectors.</div>
+              <a href="https://alleganglobalsolutions.com" target="_blank" class="proj-link">'https://alleganglobalsolutions.com'</a>
+              <div class="proj-tags">
+                <span class="jb-tag">Laravel</span><span class="jb-tag">PHP</span><span class="jb-tag">REST API</span>
+              </div>
+              <div style="font-family: var(--mono); color: var(--jb-text); position: absolute; bottom: 8px; left: 16px;">],</div>
+            </div>
+
+            <div class="jb-array-item">
+              <div class="proj-title">Clocktales HRMS</div>
+              <div class="badge-live">LIVE</div>
+              <div class="proj-desc">Multi-company HR system with role-based attendance, shifts, and automated leaves.</div>
+              <a href="https://clocktales.com" target="_blank" class="proj-link">'https://clocktales.com'</a>
+              <div class="proj-tags">
+                <span class="jb-tag">React.js</span><span class="jb-tag">Microservices</span>
+              </div>
+              <div style="font-family: var(--mono); color: var(--jb-text); position: absolute; bottom: 8px; left: 16px;">],</div>
+            </div>
             
+            <div class="jb-array-item">
+              <div class="proj-title">Oyly Dine-In App</div>
+              <div class="badge-live">LIVE</div>
+              <div class="proj-desc">Backend API for real-time order sync via high-frequency polling schema.</div>
+              <a href="https://oyly.in" target="_blank" class="proj-link">'https://oyly.in'</a>
+              <div class="proj-tags">
+                <span class="jb-tag">CodeIgniter 3</span><span class="jb-tag">REST API</span>
+              </div>
+              <div style="font-family: var(--mono); color: var(--jb-text); position: absolute; bottom: 8px; left: 16px;">],</div>
+            </div>
+
+            <div style="font-family: var(--mono); color: var(--jb-text); margin-top: 16px;">}</div>
+          </section>
+
+          <!-- ACHIEVEMENTS -->
+          <section id="sec-achievements">
+            <div class="jb-h2">ImpactMetrics</div>
             <div class="ach-grid">
               <div class="ach-card">
                 <div class="ach-val">99.8%</div>
@@ -558,132 +521,106 @@
                 <div class="ach-desc">Payment gateways dynamically integrated into a single product platform.</div>
               </div>
             </div>
-          </div>
-        </section>
+            <div style="font-family: var(--mono); color: var(--jb-text); margin-top: 16px;">}</div>
+          </section>
 
-        <!-- EXPERIENCE -->
-        <section class="sec alt" id="sec-experience">
-          <div class="container" style="padding:0">
-            <div class="sec-label">/* experience.ts */</div>
-            <h2 class="sec-h">Work Experience</h2>
-            
-            <div class="timeline">
-              <div class="exp-card">
-                <div class="exp-head">
-                  <div>
-                    <div class="exp-role">Senior Software Development Engineer</div>
-                    <div class="exp-co">Innostax Software Labs Pvt. Ltd.</div>
-                  </div>
-                  <div class="exp-date">Oct 2025 – Present</div>
-                </div>
-                <ul class="exp-pts">
-                  <li>Owned SugarCRM v6.5 production ecosystem for banking clients.</li>
-                  <li>Cleared 12+ month production bug backlog solo.</li>
-                  <li>Enforced Git Flow for full deployment auditability.</li>
-                </ul>
-              </div>
-
-              <div class="exp-card">
-                <div class="exp-head">
-                  <div>
-                    <div class="exp-role">Software Developer</div>
-                    <div class="exp-co">Goolean Technologies Pvt. Ltd.</div>
-                  </div>
-                  <div class="exp-date">Aug 2024 – Oct 2025</div>
-                </div>
-                <ul class="exp-pts">
-                  <li>Led modernisation pilot migrating PHP monolith to microservices architecture.</li>
-                  <li>Mentored developers on FastAPI and React.js.</li>
-                  <li>Built full REST API backend for Oyly dine-in platform.</li>
-                </ul>
-              </div>
-
-              <div class="exp-card">
-                <div class="exp-head">
-                  <div>
-                    <div class="exp-role">Junior Software Developer</div>
-                    <div class="exp-co">Nablasol Digital Service Pvt. Ltd.</div>
-                  </div>
-                  <div class="exp-date">Aug 2022 – Jul 2024</div>
-                </div>
-                <ul class="exp-pts">
-                  <li>Launched MS Teams Connector for SugarCRM via MS Graph API.</li>
-                  <li>Engineered high-volume SMS campaign system.</li>
-                </ul>
-              </div>
+          <!-- EXPERIENCE -->
+          <section id="sec-experience">
+            <div class="jb-h2">Experience</div>
+            <div class="exp-item">
+              <div class="exp-role">Senior Software Development Engineer</div>
+              <div class="exp-co">Innostax Software Labs Pvt. Ltd.</div>
+              <div class="exp-date">Oct 2025 – Present</div>
+              <ul class="exp-pts">
+                <li>Owned SugarCRM v6.5 production ecosystem for banking clients.</li>
+                <li>Cleared 12+ month production bug backlog solo.</li>
+                <li>Enforced Git Flow for full deployment auditability.</li>
+              </ul>
             </div>
-          </div>
-        </section>
+            <div class="exp-item">
+              <div class="exp-role">Software Developer</div>
+              <div class="exp-co">Goolean Technologies Pvt. Ltd.</div>
+              <div class="exp-date">Aug 2024 – Oct 2025</div>
+              <ul class="exp-pts">
+                <li>Led modernisation pilot migrating PHP monolith to microservices architecture.</li>
+                <li>Mentored developers on FastAPI and React.js.</li>
+                <li>Built full REST API backend for Oyly dine-in platform.</li>
+              </ul>
+            </div>
+            <div class="exp-item">
+              <div class="exp-role">Junior Software Developer</div>
+              <div class="exp-co">Nablasol Digital Service Pvt. Ltd.</div>
+              <div class="exp-date">Aug 2022 – Jul 2024</div>
+              <ul class="exp-pts">
+                <li>Launched MS Teams Connector for SugarCRM via MS Graph API.</li>
+                <li>Engineered high-volume SMS campaign system.</li>
+              </ul>
+            </div>
+            <div style="font-family: var(--mono); color: var(--jb-text); margin-top: 16px;">}</div>
+          </section>
 
-        <!-- STACK -->
-        <section class="sec" id="sec-stack">
-          <div class="container" style="padding:0">
-            <div class="sec-label">#!/bin/bash stack.sh</div>
-            <h2 class="sec-h">Tech Stack</h2>
-            
-            <div class="skills-grid">
-              <div class="skill-group">
-                <div class="skill-title">Languages & Core</div>
-                <div class="chips">
-                  <div class="chip">PHP</div><div class="chip">TypeScript</div><div class="chip">Node.js</div>
-                  <div class="chip">Python</div><div class="chip">SQL</div>
+          <!-- STACK -->
+          <section id="sec-stack">
+            <div class="jb-h2">TechStack</div>
+            <div class="stack-grid">
+              <div>
+                <div class="stack-group-title">// Languages & Core</div>
+                <div class="stack-tags">
+                  <span class="jb-tag">PHP</span><span class="jb-tag">TypeScript</span><span class="jb-tag">Node.js</span><span class="jb-tag">Python</span>
                 </div>
               </div>
-              <div class="skill-group">
-                <div class="skill-title">Frameworks</div>
-                <div class="chips">
-                  <div class="chip">Laravel</div><div class="chip">CodeIgniter</div><div class="chip">React.js</div>
-                  <div class="chip">FastAPI</div><div class="chip">Django</div>
+              <div>
+                <div class="stack-group-title">// Frameworks</div>
+                <div class="stack-tags">
+                  <span class="jb-tag">Laravel</span><span class="jb-tag">CodeIgniter</span><span class="jb-tag">React.js</span><span class="jb-tag">FastAPI</span>
                 </div>
               </div>
-              <div class="skill-group">
-                <div class="skill-title">Databases & Infrastructure</div>
-                <div class="chips">
-                  <div class="chip">MySQL</div><div class="chip">PostgreSQL</div><div class="chip">Redis</div>
-                  <div class="chip">Docker</div><div class="chip">AWS</div><div class="chip">CI/CD</div>
-                </div>
-              </div>
-              <div class="skill-group">
-                <div class="skill-title">AI & Integrations</div>
-                <div class="chips">
-                  <div class="chip">MS Graph API</div><div class="chip">Twilio</div><div class="chip">GitHub Copilot</div>
-                  <div class="chip">Claude</div><div class="chip">Ollama</div>
+              <div>
+                <div class="stack-group-title">// Infrastructure</div>
+                <div class="stack-tags">
+                  <span class="jb-tag">MySQL</span><span class="jb-tag">PostgreSQL</span><span class="jb-tag">Docker</span><span class="jb-tag">AWS</span>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+            <div style="font-family: var(--mono); color: var(--jb-text); margin-top: 32px;">}</div>
+          </section>
 
-        <!-- CONTACT / TERMINAL -->
-        <section class="sec alt" id="sec-contact">
-          <div class="container" style="padding:0">
-            <h2 class="sec-h" style="display:none">Contact</h2>
-            <div class="term">
-              <div class="term-bar">
-                <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
-                bash - kishan@portfolio: ~
-              </div>
-              <div class="term-body">
-                <div><span class="pr">kishan@portfolio:~$</span> cat contact.txt</div>
-                <div style="margin-bottom:16px;">
-                  <br/>
-                  Email: <a href="mailto:kishansinghsw00@gmail.com" class="lk">kishansinghsw00@gmail.com</a><br/>
-                  Phone: <a href="tel:+918810592193" class="lk">+91 88105 92193</a><br/>
-                  LinkedIn: <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank" class="lk">linkedin.com/in/iofficial-kishansingh</a><br/>
-                  GitHub: <a href="https://github.com/KishanSinghsw20" target="_blank" class="lk">github.com/KishanSinghsw20</a><br/>
-                </div>
-                <div><span class="pr">kishan@portfolio:~$</span> <span class="cur"></span></div>
-              </div>
-            </div>
+        </div>
+      </div>
+      
+      <!-- Bottom Terminal Panel -->
+      <div class="jb-bottom-panel">
+        <div class="jb-tool-header">
+          <div class="jb-tool-title">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 14H4v-2h8v2zm8-4H4V6h16v8z"></path><path d="M6 8h2v2H6zm0 4h5v2H6z"></path></svg>
+            Terminal - Local
           </div>
-        </section>
-
+          <div class="jb-tool-close">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+        </div>
+        <div class="jb-terminal-body">
+          <div><span class="term-prompt">kishan@macbook</span> <span class="term-path">~/projects/portfolio</span> <span class="term-cmd">$ cat contact.txt</span></div>
+          <div class="term-out">
+            Email: <a href="mailto:kishansinghsw00@gmail.com" class="term-link">kishansinghsw00@gmail.com</a><br/>
+            Phone: <a href="tel:+918810592193" class="term-link">+91 88105 92193</a><br/>
+            LinkedIn: <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank" class="term-link">linkedin.com/in/iofficial-kishansingh</a><br/>
+            GitHub: <a href="https://github.com/KishanSinghsw20" target="_blank" class="term-link">github.com/KishanSinghsw20</a><br/>
+          </div>
+          <div><span class="term-prompt">kishan@macbook</span> <span class="term-path">~/projects/portfolio</span> <span class="term-cmd">$</span><span class="cur"></span></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
+  // Populate line numbers
+  const gutter = document.getElementById('gutter');
+  let linesHTML = '';
+  for(let i = 1; i <= 150; i++) { linesHTML += `<span>${i}</span>`; }
+  gutter.innerHTML = linesHTML;
+
   // Theme Toggle
   const themeToggleBtn = document.getElementById('theme-toggle');
   const rootElement = document.documentElement;
@@ -699,28 +636,10 @@
     }
   });
 
-  // Folder Toggle
-  function toggleFolder(id, el) {
-    const folder = document.getElementById(id);
-    folder.classList.toggle('closed');
-    el.classList.toggle('closed');
-  }
-
   // File Navigation & Scroll sync
-  const files = document.querySelectorAll('.file');
+  const files = document.querySelectorAll('.jb-file');
   const scrollArea = document.getElementById('scroll-area');
-  const tabs = document.querySelectorAll('.tab');
-  const breadcrumbText = document.getElementById('breadcrumb-text');
   
-  const sectionsMap = {
-    'sec-hero': 'hero.tsx',
-    'sec-projects': 'projects.json',
-    'sec-achievements': 'achievements.md',
-    'sec-experience': 'experience.ts',
-    'sec-stack': 'stack.sh',
-    'sec-contact': 'contact.cmd'
-  };
-
   function scrollToSec(id, el) {
     const target = document.getElementById(id);
     if(target) {
@@ -731,40 +650,21 @@
   // Update active states on scroll
   scrollArea.addEventListener('scroll', () => {
     let current = '';
-    const sections = document.querySelectorAll('.scroll > section');
+    const sections = document.querySelectorAll('.jb-code > section');
     
     sections.forEach(sec => {
       const secTop = sec.offsetTop;
-      if (scrollArea.scrollTop >= secTop - 150) {
+      if (scrollArea.scrollTop >= secTop - 250) {
         current = sec.getAttribute('id');
       }
     });
 
     if (current) {
-      // Update File Tree
       files.forEach(f => {
         f.classList.remove('active');
         if(f.getAttribute('onclick').includes(current)) f.classList.add('active');
       });
-      
-      // Update Tabs (pseudo)
-      tabs.forEach(t => t.classList.remove('active'));
-      const activeTab = document.querySelector(`.tab[data-target="${current}"]`);
-      if(activeTab) activeTab.classList.add('active');
-      
-      // Update Breadcrumb
-      if(sectionsMap[current]) {
-        breadcrumbText.textContent = sectionsMap[current];
-      }
     }
-  });
-  
-  // Tab clicks
-  tabs.forEach(t => {
-    t.addEventListener('click', () => {
-      const targetId = t.getAttribute('data-target');
-      scrollToSec(targetId);
-    });
   });
 </script>
 
