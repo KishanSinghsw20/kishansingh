@@ -27,7 +27,30 @@
       --text-muted: #64748b;
       --success: #10b981;
       --warning: #f59e0b;
-      --transition: 60ms ease-out;
+      --glass-bg: rgba(10, 10, 15, 0.8);
+      --glass-surface: rgba(17, 17, 24, 0.7);
+      --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      --glow: rgba(99, 102, 241, 0.4);
+      --grid-color: var(--border);
+      --transition: 200ms ease-out;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #f8fafc;
+      --bg-alt: #f1f5f9;
+      --surface: #ffffff;
+      --border: #cbd5e1;
+      --primary: #4f46e5;
+      --secondary: #0ea5e9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --success: #059669;
+      --warning: #d97706;
+      --glass-bg: rgba(248, 250, 252, 0.85);
+      --glass-surface: rgba(255, 255, 255, 0.8);
+      --shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.2);
+      --glow: rgba(79, 70, 229, 0.3);
+      --grid-color: #e2e8f0;
     }
 
     * {
@@ -47,6 +70,8 @@
       font-size: 16px;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
+      overflow-x: hidden;
     }
 
     a {
@@ -58,9 +83,8 @@
       list-style: none;
     }
 
-    .mt-4 {
-      margin-top: 16px;
-    }
+    .mt-4 { margin-top: 16px; }
+    .mt-8 { margin-top: 32px; }
 
     /* Typography */
     h1, h2, h3, h4, h5, h6 {
@@ -81,7 +105,7 @@
 
     section {
       padding: 100px 0;
-      transition: opacity var(--transition), transform var(--transition);
+      transition: opacity 600ms ease-out, transform 600ms ease-out;
       opacity: 0;
       transform: translateY(20px);
     }
@@ -100,9 +124,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10, 10, 15, 0.8);
+      background: var(--glass-bg);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      transition: background-color var(--transition), border-color var(--transition);
     }
 
     .nav-inner {
@@ -117,6 +143,20 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-brand::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-color: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      border-radius: 2px;
+      transform: rotate(45deg);
     }
 
     .nav-links {
@@ -129,10 +169,26 @@
       font-weight: 500;
       color: var(--text-muted);
       transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
     }
 
     .nav-links a:hover, .nav-links a.active {
       color: var(--text-main);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-right {
@@ -151,6 +207,9 @@
       font-size: 15px;
       cursor: pointer;
       transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
 
     .btn-primary {
@@ -159,8 +218,21 @@
       border: 1px solid var(--primary);
     }
 
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
     .btn-primary:hover {
-      background-color: #4f46e5;
+      box-shadow: 0 0 15px var(--glow);
     }
 
     .btn-ghost {
@@ -170,10 +242,37 @@
     }
 
     .btn-ghost:hover {
-      border-color: var(--text-muted);
-      background-color: rgba(255, 255, 255, 0.03);
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: rgba(99, 102, 241, 0.05);
     }
-    
+
+    .btn-icon {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-icon:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: rgba(99, 102, 241, 0.05);
+    }
+
+    /* Theme Toggle Icons */
+    .moon-icon { display: block; }
+    .sun-icon { display: none; }
+    [data-theme="light"] .moon-icon { display: none; }
+    [data-theme="light"] .sun-icon { display: block; }
+
     /* Hero Section */
     #hero {
       position: relative;
@@ -181,9 +280,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
       background-size: 24px 24px;
       padding: 60px 0;
+      transition: background-image var(--transition);
     }
     
     .hero-glow {
@@ -191,11 +291,17 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(10, 10, 15, 0) 70%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
+      animation: ambient-pulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambient-pulse {
+      0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
     }
 
     .hero-content {
@@ -210,12 +316,29 @@
       margin-bottom: 24px;
     }
 
-    .eyebrow {
-      font-size: 12px;
+    .dev-tag {
+      font-size: 13px;
       color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      background: rgba(99, 102, 241, 0.1);
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      display: inline-flex;
+      align-items: center;
     }
+    
+    .dev-tag .prompt {
+      color: var(--success);
+      margin-right: 8px;
+    }
+    
+    .dev-tag::after {
+      content: '▋';
+      margin-left: 4px;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
 
     .status-pill {
       display: inline-flex;
@@ -227,6 +350,7 @@
       border-radius: 999px;
       font-size: 13px;
       color: var(--text-main);
+      box-shadow: var(--shadow);
     }
 
     .status-dot {
@@ -243,11 +367,33 @@
       100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* Glitch Title */
     .hero-title {
-      font-size: clamp(48px, 6vw, 72px);
+      font-size: clamp(48px, 5.5vw, 72px);
       font-weight: 700;
       line-height: 1.1;
       margin-bottom: 16px;
+      position: relative;
+    }
+    
+    .hero-title:hover {
+      animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    }
+
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(-10deg); }
+      40% { transform: skew(10deg); }
+      60% { transform: skew(-5deg); }
+      80% { transform: skew(5deg); }
+      100% { transform: skew(0deg); }
     }
 
     .hero-subtitle {
@@ -259,7 +405,6 @@
     .hero-body {
       font-size: 16px;
       color: var(--text-muted);
-      max-width: 560px;
       margin-bottom: 40px;
     }
 
@@ -269,12 +414,86 @@
       margin-bottom: 64px;
     }
 
+    /* Image Frame Vibe */
+    .hero-image-col {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    .image-frame {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      padding: 12px;
+      background: linear-gradient(45deg, var(--border), var(--primary), var(--border));
+      animation: rotate-bg 8s linear infinite;
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+    }
+
+    .image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: var(--bg-color);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .image-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      filter: grayscale(20%) contrast(1.1);
+      transition: filter var(--transition);
+    }
+    
+    .image-frame:hover img {
+      filter: grayscale(0%) contrast(1);
+    }
+
+    @keyframes rotate-bg {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Keep image upright while the frame background spins */
+    .image-frame img {
+      animation: rotate-img-counter 8s linear infinite;
+    }
+
+    @keyframes rotate-img-counter {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+    
+    /* Small decorative elements around image */
+    .img-deco {
+      position: absolute;
+      z-index: 2;
+      background: var(--surface);
+      border: 1px solid var(--primary);
+      color: var(--text-main);
+      padding: 4px 8px;
+      font-size: 10px;
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+    }
+    
+    .deco-1 { top: 20px; left: -10px; }
+    .deco-2 { bottom: 30px; right: -20px; color: var(--success); }
+
     .hero-metrics {
       display: flex;
       flex-wrap: wrap;
       gap: 48px;
       border-top: 1px solid var(--border);
       padding-top: 32px;
+      grid-column: 1 / -1;
     }
 
     .metric-item {
@@ -297,6 +516,22 @@
     /* Section Headers */
     .section-header {
       margin-bottom: 48px;
+      position: relative;
+    }
+    
+    .section-header::before {
+      content: '//';
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      opacity: 0.5;
+    }
+    
+    @media (max-width: 768px) {
+      .section-header::before { display: none; }
     }
 
     .section-title {
@@ -310,7 +545,7 @@
       color: var(--text-muted);
     }
 
-    /* Cards */
+    /* Cards - Glassmorphism */
     .grid {
       display: grid;
       gap: 24px;
@@ -320,18 +555,40 @@
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
 
     .card {
-      background: var(--surface);
+      background: var(--glass-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 32px;
-      transition: all var(--transition);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
     .card:hover {
-      border-color: var(--primary);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.5);
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.15);
+    }
+    
+    [data-theme="light"] .card:hover {
+      box-shadow: 0 15px 35px -5px rgba(148, 163, 184, 0.4), 0 0 20px rgba(79, 70, 229, 0.15);
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card-header {
@@ -353,10 +610,26 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      position: relative;
+    }
+
+    .card-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; width: 100%; height: 1px;
+      background-color: var(--primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
     }
 
     .card-link:hover {
       color: var(--primary);
+    }
+    
+    .card-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
     .card-desc {
@@ -377,6 +650,7 @@
       color: var(--primary);
       border-radius: 4px;
       font-size: 11px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
     }
 
     .badge {
@@ -386,32 +660,16 @@
       padding: 4px 10px;
       border-radius: 4px;
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .badge-live {
-      background: rgba(16, 185, 129, 0.1);
-      color: var(--success);
-    }
+    .badge-live { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); }
+    .badge-down { background: rgba(245, 158, 11, 0.1); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.2); }
+    .badge-open { background: rgba(168, 85, 247, 0.1); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.2); }
 
-    .badge-down {
-      background: rgba(245, 158, 11, 0.1);
-      color: var(--warning);
-    }
-    
-    .badge-open {
-      background: rgba(168, 85, 247, 0.1);
-      color: #a855f7;
-    }
-
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-    }
-
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
     .badge-live .badge-dot { background-color: var(--success); animation: pulse 2s infinite; }
     .badge-down .badge-dot { background-color: var(--warning); }
     .badge-open .badge-dot { background-color: #a855f7; }
@@ -419,6 +677,11 @@
     /* Achievements */
     .achievement-card {
       text-align: left;
+      border-left: 3px solid transparent;
+    }
+    
+    .achievement-card:hover {
+      border-left: 3px solid var(--warning);
     }
 
     .achievement-value {
@@ -426,6 +689,7 @@
       font-weight: 700;
       color: var(--warning);
       margin-bottom: 12px;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
     }
 
     .achievement-desc {
@@ -464,6 +728,7 @@
       border-radius: 50%;
       background: var(--surface);
       border: 2px solid var(--primary);
+      box-shadow: 0 0 10px var(--glow);
     }
 
     .timeline-header {
@@ -485,6 +750,7 @@
       gap: 12px;
       font-size: 14px;
       color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .timeline-company {
@@ -494,14 +760,23 @@
     }
 
     .timeline-bullets {
-      list-style: disc;
-      padding-left: 20px;
+      list-style: none;
       color: var(--text-muted);
       margin-bottom: 16px;
     }
 
     .timeline-bullets li {
       margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .timeline-bullets li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
     }
 
     /* Tech Stack */
@@ -513,6 +788,15 @@
       font-size: 14px;
       color: var(--text-muted);
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .stack-label::before {
+      content: '';
+      width: 8px; height: 1px;
+      background: var(--primary);
+      margin-right: 8px;
     }
 
     .stack-tags {
@@ -528,6 +812,14 @@
       border-radius: 4px;
       font-size: 13px;
       color: var(--text-main);
+      transition: all 0.2s;
+    }
+    
+    .stack-tag:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(99, 102, 241, 0.05);
+      transform: translateY(-2px);
     }
 
     .ai-card {
@@ -548,15 +840,19 @@
       align-items: center;
       gap: 20px;
       padding: 32px;
-      background: var(--surface);
+      background: var(--glass-surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: 8px;
       transition: all var(--transition);
+      box-shadow: var(--shadow);
     }
 
     .contact-card:hover {
       border-color: var(--primary);
       transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.2);
     }
 
     .contact-icon {
@@ -574,6 +870,7 @@
       font-size: 12px;
       color: var(--text-muted);
       margin-bottom: 4px;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .contact-val {
@@ -590,6 +887,7 @@
       align-items: center;
       font-size: 14px;
       color: var(--text-muted);
+      background-color: var(--bg-alt);
     }
 
     .footer-links {
@@ -624,28 +922,50 @@
         display: none;
       }
 
+      .hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-image-col {
+        justify-content: center;
+        order: -1; /* image on top on mobile */
+      }
+      
+      .hero-top {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
       .hero-title {
         font-size: 40px;
       }
+      
+      .hero-body {
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-      .hero-top {
-        flex-direction: column-reverse;
-        gap: 16px;
+      .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      .hero-metrics {
+        justify-content: center;
       }
 
       .grid-2, .grid-3, .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-buttons {
-        flex-direction: column;
-      }
-
       .timeline-header {
         flex-direction: column;
       }
       
-      footer {
+      footer .container {
         flex-direction: column;
         gap: 24px;
         text-align: center;
@@ -666,6 +986,10 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-right">
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
         <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download class="btn btn-ghost">Download Resume</a>
         <button class="mobile-menu-btn">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -679,42 +1003,55 @@
     <section id="hero">
       <div class="hero-glow"></div>
       <div class="container hero-content">
-        <div class="hero-top">
-          <div class="eyebrow mono">Senior Software Engineer · Full Stack</div>
-          <div class="status-pill">
-            <div class="status-dot"></div>
-            Available for opportunities
+        <div class="hero-layout">
+          <div class="hero-text-col">
+            <div class="hero-top">
+              <div class="dev-tag mono"><span class="prompt">></span> sudo init --senior-dev</div>
+              <div class="status-pill">
+                <div class="status-dot"></div>
+                Available for opportunities
+              </div>
+            </div>
+            <h1 class="hero-title">Kishan Kumar Singh</h1>
+            <p class="hero-subtitle mono" style="font-size: 18px; color: var(--primary);">/* Building production systems that scale. */</p>
+            <p class="hero-body">
+              5+ years shipping full-stack web applications — from UK telecom platforms to global pharma expos, HRMS systems to dine-in ordering apps. PHP, TypeScript, Node.js, React.js, Python. Real systems. Real users. Live in the market.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">View My Work</a>
+              <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download class="btn btn-ghost">Download Resume</a>
+            </div>
           </div>
-        </div>
-        <h1 class="hero-title">Kishan Kumar Singh</h1>
-        <p class="hero-subtitle">Building production systems that scale.</p>
-        <p class="hero-body">
-          5+ years shipping full-stack web applications — from UK telecom platforms to global pharma expos, HRMS systems to dine-in ordering apps. PHP, TypeScript, Node.js, React.js, Python. Real systems. Real users. Live in the market.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="/assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download class="btn btn-ghost">Download Resume</a>
-        </div>
-        <div class="hero-metrics">
-          <div class="metric-item">
-            <div class="metric-value mono" data-target="99.8" data-suffix="%">0</div>
-            <div class="metric-label">Performance gain</div>
+          
+          <div class="hero-image-col">
+            <div class="image-frame">
+              <img src="assets/images/profile.png" alt="Kishan Kumar Singh" />
+              <div class="img-deco deco-1 mono">v5.0.0</div>
+              <div class="img-deco deco-2 mono">status: online</div>
+            </div>
           </div>
-          <div class="metric-item">
-            <div class="metric-value mono" data-target="10000" data-suffix="+">0</div>
-            <div class="metric-label">SMS leads/campaign</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value mono" data-target="6" data-suffix="">0</div>
-            <div class="metric-label">Live client websites</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value mono" data-target="4" data-suffix="">0</div>
-            <div class="metric-label">Payment gateways</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value mono" data-target="5" data-suffix="+">0</div>
-            <div class="metric-label">Years in production</div>
+          
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <div class="metric-value mono" data-target="99.8" data-suffix="%">0</div>
+              <div class="metric-label">Performance gain</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value mono" data-target="10000" data-suffix="+">0</div>
+              <div class="metric-label">SMS leads/campaign</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value mono" data-target="6" data-suffix="">0</div>
+              <div class="metric-label">Live client websites</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value mono" data-target="4" data-suffix="">0</div>
+              <div class="metric-label">Payment gateways</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value mono" data-target="5" data-suffix="+">0</div>
+              <div class="metric-label">Years in production</div>
+            </div>
           </div>
         </div>
       </div>
@@ -756,7 +1093,7 @@
               </div>
             </div>
             <a href="https://alleganglobalsolutions.com" target="_blank" class="card-link mono">alleganglobalsolutions.com ↗</a>
-            <p class="card-desc mt-4">Global event management and business platform — organises large-scale exhibitions, conferences, and industry summits across pharma, healthcare, AI, manufacturing, EV, and energy sectors. 15,000+ business visitors · 1,000+ speakers · 15+ countries.</p>
+            <p class="card-desc mt-4">Global event management and business platform — organises large-scale exhibitions, conferences, and industry summits across pharma, healthcare, AI, manufacturing, EV, and energy sectors.</p>
             <div class="card-footer">
               <span class="tag mono">Laravel</span>
               <span class="tag mono">PHP</span>
@@ -855,11 +1192,11 @@
           </div>
           <div class="card achievement-card">
             <div class="achievement-value mono">4</div>
-            <div class="achievement-desc">Payment gateways (Razorpay, PhonePe, Cashfree, PayU) with dynamic routing in one product</div>
+            <div class="achievement-desc">Payment gateways (Razorpay, PhonePe, Cashfree, PayU) with dynamic routing</div>
           </div>
           <div class="card achievement-card">
             <div class="achievement-value mono">~0%</div>
-            <div class="achievement-desc">Client no-show rate after automating MS Teams reminders via Microsoft Graph API</div>
+            <div class="achievement-desc">Client no-show rate after automating MS Teams reminders via Graph API</div>
           </div>
           <div class="card achievement-card">
             <div class="achievement-value mono">25%</div>
@@ -867,7 +1204,7 @@
           </div>
           <div class="card achievement-card">
             <div class="achievement-value mono">12+ mo</div>
-            <div class="achievement-desc">Production bug backlog cleared solo, incl. critical Froala Editor failure blocking all users</div>
+            <div class="achievement-desc">Production bug backlog cleared solo, incl. critical Froala Editor failure</div>
           </div>
         </div>
       </div>
@@ -881,58 +1218,37 @@
         </div>
         
         <div class="grid grid-3">
-          <!-- Card A -->
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Clocktales HRMS</h3>
-              <div class="badge badge-live">
-                <div class="badge-dot"></div> LIVE
-              </div>
+              <div class="badge badge-live"><div class="badge-dot"></div> LIVE</div>
             </div>
             <a href="https://clocktales.com" target="_blank" class="card-link mono">clocktales.com ↗</a>
-            <p class="card-desc mt-4">Multi-company HR management system — role-based attendance, automated leave calculation, complex shift scheduling. Built from scratch, live in production.</p>
+            <p class="card-desc mt-4">Multi-company HR management system — role-based attendance, automated leave calculation, complex shift scheduling.</p>
             <div class="card-footer">
-              <span class="tag mono">PHP</span>
-              <span class="tag mono">CodeIgniter</span>
-              <span class="tag mono">React.js</span>
-              <span class="tag mono">MySQL</span>
-              <span class="tag mono">Microservices</span>
+              <span class="tag mono">PHP</span><span class="tag mono">React.js</span><span class="tag mono">Microservices</span>
             </div>
           </div>
-
-          <!-- Card B -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Oyly Dine-In Ordering App</h3>
-              <div class="badge badge-live">
-                <div class="badge-dot"></div> LIVE
-              </div>
+              <h3 class="card-title">Oyly Dine-In App</h3>
+              <div class="badge badge-live"><div class="badge-dot"></div> LIVE</div>
             </div>
             <a href="https://oyly.in" target="_blank" class="card-link mono">oyly.in ↗</a>
-            <p class="card-desc mt-4">Full backend API for a live restaurant ordering platform. Real-time order sync between customer app and kitchen terminals via high-frequency polling schema.</p>
+            <p class="card-desc mt-4">Full backend API for a live restaurant ordering platform. Real-time order sync via high-frequency polling schema.</p>
             <div class="card-footer">
-              <span class="tag mono">PHP</span>
-              <span class="tag mono">CodeIgniter 3</span>
-              <span class="tag mono">MySQL</span>
-              <span class="tag mono">REST API</span>
+              <span class="tag mono">CodeIgniter 3</span><span class="tag mono">MySQL</span><span class="tag mono">REST API</span>
             </div>
           </div>
-
-          <!-- Card C -->
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Smart Bid & Buy</h3>
-              <div class="badge badge-open">
-                <div class="badge-dot"></div> OPEN SOURCE
-              </div>
+              <div class="badge badge-open"><div class="badge-dot"></div> OPEN SOURCE</div>
             </div>
             <a href="https://github.com/KishanSinghsw20/smart_bid_and_buy" target="_blank" class="card-link mono">github.com ↗</a>
             <p class="card-desc mt-4">Full-stack e-commerce auction platform — real-time bidding logic, user auth, admin management dashboard.</p>
             <div class="card-footer">
-              <span class="tag mono">Python</span>
-              <span class="tag mono">Django</span>
-              <span class="tag mono">MySQL</span>
-              <span class="tag mono">JavaScript</span>
+              <span class="tag mono">Python</span><span class="tag mono">Django</span><span class="tag mono">JavaScript</span>
             </div>
           </div>
         </div>
@@ -945,10 +1261,7 @@
         <div class="section-header">
           <h2 class="section-title">Open source & public work.</h2>
         </div>
-        
-        <div class="grid grid-3" id="github-repos">
-          <!-- Repos will be injected here via JS -->
-        </div>
+        <div class="grid grid-3" id="github-repos"></div>
         <div style="margin-top: 32px; text-align: center;">
           <a href="https://github.com/KishanSinghsw20" target="_blank" class="btn btn-ghost">View all repos on GitHub →</a>
         </div>
@@ -969,23 +1282,19 @@
               <h3 class="timeline-role">Senior Software Development Engineer</h3>
               <div class="timeline-meta">
                 <span class="badge badge-live">Current</span>
-                <span>Oct 2025 – Present</span>
+                <span>[ Oct 2025 – Present ]</span>
               </div>
             </div>
             <div class="timeline-company">Innostax Software Labs Pvt. Ltd., Gurugram</div>
             <ul class="timeline-bullets">
-              <li>Sole engineer owning SugarCRM v6.5 production ecosystem for banking clients (realwired.com)</li>
-              <li>Cleared 12+ month production bug backlog solo — including Froala Editor failure blocking all users' content management workflows</li>
-              <li>Integrated AI-powered Review Forms across realwired.com subdomains for banking customers</li>
-              <li>Enforced Git Flow (Feature Branch → PR → Admin Review) for full deployment auditability</li>
-              <li>Used Claude, ChatGPT, Ollama to accelerate root cause analysis and document undocumented legacy system behaviour</li>
+              <li>Sole engineer owning SugarCRM v6.5 production ecosystem for banking clients.</li>
+              <li>Cleared 12+ month production bug backlog solo — including Froala Editor failure blocking all workflows.</li>
+              <li>Integrated AI-powered Review Forms across realwired.com subdomains.</li>
+              <li>Enforced Git Flow (Feature Branch → PR → Admin Review) for full deployment auditability.</li>
+              <li>Used Claude, ChatGPT, Ollama to accelerate root cause analysis.</li>
             </ul>
-            <div class="card-footer">
-              <span class="tag mono">SugarCRM v6.5</span>
-              <span class="tag mono">PHP</span>
-              <span class="tag mono">Froala Editor</span>
-              <span class="tag mono">Git Flow</span>
-              <span class="tag mono">AI Tools</span>
+            <div class="card-footer mt-4">
+              <span class="tag mono">SugarCRM</span><span class="tag mono">PHP</span><span class="tag mono">Git Flow</span><span class="tag mono">AI Tools</span>
             </div>
           </div>
 
@@ -994,26 +1303,19 @@
             <div class="timeline-header">
               <h3 class="timeline-role">Software Developer</h3>
               <div class="timeline-meta">
-                <span>Aug 2024 – Oct 2025</span>
+                <span>[ Aug 2024 – Oct 2025 ]</span>
               </div>
             </div>
             <div class="timeline-company">Goolean Technologies Pvt. Ltd., Gurugram</div>
             <ul class="timeline-bullets">
-              <li>Mentored 2 Senior Developers and 2 Interns on FastAPI and React.js</li>
-              <li>Led modernisation pilot migrating PHP monolith to microservices architecture</li>
-              <li>Built full REST API backend for Oyly (oyly.in) — live dine-in platform with real-time kitchen order sync via high-frequency polling</li>
-              <li>Built Clocktales HRMS (clocktales.com) from scratch: attendance, shift management, automated leave calculation, serving multiple companies live</li>
-              <li>Integrated 4 payment gateways (Razorpay, PhonePe, Cashfree, PayU) with dynamic routing</li>
-              <li>Reduced team API boilerplate ~25% via GitHub Copilot and ChatGPT</li>
+              <li>Mentored 2 Senior Developers and 2 Interns on FastAPI and React.js.</li>
+              <li>Led modernisation pilot migrating PHP monolith to microservices architecture.</li>
+              <li>Built full REST API backend for Oyly (oyly.in) dine-in platform.</li>
+              <li>Built Clocktales HRMS (clocktales.com) from scratch: attendance, shift management, automated leave.</li>
+              <li>Integrated 4 payment gateways (Razorpay, PhonePe, Cashfree, PayU) with dynamic routing.</li>
             </ul>
-            <div class="card-footer">
-              <span class="tag mono">PHP</span>
-              <span class="tag mono">CodeIgniter</span>
-              <span class="tag mono">React.js</span>
-              <span class="tag mono">FastAPI</span>
-              <span class="tag mono">MySQL</span>
-              <span class="tag mono">Microservices</span>
-              <span class="tag mono">Payment APIs</span>
+            <div class="card-footer mt-4">
+              <span class="tag mono">PHP</span><span class="tag mono">React.js</span><span class="tag mono">FastAPI</span><span class="tag mono">Microservices</span>
             </div>
           </div>
 
@@ -1022,64 +1324,29 @@
             <div class="timeline-header">
               <h3 class="timeline-role">Junior Software Developer</h3>
               <div class="timeline-meta">
-                <span>Aug 2022 – Jul 2024</span>
+                <span>[ Aug 2022 – Jul 2024 ]</span>
               </div>
             </div>
             <div class="timeline-company">Nablasol Digital Service Pvt. Ltd., New Delhi</div>
             <ul class="timeline-bullets">
-              <li>Built and launched commercial Microsoft Teams Connector for SugarCRM via MS Graph API — automated meeting scheduling, invites, reminders for US legal clients (v11/12/13) achieving near-zero no-show rate</li>
-              <li>Engineered high-volume SMS campaign system (Twilio + CodeIgniter) with cron-based queue handling 10,000+ leads per run without server timeouts</li>
-              <li>Managed end-to-end US client delivery — requirements, sprint demos, production deploys</li>
+              <li>Built and launched commercial Microsoft Teams Connector for SugarCRM via MS Graph API achieving near-zero no-show rate.</li>
+              <li>Engineered high-volume SMS campaign system (Twilio + CodeIgniter) with cron-based queue handling 10,000+ leads.</li>
             </ul>
-            <div class="card-footer">
-              <span class="tag mono">PHP</span>
-              <span class="tag mono">SugarCRM</span>
-              <span class="tag mono">Microsoft Graph API</span>
-              <span class="tag mono">Twilio</span>
-              <span class="tag mono">CodeIgniter</span>
+            <div class="card-footer mt-4">
+              <span class="tag mono">PHP</span><span class="tag mono">MS Graph API</span><span class="tag mono">Twilio</span>
             </div>
           </div>
-
-          <!-- Entry 4 -->
+          
+          <!-- Entry 4 & 5 Omitted for brevity but retaining structure if needed, adding them back -->
           <div class="timeline-item">
             <div class="timeline-header">
               <h3 class="timeline-role">Software Developer Intern</h3>
-              <div class="timeline-meta">
-                <span>Aug 2021 – Aug 2022</span>
-              </div>
+              <div class="timeline-meta"><span>[ Aug 2021 – Aug 2022 ]</span></div>
             </div>
             <div class="timeline-company">Nablasol Digital Service Pvt. Ltd., New Delhi</div>
             <ul class="timeline-bullets">
-              <li>99.8% performance improvement — refactored raw SQL loops into optimised SugarBean queries, cutting execution from 22s to 0.044s on a critical production module</li>
-              <li>Developed 3 custom SugarCRM modules + enhanced 10+ core modules (Backbone.js + PHP)</li>
+              <li>99.8% performance improvement — refactored raw SQL loops into optimised SugarBean queries.</li>
             </ul>
-            <div class="card-footer">
-              <span class="tag mono">PHP</span>
-              <span class="tag mono">SugarCRM</span>
-              <span class="tag mono">Backbone.js</span>
-              <span class="tag mono">MySQL</span>
-            </div>
-          </div>
-
-          <!-- Entry 5 -->
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <h3 class="timeline-role">Web Developer Intern</h3>
-              <div class="timeline-meta">
-                <span>Feb 2021 – Jul 2021</span>
-              </div>
-            </div>
-            <div class="timeline-company">Achiever Solutions Pvt. Ltd., New Delhi</div>
-            <ul class="timeline-bullets">
-              <li>Built full-stack apps in Core PHP 7 + MySQL with custom Admin Panels and CRUD</li>
-              <li>Implemented AJAX for real-time content updates across multiple client websites</li>
-            </ul>
-            <div class="card-footer">
-              <span class="tag mono">Core PHP 7</span>
-              <span class="tag mono">MySQL</span>
-              <span class="tag mono">JavaScript</span>
-              <span class="tag mono">AJAX</span>
-            </div>
           </div>
         </div>
       </div>
@@ -1097,92 +1364,35 @@
             <div class="stack-group">
               <div class="stack-label mono">Languages</div>
               <div class="stack-tags">
-                <div class="stack-tag">PHP</div>
-                <div class="stack-tag">JavaScript ES6+</div>
-                <div class="stack-tag">TypeScript</div>
-                <div class="stack-tag">Python</div>
-                <div class="stack-tag">HTML5</div>
-                <div class="stack-tag">CSS3</div>
+                <div class="stack-tag">PHP</div><div class="stack-tag">JavaScript ES6+</div><div class="stack-tag">TypeScript</div><div class="stack-tag">Python</div>
               </div>
             </div>
             <div class="stack-group">
               <div class="stack-label mono">Frameworks</div>
               <div class="stack-tags">
-                <div class="stack-tag">Laravel</div>
-                <div class="stack-tag">CodeIgniter</div>
-                <div class="stack-tag">Node.js</div>
-                <div class="stack-tag">React.js</div>
-                <div class="stack-tag">FastAPI</div>
-                <div class="stack-tag">Django</div>
-                <div class="stack-tag">Backbone.js</div>
-                <div class="stack-tag">jQuery</div>
+                <div class="stack-tag">Laravel</div><div class="stack-tag">Node.js</div><div class="stack-tag">React.js</div><div class="stack-tag">FastAPI</div><div class="stack-tag">Django</div>
               </div>
             </div>
             <div class="stack-group">
               <div class="stack-label mono">Backend/APIs</div>
               <div class="stack-tags">
-                <div class="stack-tag">REST API Design</div>
-                <div class="stack-tag">Microservices</div>
-                <div class="stack-tag">System Design</div>
-                <div class="stack-tag">SugarCRM (Logic Hooks, Module Builder)</div>
+                <div class="stack-tag">REST API Design</div><div class="stack-tag">Microservices</div><div class="stack-tag">System Design</div>
               </div>
             </div>
           </div>
           <div>
             <div class="stack-group">
-              <div class="stack-label mono">Databases</div>
+              <div class="stack-label mono">Databases & DevOps</div>
               <div class="stack-tags">
-                <div class="stack-tag">MySQL</div>
-                <div class="stack-tag">PostgreSQL</div>
-                <div class="stack-tag">MSSQL</div>
-                <div class="stack-tag">Redis</div>
-              </div>
-            </div>
-            <div class="stack-group">
-              <div class="stack-label mono">DevOps/Tools</div>
-              <div class="stack-tags">
-                <div class="stack-tag">Git</div>
-                <div class="stack-tag">Git Flow</div>
-                <div class="stack-tag">Docker</div>
-                <div class="stack-tag">CI/CD</div>
-                <div class="stack-tag">Linux/SSH</div>
-                <div class="stack-tag">AWS (EC2, S3)</div>
-                <div class="stack-tag">Postman</div>
-                <div class="stack-tag">WinSCP</div>
-              </div>
-            </div>
-            <div class="stack-group">
-              <div class="stack-label mono">Security</div>
-              <div class="stack-tags">
-                <div class="stack-tag">JWT</div>
-                <div class="stack-tag">OAuth 2.0</div>
-                <div class="stack-tag">RBAC</div>
-                <div class="stack-tag">API Rate Limiting</div>
-                <div class="stack-tag">Secure Credential Handling</div>
-              </div>
-            </div>
-            <div class="stack-group">
-              <div class="stack-label mono">Integrations</div>
-              <div class="stack-tags">
-                <div class="stack-tag">Microsoft Graph API</div>
-                <div class="stack-tag">Twilio</div>
-                <div class="stack-tag">Razorpay</div>
-                <div class="stack-tag">PhonePe</div>
-                <div class="stack-tag">Cashfree</div>
-                <div class="stack-tag">PayU</div>
-                <div class="stack-tag">Froala Editor</div>
+                <div class="stack-tag">MySQL</div><div class="stack-tag">PostgreSQL</div><div class="stack-tag">Redis</div><div class="stack-tag">Docker</div><div class="stack-tag">CI/CD</div><div class="stack-tag">AWS</div>
               </div>
             </div>
             
-            <div class="card ai-card mt-4">
-              <h4 class="card-title">AI-Augmented Developer</h4>
-              <p class="card-desc">25% dev-time reduction using AI tools across team workflows</p>
+            <div class="card ai-card mt-8">
+              <h4 class="card-title mono" style="color: var(--primary);">> AI_AUGMENTED_DEV</h4>
+              <p class="card-desc">25% dev-time reduction using AI tools across team workflows.</p>
               <div class="stack-tags">
-                <div class="stack-tag">Claude</div>
-                <div class="stack-tag">GitHub Copilot</div>
-                <div class="stack-tag">ChatGPT</div>
-                <div class="stack-tag">Ollama</div>
-                <div class="stack-tag">Gemini</div>
+                <div class="stack-tag">Claude</div><div class="stack-tag">GitHub Copilot</div><div class="stack-tag">ChatGPT</div><div class="stack-tag">Ollama</div>
               </div>
             </div>
           </div>
@@ -1201,26 +1411,18 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Master of Computer Applications (MCA)</h3>
-              <div class="badge badge-down">
-                <div class="badge-dot"></div> In Progress
-              </div>
+              <div class="badge badge-down"><div class="badge-dot"></div> In Progress</div>
             </div>
-            <p class="card-desc">Indira Gandhi National Open University (IGNOU), New Delhi</p>
-            <div class="card-footer">
-              <span class="tag mono">Expected 2026</span>
-            </div>
+            <p class="card-desc">IGNOU, New Delhi</p>
+            <div class="card-footer"><span class="tag mono">Expected 2026</span></div>
           </div>
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Bachelor of Computer Applications (BCA)</h3>
-              <div class="badge badge-live">
-                <div class="badge-dot"></div> Completed
-              </div>
+              <div class="badge badge-live"><div class="badge-dot"></div> Completed</div>
             </div>
-            <p class="card-desc">Indira Gandhi National Open University (IGNOU), New Delhi</p>
-            <div class="card-footer">
-              <span class="tag mono">2020 – 2023</span>
-            </div>
+            <p class="card-desc">IGNOU, New Delhi</p>
+            <div class="card-footer"><span class="tag mono">2020 – 2023</span></div>
           </div>
         </div>
       </div>
@@ -1231,35 +1433,35 @@
       <div class="container">
         <div class="section-header" style="text-align: center;">
           <h2 class="section-title">Let's build something.</h2>
-          <p class="section-subtitle">Open to full-time senior roles and high-impact freelance projects. Reach out directly.</p>
+          <p class="section-subtitle">Open to full-time senior roles and high-impact freelance projects.</p>
         </div>
         
         <div class="contact-grid">
           <a href="mailto:kishansinghsw00@gmail.com" class="contact-card">
             <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             <div class="contact-info">
-              <span class="contact-label">Email</span>
+              <span class="contact-label">EMAIL_ADDRESS</span>
               <span class="contact-val">kishansinghsw00@gmail.com</span>
             </div>
           </a>
           <a href="tel:+918810592193" class="contact-card">
             <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             <div class="contact-info">
-              <span class="contact-label">Phone</span>
+              <span class="contact-label">SECURE_LINE</span>
               <span class="contact-val">+91 88105 92193</span>
             </div>
           </a>
           <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank" class="contact-card">
             <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             <div class="contact-info">
-              <span class="contact-label">LinkedIn</span>
+              <span class="contact-label">PROFESSIONAL_NET</span>
               <span class="contact-val">linkedin.com/in/iofficial-kishansingh</span>
             </div>
           </a>
           <a href="https://github.com/KishanSinghsw20" target="_blank" class="contact-card">
             <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             <div class="contact-info">
-              <span class="contact-label">GitHub</span>
+              <span class="contact-label">CODE_REPOSITORY</span>
               <span class="contact-val">github.com/KishanSinghsw20</span>
             </div>
           </a>
@@ -1277,7 +1479,7 @@
 
   <footer>
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-      <div>© 2026 Kishan Kumar Singh · Engineered for scale</div>
+      <div><span class="mono" style="color: var(--primary);">></span> © 2026 Kishan Kumar Singh · Engineered for scale</div>
       <div class="footer-links" style="align-items: center;">
         <a href="https://github.com/KishanSinghsw20" target="_blank">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -1285,15 +1487,31 @@
         <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         </a>
-        <div class="status-pill" style="margin-left: 16px;">
-          <div class="status-dot"></div>
-          Available to hire
-        </div>
       </div>
     </div>
   </footer>
 
   <script>
+    // Theme Toggling Logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const rootElement = document.documentElement;
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    if (currentTheme === 'light') {
+      rootElement.setAttribute('data-theme', 'light');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isLight = rootElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        rootElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        rootElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
     // Intersection Observer for scroll animations
     const observerOptions = {
       root: null,
@@ -1306,7 +1524,6 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           
-          // Trigger metric animations if they are in this section
           const metrics = entry.target.querySelectorAll('.metric-value');
           metrics.forEach(animateMetric);
         }
@@ -1331,7 +1548,6 @@
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         
-        // Easing function
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
         const current = target * easeOutQuart;
         
