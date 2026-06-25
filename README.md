@@ -53,7 +53,7 @@ I am a Senior Full Stack Engineer based in New Delhi, India with 5+ years of exp
 
 ## Education
 
-- **Master of Computer Applications (MCA)** - IGNOU, New Delhi (Expected 2026)
+- **Master of Computer Applications (MCA)** - IGNOU, New Delhi (2023 – 2025)
 - **Bachelor of Computer Applications (BCA)** - IGNOU, New Delhi (2020 – 2023)
 
 ## About This Repository

@@ -1,2228 +1,822 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Kishan Kumar Singh — Senior Full Stack Engineer</title>
-<meta name="google-site-verification" content="0Hm4zjjwKbpXoip_S2fr_okTYXepHFxTeVW9FrohaJ4"/>
-<meta name="description" content="Portfolio of Kishan Kumar Singh, a Senior Full Stack Engineer with 5+ years of experience architecting distributed systems, microservices, and AI-driven backends."/>
-<meta name="keywords" content="Kishan Kumar Singh, Senior Full Stack Engineer, Node.js, Python, TypeScript, AWS, Microservices, Portfolio"/>
-<meta name="author" content="Kishan Kumar Singh"/>
-<link rel="canonical" href="https://kishansinghsw20.github.io/"/>
-<link rel="icon" type="image/png" href="favicon.png"/>
-<link rel="apple-touch-icon" href="favicon.png"/>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="Kishan Kumar Singh — Senior Full Stack Engineer"/>
-<meta property="og:description" content="Senior Full Stack Engineer with 5+ years clearing production backlogs, optimizing complex SQL queries, and architecting scalable data platforms. PHP · Laravel · TypeScript · Node.js."/>
-<meta property="og:url" content="https://kishansinghsw20.github.io/"/>
-<meta property="og:image" content="https://kishansinghsw20.github.io/assets/images/profile.png"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
-<meta property="og:site_name" content="Kishan Kumar Singh Portfolio"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Kishan Kumar Singh — Senior Full Stack Engineer"/>
-<meta name="twitter:description" content="Senior Full Stack Engineer with 5+ years clearing production backlogs, optimizing complex SQL queries, and architecting scalable data platforms."/>
-<meta name="twitter:image" content="https://kishansinghsw20.github.io/assets/images/profile.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kishan Kumar Singh","jobTitle":"Senior Full Stack Engineer","url":"https://kishansinghsw20.github.io/","email":"kishansinghsw00@gmail.com"}</script>
-<script>(function(){var t=localStorage.getItem('ss-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --vio:#8b5cf6; --vio-2:#a78bfa; --vio-3:#c4b5fd;
-  --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --rose:#fb7185;
-  --mono:"JetBrains Mono",monospace;
-  --sans:"IBM Plex Sans",system-ui,sans-serif;
-  --disp:"Space Grotesk",sans-serif;
-}
-html[data-theme="dark"]{
-  --bg:#0b0e16; --bg-2:#0f1320; --panel:#11161f; --panel-2:#161c28;
-  --border:#1e2530; --border-2:#2a3340;
-  --tx:#e6e9f0; --tx-2:#9aa4b6; --tx-3:#5f6b80;
-  --gutter:#414e63; --tab-active:#0f1320; --accent-soft:rgba(139,92,246,.14);
-  --str:#34d399; --key:#a78bfa; --fn:#22d3ee; --num:#fbbf24; --kw:#fb7185; --cmt:#5f6b80;
-  --shadow:0 24px 60px -20px rgba(0,0,0,.7);
-}
-html[data-theme="light"]{
-  --bg:#eef0f4; --bg-2:#f7f8fb; --panel:#ffffff; --panel-2:#f4f5f9;
-  --border:#e3e6ee; --border-2:#d4d9e4;
-  --tx:#1b2030; --tx-2:#525b70; --tx-3:#8a93a6;
-  --gutter:#b8c0d0; --tab-active:#ffffff; --accent-soft:rgba(124,58,237,.10);
-  --vio:#7c3aed; --vio-2:#7c3aed; --vio-3:#6d28d9;
-  --str:#0d9488; --key:#7c3aed; --fn:#0891b2; --num:#b45309; --kw:#e11d48; --cmt:#9aa3b5;
-  --shadow:0 24px 60px -28px rgba(60,40,120,.25);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{font-family:var(--sans);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;overflow:hidden}
-::selection{background:var(--accent-soft);color:var(--vio-2)}
-::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:6px;border:3px solid var(--bg)}
-::-webkit-scrollbar-thumb:hover{background:var(--vio)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishan Kumar Singh | Senior Software Engineer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Kishan Kumar Singh, Senior Full Stack Engineer from New Delhi, India. Building production systems that scale using PHP, React, TypeScript, and Node.js.">
+    <meta name="keywords" content="Kishan Kumar Singh, Senior Software Engineer, Full Stack Developer, PHP, Laravel, TypeScript, React, New Delhi, Web Development, Software Engineering">
+    <meta name="author" content="Kishan Kumar Singh">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kishansinghsw20.github.io/">
+    <link rel="icon" type="image/png" href="assets/images/profile.png">
 
-/* ── SHELL ── */
-.app{display:flex;flex-direction:column;height:100vh;height:100dvh}
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:title" content="Kishan Kumar Singh | Senior Software Engineer">
+    <meta property="og:description" content="Senior Full Stack Engineer from New Delhi, India. Building production systems that scale.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kishansinghsw20.github.io/">
+    <meta property="og:image" content="https://kishansinghsw20.github.io/assets/images/profile.png">
+    <meta property="og:site_name" content="Kishan Kumar Singh Portfolio">
 
-/* ── TITLE BAR ── */
-.titlebar{
-  display:flex;align-items:center;gap:12px;height:40px;padding:0 14px;
-  background:var(--bg-2);border-bottom:1px solid var(--border);flex:none;
-}
-.dots{display:flex;gap:7px}
-.dot{width:12px;height:12px;border-radius:50%}
-.dot.r{background:#fb7185}.dot.y{background:#fbbf24}.dot.g{background:#34d399}
-.title-c{flex:1;text-align:center;font-family:var(--mono);font-size:12px;color:var(--tx-3);
-  display:flex;align-items:center;justify-content:center;gap:8px}
-.title-c .mod{width:7px;height:7px;border-radius:50%;background:var(--vio-2)}
-.tbtn{
-  display:flex;align-items:center;gap:6px;height:26px;padding:0 11px;border-radius:6px;
-  background:var(--panel-2);border:1px solid var(--border);color:var(--tx-2);
-  font-family:var(--mono);font-size:11px;cursor:pointer;transition:.15s;
-}
-.tbtn:hover{color:var(--vio-2);border-color:var(--vio)}
-.tbtn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kishan Kumar Singh | Senior Software Engineer">
+    <meta name="twitter:description" content="Senior Full Stack Engineer from New Delhi, India. Building production systems that scale.">
+    <meta name="twitter:image" content="https://kishansinghsw20.github.io/assets/images/profile.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Devicon for Tech Stack Icons -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <!-- FontAwesome for missing tools -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* ── BODY ── */
-.body{display:flex;flex:1;min-height:0}
-
-/* ── ACTIVITY BAR ── */
-.activity{
-  width:52px;flex:none;background:var(--bg-2);border-right:1px solid var(--border);
-  display:flex;flex-direction:column;align-items:center;padding:10px 0;gap:4px;
-}
-.act{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-  color:var(--tx-3);cursor:pointer;transition:.15s;position:relative}
-.act svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.act:hover{color:var(--tx)}
-.act.on{color:var(--vio-2)}
-.act.on::before{content:"";position:absolute;left:-10px;top:8px;bottom:8px;width:2.5px;border-radius:2px;background:var(--vio-2)}
-.activity .gap{flex:1}
-
-/* ── SIDEBAR ── */
-.sidebar{
-  width:256px;flex:none;background:var(--panel);border-right:1px solid var(--border);
-  display:flex;flex-direction:column;overflow:hidden;
-}
-.side-h{padding:12px 16px 8px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--tx-3);}
-.tree{padding:4px 8px 12px;overflow-y:auto;font-family:var(--mono);font-size:13px;flex:1}
-/* root folder row */
-.folder-row{display:flex;align-items:center;gap:7px;padding:5px 8px;color:var(--tx);
-  font-weight:600;border-radius:6px;user-select:none;cursor:pointer}
-.folder-row svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;color:var(--tx-2)}
-.nest{padding-left:16px;border-left:1px solid var(--border);margin-left:15px}
-/* sub-folder row */
-.sub-folder{
-  display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px;
-  color:var(--tx-2);cursor:pointer;transition:.13s;user-select:none;font-size:12.5px;
-}
-.sub-folder:hover{background:var(--panel-2);color:var(--tx)}
-.sub-folder .sf-ic{font-size:12px}
-.sf-chev{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;
-  stroke-linecap:round;stroke-linejoin:round;transition:transform .2s flex-none;color:var(--tx-3)}
-.sub-folder.closed .sf-chev{transform:rotate(-90deg)}
-.sub-nest{padding-left:14px;border-left:1px solid var(--border);margin-left:9px;overflow:hidden;
-  transition:max-height .28s ease}
-.sub-nest.closed{max-height:0!important}
-.file{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;color:var(--tx-2);
-  cursor:pointer;transition:.13s;position:relative}
-.file .ic{font-size:10px;font-weight:700;padding:1px 4px;border-radius:3px;flex-shrink:0}
-.md-ic{background:#1793d1;color:#fff}
-.json-ic{background:#f9e2af;color:#11161f}
-.ts-ic{background:#3178c6;color:#fff}
-.sh-ic{background:#34d399;color:#11161f}
-.file:hover{background:var(--panel-2);color:var(--tx)}
-.file.active{background:var(--accent-soft);color:var(--vio-2)}
-.file.active::before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:2px;border-radius:2px;background:var(--vio-2)}
-
-/* ── EDITOR ── */
-.editor{flex:1;display:flex;flex-direction:column;min-width:0;background:var(--bg)}
-.tabs{display:flex;height:40px;background:var(--bg-2);border-bottom:1px solid var(--border);
-  overflow-x:auto;flex:none;scrollbar-width:none}
-.tabs::-webkit-scrollbar{height:0}
-.tab{display:flex;align-items:center;gap:7px;padding:0 15px;font-family:var(--mono);font-size:12.5px;
-  color:var(--tx-3);border-right:1px solid var(--border);cursor:pointer;white-space:nowrap;
-  border-top:2px solid transparent;transition:.15s}
-.tab .ic{font-size:10px}
-.tab:hover{color:var(--tx-2)}
-.tab.active{background:var(--tab-active);color:var(--tx);border-top-color:var(--vio-2)}
-
-/* ── SCROLL / MAIN CONTENT ── */
-.scroll{flex:1;overflow-y:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-
-/* ── SEC-PATH breadcrumb ── */
-.sec-path{
-  display:flex;align-items:center;gap:8px;padding:9px 20px;
-  font-family:var(--mono);font-size:11.5px;color:var(--tx-3);
-  background:var(--bg-2);border-bottom:1px solid var(--border);
-}
-.sec-path .crumb{color:var(--vio-2)}
-.sec-path .sep{color:var(--tx-3)}
-
-/* ══════════════════════════════════════
-   ANIMATIONS
-══════════════════════════════════════ */
-
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
-.reveal.from-left{transform:translateX(-36px)}
-.reveal.from-right{transform:translateX(36px)}
-.reveal.revealed{opacity:1;transform:none}
-/* stagger siblings */
-.reveal-stagger > *{opacity:0;transform:translateY(24px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
-.reveal-stagger.revealed > *{opacity:1;transform:none}
-
-/* Typewriter cursor */
-.tw-cur{display:inline-block;width:2px;height:1.1em;background:var(--vio-2);
-  vertical-align:-2px;margin-left:2px;animation:twblink .9s steps(1) infinite}
-@keyframes twblink{50%{opacity:0}}
-.hero-role{font-family:var(--mono);font-size:14px;color:var(--tx-2);margin-top:12px;
-  min-height:22px;display:flex;align-items:center;gap:4px}
-.hero-role .tw-verb{color:var(--cyan)}
-.hero-role .tw-obj{color:var(--tx)}
-
-/* Aurora / animated hero glow */
-@keyframes aurora{
-  0%  {transform:translate(0%,0%) scale(1)}
-  33% {transform:translate(4%,-6%) scale(1.08)}
-  66% {transform:translate(-3%,4%) scale(.96)}
-  100%{transform:translate(0%,0%) scale(1)}
-}
-.hero-aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.aurora-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.18;animation:aurora 9s ease-in-out infinite}
-.aurora-blob:nth-child(1){width:520px;height:380px;background:var(--vio);top:-80px;right:-60px;animation-delay:0s}
-.aurora-blob:nth-child(2){width:380px;height:320px;background:var(--cyan);bottom:-60px;right:140px;animation-delay:-3s;opacity:.12}
-.aurora-blob:nth-child(3){width:300px;height:280px;background:var(--green);top:20px;right:320px;animation-delay:-6s;opacity:.09}
-html[data-theme="light"] .aurora-blob{opacity:.1}
-
-/* Counter */
-@keyframes countUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.stat-card.counted .stat-n{animation:countUp .5s ease forwards}
-
-/* Card tilt (applied via JS) */
-.proj{transition:.25s border-color,.25s box-shadow,.08s transform}
-.proj:hover{box-shadow:0 20px 60px -16px rgba(139,92,246,.35)}
-
-/* Chip stagger */
-.chips .chip{opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease,border-color .15s,color .15s}
-.chips.chipped .chip{opacity:1;transform:none}
-
-/* Fade-in for avatar orbit wrap */
-@keyframes avatarIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-.avatar-orbit-wrap{animation:avatarIn .9s cubic-bezier(.22,1,.36,1) .3s both}
-
-/* ── HERO ── */
-.hero{
-  position:relative;
-  padding:52px 52px 48px;border-bottom:1px solid var(--border);
-  background:radial-gradient(1200px 440px at 80% -10%,var(--accent-soft),transparent 70%);
-}
-.hero-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;max-width:1100px}
-.badge{
-  display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;
-  color:var(--vio-2);background:var(--accent-soft);border:1px solid var(--border-2);
-  padding:6px 14px;border-radius:999px;margin-bottom:22px;
-}
-.pulse-dot{position:relative;width:8px;height:8px}
-.pulse-dot i{position:absolute;inset:0;border-radius:50%;background:var(--vio-2)}
-.pulse-dot i:first-child{animation:ping 1.8s cubic-bezier(0,0,.2,1) infinite}
-@keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
-.hero-label{font-family:var(--mono);font-size:13px;color:var(--tx-2);margin-bottom:8px}
-.hero-label b{color:var(--vio-2)}
-h1.hero-title{
-  font-family:var(--disp);font-weight:700;font-size:clamp(38px,5.5vw,68px);
-  line-height:1.02;letter-spacing:-.025em;color:var(--tx);
-}
-h1.hero-title .dim{color:var(--tx-3)}
-.hero-blurb{font-size:16px;color:var(--tx-2);max-width:540px;line-height:1.75;margin-top:18px}
-.hero-blurb b{color:var(--tx);font-weight:600}
-.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:28px}
-.btn{
-  display:inline-flex;align-items:center;gap:9px;height:46px;padding:0 22px;border-radius:10px;
-  font-family:var(--mono);font-size:13px;font-weight:600;cursor:pointer;transition:.2s;
-  border:1px solid transparent;text-decoration:none;white-space:nowrap;
-}
-.btn-primary{background:var(--vio);color:#fff;box-shadow:0 8px 28px -8px var(--vio)}
-.btn-primary:hover{background:var(--vio-2);transform:translateY(-2px)}
-.btn-ghost{background:var(--panel);color:var(--tx);border-color:var(--border-2)}
-.btn-ghost:hover{border-color:var(--vio);color:var(--vio-2)}
-.socials{
-  display:flex;
-  gap:9px;
-}
-
-.soc{
-  width:44px;
-  height:44px;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--panel);
-  border:1px solid var(--border-2);
-  color:var(--tx-2);
-  text-decoration:none;
-  transition:all .25s ease;
-}
-
-.soc svg{
-  width:18px;
-  height:18px;
-  fill:currentColor;
-}
-
-.github[data-theme="light"] {
-  color: #181717;
-}
-
-.github[data-theme="dark"] {
-  color: #ffffff;
-}
-
-.github:hover{
-  color:#fff;
-  background:#181717;
-  border-color:#181717;
-  box-shadow:0 0 15px rgba(24,23,23,.35);
-  transform:translateY(-2px);
-}
-
-.linkedin{
-  color:#0A66C2;
-}
-
-.linkedin:hover{
-  color:#fff;
-  background:#0A66C2;
-  border-color:#0A66C2;
-  box-shadow:0 0 15px rgba(10,102,194,.35);
-  transform:translateY(-2px);
-}
-
-.email{
-  color:#EA4335;
-}
-
-.email:hover{
-  color:#fff;
-  background:#EA4335;
-  border-color:#EA4335;
-  box-shadow:0 0 15px rgba(234,67,53,.35);
-  transform:translateY(-2px);
-}
-
-.phone{
-  color:#34B7F1;
-}
-
-.phone:hover{
-  color:#fff;
-  background:#34B7F1;
-  border-color:#34B7F1;
-  box-shadow:0 0 15px rgba(52,183,241,.35);
-  transform:translateY(-2px);
-}
-
-.whatsapp{
-  color:#25D366;
-}
-
-.whatsapp:hover{
-  color:#fff;
-  background:#25D366;
-  border-color:#25D366;
-  box-shadow:0 0 15px rgba(37,211,102,.35);
-  transform:translateY(-2px);
-}
-
-/* ── AVATAR CARD ── */
-.avatar-card{position:relative;width:290px;flex:none}
-.avatar-glow{
-  position:absolute;inset:-14px;border-radius:22px;
-  background:linear-gradient(150deg,var(--vio),var(--cyan));
-  opacity:.3;filter:blur(28px);
-}
-.avatar-frame{
-  position:relative;border-radius:16px;overflow:hidden;
-  border:1px solid var(--border-2);background:var(--panel);
-}
-.avatar-bar{
-  display:flex;align-items:center;gap:7px;padding:8px 12px;
-  background:var(--bg-2);border-bottom:1px solid var(--border);
-  font-family:var(--mono);font-size:10px;color:var(--tx-3);
-}
-.avatar-bar .dots{margin-right:3px}
-.avatar-bar .dot{width:9px;height:9px}
-.avatar-img{
-  width:100%;aspect-ratio:1/1.12;background-size:cover;background-position:center top;
-}
-.avatar-meta{
-  position:absolute;left:10px;right:10px;bottom:10px;
-  display:flex;align-items:center;gap:10px;padding:11px 12px;
-  border-radius:12px;background:rgba(11,14,22,.6);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.08);
-}
-.avatar-meta .vrf{
-  width:36px;height:36px;border-radius:9px;flex:none;
-  background:linear-gradient(135deg,var(--vio),var(--cyan));
-  display:flex;align-items:center;justify-content:center;color:#fff;
-}
-.avatar-meta .vrf svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.avatar-meta b{color:#fff;font-size:12.5px;display:block}
-.avatar-meta span{color:#9aa4b6;font-size:10.5px;font-family:var(--mono)}
-
-/* ── ORBIT RINGS ── */
-.avatar-orbit-wrap{
-  position:relative;display:flex;align-items:center;justify-content:center;
-  flex:none;width:480px;height:480px;
-}
-.o-ring{position:absolute;inset:0;pointer-events:none}
-.o-item{
-  position:absolute;top:50%;left:50%;width:0;height:0;
-  pointer-events:auto;
-}
-.o-ring-out .o-item{--r:220px;animation:o-cw 24s linear infinite var(--ad,0s)}
-.o-ring-in  .o-item{--r:148px;animation:o-ccw 17s linear infinite var(--ad,0s)}
-.o-ic{
-  position:absolute;
-  top:calc(-1 * var(--r,200px));
-  left:0;
-  transform:translateX(-50%) translateY(-50%);
-  display:inline-flex;align-items:center;gap:5px;
-  padding:5px 11px;border-radius:20px;
-  font-family:var(--mono);font-size:10.5px;font-weight:600;
-  white-space:nowrap;
-  border:1px solid color-mix(in srgb,var(--c,#8b5cf6) 35%,transparent);
-  background:color-mix(in srgb,var(--c,#8b5cf6) 10%,var(--panel));
-  color:color-mix(in srgb,var(--c,#8b5cf6) 95%,#fff);
-  box-shadow:0 2px 10px -3px color-mix(in srgb,var(--c,#8b5cf6) 30%,transparent);
-  backdrop-filter:blur(8px);cursor:default;
-}
-.o-dot{width:6px;height:6px;border-radius:50%;background:var(--c,#8b5cf6);flex:none}
-.o-ring-out .o-ic{animation:o-ccw-ic 24s linear infinite var(--ad,0s)}
-.o-ring-in  .o-ic{animation:o-cw-ic  17s linear infinite var(--ad,0s)}
-@keyframes o-cw   {to{transform:rotate( 360deg)}}
-@keyframes o-ccw  {to{transform:rotate(-360deg)}}
-@keyframes o-ccw-ic{to{transform:translateX(-50%) translateY(-50%) rotate(-360deg)}}
-@keyframes o-cw-ic {to{transform:translateX(-50%) translateY(-50%) rotate( 360deg)}}
-.avatar-orbit-wrap:hover .o-item,
-.avatar-orbit-wrap:hover .o-ic{animation-play-state:paused}
-
-/* ── SECTION WRAPPER ── */
-.sec{padding:48px 52px;border-bottom:1px solid var(--border)}
-.sec.alt{background:var(--bg-2)}
-.sec-label{font-family:var(--mono);font-size:12px;color:var(--cmt,#5f6b80);margin-bottom:8px}
-.sec-h{font-family:var(--disp);font-weight:700;font-size:32px;letter-spacing:-.015em;color:var(--tx)}
-.sec-sub{color:var(--tx-2);max-width:680px;margin-top:10px;line-height:1.7;font-size:15px}
-.sec-sub b{color:var(--tx)}
-
-/* ── STATS ROW ── */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
-.stat-card{
-  padding:20px;border-radius:12px;background:var(--panel);border:1px solid var(--border);
-  text-align:center;transition:.2s;
-}
-.stat-card:hover{border-color:var(--vio);transform:translateY(-3px)}
-.stat-n{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--vio-2);display:block;line-height:1}
-.stat-l{font-family:var(--mono);font-size:10.5px;color:var(--tx-3);text-transform:uppercase;letter-spacing:.08em;margin-top:6px;display:block}
-
-/* ── EXPERIENCE CARDS ── */
-.exp-list{display:flex;flex-direction:column;gap:14px;margin-top:28px}
-.exp-card{
-  border-radius:14px;background:var(--panel);border:1px solid var(--border);
-  overflow:hidden;transition:.2s;
-}
-.exp-card:hover{border-color:var(--vio)}
-.exp-head{
-  display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;
-  padding:22px 26px;cursor:pointer;
-}
-.exp-co{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--vio-2);margin-bottom:5px}
-.exp-role{font-family:var(--disp);font-size:19px;font-weight:600;color:var(--tx)}
-.exp-period{font-family:var(--mono);font-size:11px;color:var(--tx-3);margin-top:3px}
-.exp-toggle{
-  width:30px;height:30px;border-radius:8px;border:1px solid var(--border-2);
-  display:flex;align-items:center;justify-content:center;color:var(--tx-3);
-  transition:transform .3s,background .2s,border-color .2s,color .2s;flex-shrink:0;margin-top:2px;
-  font-size:16px;user-select:none;
-}
-.exp-card.open .exp-toggle{transform:rotate(45deg);background:var(--vio);border-color:var(--vio);color:#fff}
-.exp-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.exp-card.open .exp-body{max-height:560px}
-.exp-inner{padding:6px 26px 24px;border-top:1px solid var(--border)}
-.exp-pts{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:14px}
-.exp-pts li{display:flex;gap:10px;font-size:14px;color:var(--tx-2);line-height:1.7}
-.exp-pts li::before{content:"▹";color:var(--vio-2);flex-shrink:0;margin-top:2px}
-.exp-pts b{color:var(--tx)}
-.exp-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.exp-tag{
-  font-family:var(--mono);font-size:10.5px;border:1px solid var(--border-2);
-  background:var(--accent-soft);color:var(--vio-2);padding:3px 11px;border-radius:6px;
-}
-
-/* ── PROJECT GRID ── */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:28px}
-.proj{
-  padding:24px;border-radius:14px;background:var(--panel);border:1px solid var(--border);
-  transition:.2s;display:flex;flex-direction:column;position:relative;overflow:hidden;
-}
-.proj:hover{border-color:var(--vio);transform:translateY(-3px);box-shadow:var(--shadow)}
-.proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
-.proj-ic{
-  width:46px;height:46px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-}
-.proj-ic.gr{background:rgba(52,211,153,.16);color:var(--green)}
-.proj-ic.vi{background:var(--accent-soft);color:var(--vio-2)}
-.proj-ic.cy{background:rgba(34,211,238,.12);color:var(--cyan)}
-.proj-ic.am{background:rgba(251,191,36,.12);color:var(--amber)}
-.proj-ic.ro{background:rgba(251,113,133,.12);color:var(--rose)}
-.proj-ic svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.proj-tag{
-  font-family:var(--mono);font-size:10px;color:var(--tx-3);
-  background:var(--panel-2);border:1px solid var(--border);padding:3px 9px;border-radius:6px;
-}
-.proj h4{font-family:var(--disp);font-size:17px;font-weight:600;margin-bottom:8px;color:var(--tx)}
-.proj p{font-size:13.5px;color:var(--tx-2);line-height:1.65;flex:1}
-.proj-impact{
-  margin-top:14px;padding:10px 14px;border-radius:8px;
-  background:rgba(139,92,246,.08);border-left:2px solid var(--vio-2);
-  font-family:var(--mono);font-size:11.5px;color:var(--vio-3);
-}
-.proj-techs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.proj-tech{
-  font-family:var(--mono);font-size:10px;background:var(--panel-2);
-  border:1px solid var(--border);color:var(--tx-2);padding:3px 9px;border-radius:5px;
-}
-
-/* ── SKILLS ── */
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
-.skill-group{padding:22px;border-radius:12px;background:var(--panel);border:1px solid var(--border)}
-.skill-group-title{
-  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--vio-2);margin-bottom:14px;
-}
-.chips{display:flex;flex-wrap:wrap;gap:9px}
-.chip{
-  display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:8px;
-  background:var(--panel-2);border:1px solid var(--border);font-family:var(--mono);
-  font-size:12.5px;color:var(--tx);transition:.15s;
-}
-.chip:hover{border-color:var(--vio);color:var(--vio-2);transform:translateY(-1px)}
-.chip .b{width:6px;height:6px;border-radius:2px;background:var(--vio-2);flex:none}
-
-/* ── TERMINAL ── */
-.term{
-  background:#080b12;border:1px solid var(--border-2);
-  border-radius:14px;overflow:hidden;margin-top:28px;max-width:700px;
-}
-html[data-theme="light"] .term{background:#161b27}
-.term-bar{
-  display:flex;align-items:center;gap:7px;padding:10px 14px;
-  background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.07);
-  font-family:var(--mono);font-size:11px;color:#7a86a0;
-}
-.term-body{padding:20px 24px;font-family:var(--mono);font-size:13.5px;line-height:2.1;color:#cdd4e3}
-.term-body .pr{color:var(--vio-3)}
-.term-body .out{color:#8a94aa}
-.term-body .lk{color:var(--cyan);text-decoration:none}
-.term-body .lk:hover{text-decoration:underline}
-.cur{display:inline-block;width:8px;height:15px;background:var(--vio-2);
-  vertical-align:-2px;animation:cblink 1.1s steps(1) infinite}
-@keyframes cblink{50%{opacity:0}}
-
-/* ── SIDEBAR TERMINAL ── */
-.side-term{
-  flex:1;min-height:0;background:#080b12;border-top:1px solid var(--border);
-  display:flex;flex-direction:column;overflow:hidden;
-}
-html[data-theme="light"] .side-term{background:#161b27}
-.side-term-bar{
-  display:flex;align-items:center;gap:7px;padding:5px 10px;
-  background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.07);
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#5f6b80;
-  flex:none;
-}
-.side-term-bar .st-dot{width:7px;height:7px;border-radius:50%}
-.side-term-body{
-  flex:1;padding:6px 10px 4px;overflow-y:auto;
-  font-family:var(--mono);font-size:11px;line-height:1.75;color:#cdd4e3;
-  scrollbar-width:none;
-}
-.side-term-body::-webkit-scrollbar{width:0}
-.term-input-row{
-  flex:none;padding:2px 10px 5px;font-family:var(--mono);font-size:11px;
-  color:#e6e9f0;display:flex;align-items:center;flex-wrap:wrap;
-  border-top:1px solid rgba(255,255,255,.06);cursor:text;min-height:20px;
-}
-.st-pr{color:#a78bfa}
-.st-sep{color:#5f6b80}
-.st-cmd{color:#e6e9f0}
-.st-out{color:#5f6b80}
-.st-cur{display:inline-block;width:6px;height:11px;background:#a78bfa;
-  vertical-align:-1px;animation:cblink 1s steps(1) infinite}
-
-/* ── DOWNLOAD TOAST ── */
-.dl-toast{
-  position:fixed;bottom:44px;left:50%;transform:translateX(-50%) translateY(14px);
-  background:var(--panel);border:1px solid var(--border-2);border-radius:12px;
-  padding:16px 20px;width:340px;max-width:calc(100vw - 32px);
-  box-shadow:0 20px 60px -10px rgba(0,0,0,.5);z-index:9999;
-  opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;
-}
-.dl-toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
-.dl-toast-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
-.dl-toast-cmd{font-family:var(--mono);font-size:11.5px;color:var(--vio-2)}
-.dl-toast-sz{font-family:var(--mono);font-size:10px;color:var(--tx-3)}
-.dl-toast-msg{font-family:var(--mono);font-size:11.5px;color:var(--tx-2);margin-bottom:10px;min-height:16px}
-.dl-bar-track{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
-.dl-bar-fill{height:100%;background:linear-gradient(90deg,var(--vio),var(--cyan));
-  border-radius:2px;width:0%;transition:width .06s linear}
-
-/* ── EDUCATION CARD ── */
-.edu-card{
-  display:flex;justify-content:space-between;align-items:flex-start;gap:28px;
-  margin-top:28px;padding:28px 30px;border-radius:14px;
-  background:var(--panel);border:1px solid var(--border);transition:.2s;
-}
-.edu-card:hover{border-color:var(--vio)}
-.edu-deg{font-family:var(--disp);font-size:20px;font-weight:600;color:var(--tx);margin-bottom:6px}
-.edu-uni{font-size:14.5px;color:var(--tx-2);margin-bottom:4px}
-.edu-loc{font-family:var(--mono);font-size:11.5px;color:var(--tx-3);margin-bottom:16px}
-.edu-right{display:flex;flex-direction:column;align-items:center;gap:10px;flex:none}
-.edu-stat{text-align:center;padding:16px 22px;border-radius:12px;background:var(--accent-soft);border:1px solid var(--border-2)}
-.edu-num{font-family:var(--mono);font-size:32px;font-weight:700;color:var(--vio-2);display:block;line-height:1}
-.edu-lbl{font-family:var(--mono);font-size:10px;color:var(--tx-3);text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:4px}
-.edu-badge{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--amber);
-  background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);
-  padding:6px 14px;border-radius:8px;white-space:nowrap}
-@media(max-width:680px){.edu-card{flex-direction:column}.edu-right{flex-direction:row;align-self:flex-start}}
-
-/* ── CLOUD PLATFORM CARDS ── */
-.cloud-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
-.cloud-card{
-  border-radius:14px;background:var(--panel);border:1px solid var(--border);
-  overflow:hidden;transition:.2s;
-}
-.cloud-card:hover{border-color:var(--border-2);box-shadow:var(--shadow)}
-.cloud-header{
-  display:flex;align-items:center;gap:12px;padding:16px 20px;
-  border-bottom:1px solid var(--border);
-}
-.cloud-badge{
-  height:28px;padding:0 12px;border-radius:6px;display:flex;align-items:center;
-  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.03em;flex:none;
-}
-.cloud-badge.aws{background:#ff9900;color:#0f1320}
-.cloud-badge.azure{background:#0078d4;color:#fff}
-.cloud-header p{font-size:12.5px;color:var(--tx-2);line-height:1.5}
-.cloud-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
-.svc-group-title{
-  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--tx-3);margin-bottom:7px;
-}
-.svc-tags{display:flex;flex-wrap:wrap;gap:6px}
-.svc-tag{
-  font-family:var(--mono);font-size:11.5px;padding:4px 10px;border-radius:6px;
-  background:var(--panel-2);border:1px solid var(--border);color:var(--tx-2);
-  transition:.13s;
-}
-.svc-tag:hover{color:var(--tx);border-color:var(--border-2)}
-.svc-tag.hi{border-color:var(--border-2);color:var(--tx)}
-.svc-tag.bold{background:rgba(255,153,0,.1);border-color:#ff9900;color:#ff9900;font-weight:700}
-
-/* ── AWARDS ROW ── */
-.awards-list{display:flex;flex-direction:column;gap:8px;margin-top:24px}
-.award{
-  display:flex;align-items:center;gap:14px;padding:14px 18px;
-  border-radius:10px;background:var(--panel);border:1px solid var(--border);
-  transition:.2s;
-}
-.award:hover{border-color:var(--vio);transform:translateX(4px)}
-.award-ic{font-size:22px;flex-shrink:0}
-.award-name{font-weight:600;font-size:14px;color:var(--tx)}
-.award-org{font-family:var(--mono);font-size:11px;color:var(--tx-3);margin-top:2px}
-
-/* ── STATUS BAR ── */
-.statusbar{
-  display:flex;align-items:center;height:28px;padding:0 12px;
-  background:var(--vio);color:#fff;font-family:var(--mono);font-size:11.5px;flex:none;gap:2px;
-}
-.s{display:flex;align-items:center;gap:5px;padding:0 8px;height:100%;cursor:default;transition:.1s}
-.s:hover{background:rgba(255,255,255,.15)}
-.s svg{width:12px;height:12px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.s-grow{flex:1}
-.s-av{background:rgba(255,255,255,.2);padding:2px 10px;border-radius:5px}
-
-/* ── MOBILE FILE BAR ── */
-.mobile-files{
-  display:none;background:var(--bg-2);overflow-x:auto;
-  flex:none;border-bottom:1px solid var(--border);scrollbar-width:none;
-}
-.mobile-files::-webkit-scrollbar{height:0}
-.mf-inner{display:flex;padding:6px 8px;gap:6px;width:max-content}
-.mf-btn{
-  display:flex;align-items:center;gap:5px;background:var(--panel-2);border:1px solid var(--border);
-  color:var(--tx-3);font-family:var(--mono);font-size:11.5px;padding:5px 12px;
-  border-radius:5px;cursor:pointer;white-space:nowrap;transition:.1s;
-}
-.mf-btn.active{background:var(--vio);border-color:var(--vio);color:#fff}
-.mf-btn:hover:not(.active){color:var(--tx)}
-
-/* ── RESPONSIVE ── */
-
-/* Tablet (≤ 1024px) — hide VS Code chrome, show file pill bar */
-@media(max-width:1024px){
-  .activity,.sidebar,.tabs{display:none}
-  .mobile-files{display:block}
-  .hero-grid{grid-template-columns:1fr;gap:32px}
-  .avatar-card{width:100%;max-width:290px;margin:0 auto}
-  .o-ring{display:none}
-  .avatar-orbit-wrap{width:100%;height:auto;display:block}
-  .sec,.hero{padding:36px 28px}
-  .stats-row{grid-template-columns:repeat(2,1fr)}
-  .skills-grid{grid-column:1/-1;grid-template-columns:1fr}
-  .cloud-grid{grid-template-columns:1fr}
-  .sec-path{padding:8px 16px}
-  .proj-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-  .exp-card.open .exp-body{max-height:900px}
-}
-
-/* Mobile (≤ 680px) */
-@media(max-width:680px){
-  /* Title bar: hide the long centre label, keep dots + theme btn */
-  .title-c{display:none}
-  .titlebar{justify-content:space-between;padding:0 12px}
-
-  /* Status bar: hide non-essential items */
-  #s-lang,.s:nth-child(4),.s:nth-child(5){display:none}
-
-  h1.hero-title{font-size:clamp(34px,9vw,52px)}
-  .hero,.sec{padding:28px 20px}
-  .hero-blurb{font-size:14.5px}
-  .sec-h{font-size:26px}
-
-  /* CTA buttons: wrap to multiple lines but stay left-aligned */
-  .hero-cta{flex-wrap:wrap;gap:10px}
-  .btn{height:42px;font-size:12.5px;padding:0 17px}
-  .socials{flex-wrap:wrap}
-
-  /* Project cards full width */
-  .proj-grid{grid-template-columns:1fr}
-
-  /* Slightly tighter section padding */
-  .sec-path{padding:7px 14px;font-size:11px}
-
-  /* Accordion: more room for wrapped text */
-  .exp-head{padding:16px 18px}
-  .exp-inner{padding:6px 18px 20px}
-  .exp-role{font-size:16px}
-  .exp-pts li{font-size:13.5px}
-
-  /* Stat cards */
-  .stats-row{grid-template-columns:repeat(2,1fr);gap:10px}
-  .stat-card{padding:16px 12px}
-  .stat-n{font-size:24px}
-
-  /* Skill chips tighter */
-  .skill-group{padding:16px}
-  .chip{font-size:12px;padding:7px 11px}
-
-  /* Awards tighter */
-  .award{padding:12px 14px}
-
-  /* Terminal */
-  .term-body{font-size:12.5px;padding:16px 18px}
-
-  /* Footer */
-  footer{padding:18px 20px !important;font-size:11px}
-}
-
-/* Small mobile (≤ 400px) */
-@media(max-width:400px){
-  .hero,.sec{padding:22px 14px}
-  .sec-path{padding:6px 12px}
-  .badge{font-size:10px;padding:5px 10px}
-  h1.hero-title{font-size:32px}
-  .hero-blurb{font-size:14px}
-  .btn{height:40px;font-size:12px;padding:0 15px;gap:7px}
-  .soc{width:38px;height:38px;border-radius:8px}
-  .soc svg{width:16px;height:16px}
-  .stat-n{font-size:22px}
-  .stat-l{font-size:9.5px}
-  .proj{padding:18px}
-  .proj h4{font-size:15px}
-  .proj-impact{font-size:11px}
-  .avatar-card{max-width:240px}
-  .exp-pts li{font-size:13px}
-  .tbtn span{display:none} /* hide "Dark/Light" label, keep icon */
-  .tbtn{padding:0 8px}
-}
-
-/* ── IDE LOADER ── */
-#ide-loader{
-  position:fixed;inset:0;z-index:9999;
-  background:var(--bg,#0b0e16);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  font-family:var(--mono,"JetBrains Mono",monospace);
-  transition:opacity .5s cubic-bezier(.4,0,.2,1),visibility .5s;
-}
-#ide-loader.ld-done{opacity:0;visibility:hidden;pointer-events:none}
-.ld-glow{
-  position:absolute;width:700px;height:500px;
-  background:radial-gradient(ellipse,rgba(139,92,246,.13) 0%,transparent 68%);
-  top:50%;left:50%;transform:translate(-50%,-58%);pointer-events:none;
-}
-.ld-center{
-  position:relative;z-index:1;
-  display:flex;flex-direction:column;align-items:center;
-}
-.ld-logo{
-  width:62px;height:62px;margin-bottom:22px;
-  animation:ld-glow-pulse 2s ease-in-out infinite;
-}
-@keyframes ld-glow-pulse{
-  0%,100%{filter:drop-shadow(0 0 6px rgba(139,92,246,.45))}
-  50%    {filter:drop-shadow(0 0 22px rgba(139,92,246,.9)) drop-shadow(0 0 40px rgba(34,211,238,.3))}
-}
-.ld-appname{
-  font-family:var(--disp,"Space Grotesk",sans-serif);
-  font-size:19px;font-weight:600;color:var(--tx,#e6e9f0);
-  letter-spacing:-.01em;margin-bottom:5px;
-}
-.ld-ws{
-  display:flex;align-items:center;gap:7px;
-  font-size:11px;color:var(--tx-3,#5f6b80);margin-bottom:38px;
-}
-.ld-ws-sq{
-  width:9px;height:9px;border-radius:2px;flex:none;
-  background:linear-gradient(135deg,var(--vio,#8b5cf6),var(--cyan,#22d3ee));
-}
-.ld-tasks{width:380px;display:flex;flex-direction:column;gap:11px}
-.ld-task{
-  opacity:0;transform:translateY(5px);
-  transition:opacity .2s ease,transform .2s ease;
-}
-.ld-task.ld-show{opacity:1;transform:none}
-.ld-trow{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.ld-tlabel{font-size:10.5px;color:var(--tx-2,#9aa4b6);transition:color .2s}
-.ld-task.ld-done-t .ld-tlabel{color:var(--green,#34d399)}
-.ld-tpct{font-size:10px;color:var(--tx-3,#5f6b80);min-width:30px;text-align:right}
-.ld-bar{height:3px;background:var(--border,#1e2530);border-radius:2px;overflow:hidden}
-.ld-fill{height:100%;width:0%;border-radius:2px;transition:width linear;
-  background:linear-gradient(90deg,var(--vio,#8b5cf6),var(--cyan,#22d3ee))}
-.ld-bottom{
-  position:absolute;bottom:22px;
-  display:flex;align-items:center;gap:12px;
-  font-size:10px;color:var(--border-2,#2a3340);
-}
-.ld-bsep{color:var(--border,#1e2530)}
-
-/* AI Panel Styles */
-.ai-panel {
-  width: 380px; background: var(--panel); border-left: 1px solid var(--border);
-  display: flex; flex-direction: column; transition: width 0.2s; flex: none; z-index: 100;
-}
-.ai-panel.collapsed { width: 0; border-left: none; overflow: hidden; }
-.ai-header {
-  height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
-  border-bottom: 1px solid var(--border); font-weight: 600; color: var(--tx); font-size: 13px; font-family: var(--sans);
-}
-.ai-model-select {
-  background: var(--bg-2); color: var(--tx); border: 1px solid var(--border);
-  padding: 6px 10px; border-radius: 6px; font-size: 12px; outline: none; width: 100%; margin-bottom: 12px; font-family: var(--mono);
-}
-.ai-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 16px; }
-.chat-msg { font-size: 13px; line-height: 1.6; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--border); font-family: var(--sans); }
-.chat-sys { background: var(--accent-soft); border-color: rgba(139, 92, 246, 0.2); color: var(--tx); }
-.chat-user { background: var(--panel-2); align-self: flex-end; color: var(--tx); border-color: var(--border-2); }
-.ai-input-area { padding: 16px; border-top: 1px solid var(--border); background: var(--panel); }
-.ai-input {
-  width: 100%; background: var(--bg-2); border: 1px solid var(--border); color: var(--tx);
-  padding: 12px; border-radius: 8px; font-family: var(--sans); font-size: 13px; outline: none;
-  resize: none; height: 80px; transition: 0.2s;
-}
-.ai-input:focus { border-color: var(--vio); }
-.ai-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
-.ai-btn {
-  background: var(--vio); color: #fff; border: none; padding: 8px 16px; border-radius: 6px;
-  font-size: 12px; font-weight: 600; cursor: pointer; width: 100%; transition: 0.2s; font-family: var(--sans);
-}
-.ai-btn:hover { background: var(--vio-2); }
-</style>
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-<!-- ── IDE LOADING SCREEN ── -->
-<div id="ide-loader" role="status" aria-label="Loading workspace">
-  <div class="ld-glow" aria-hidden="true"></div>
-  <div class="ld-center">
-    <!-- VS Code-style logo -->
-    <div class="ld-logo" aria-hidden="true">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="ld-g" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#8b5cf6"/>
-            <stop offset="100%" stop-color="#22d3ee"/>
-          </linearGradient>
-        </defs>
-        <path d="M74.9 3.1L40.5 37.5 20.2 21.9 5.5 26.7v46.6l14.7 4.8 20.3-15.6 34.4 34.4 19.6-7.8V10.9L74.9 3.1zM85 62.7L59.1 50 85 37.3v25.4z" fill="url(#ld-g)"/>
-      </svg>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
-    <p class="ld-appname">Visual Studio Code</p>
-    <p class="ld-ws">
-      <span class="ld-ws-sq" aria-hidden="true"></span>
-      kishan_singh.code-workspace
-    </p>
-    <div class="ld-tasks" id="ld-tasks">
-      <div class="ld-task" data-dur="420" data-label="Cloning repository...">
-        <div class="ld-trow"><span class="ld-tlabel">Cloning repository...</span><span class="ld-tpct">0%</span></div>
-        <div class="ld-bar"><div class="ld-fill"></div></div>
-      </div>
-      <div class="ld-task" data-dur="600" data-label="Loading extensions (ESLint, TypeScript, Pylance)...">
-        <div class="ld-trow"><span class="ld-tlabel">Loading extensions (ESLint, TypeScript, Pylance)...</span><span class="ld-tpct">0%</span></div>
-        <div class="ld-bar"><div class="ld-fill"></div></div>
-      </div>
-      <div class="ld-task" data-dur="370" data-label="Building symbol index...">
-        <div class="ld-trow"><span class="ld-tlabel">Building symbol index...</span><span class="ld-tpct">0%</span></div>
-        <div class="ld-bar"><div class="ld-fill"></div></div>
-      </div>
-      <div class="ld-task" data-dur="500" data-label="Activating language servers...">
-        <div class="ld-trow"><span class="ld-tlabel">Activating language servers...</span><span class="ld-tpct">0%</span></div>
-        <div class="ld-bar"><div class="ld-fill"></div></div>
-      </div>
-      <div class="ld-task" data-dur="160" data-label="Workspace ready ✓">
-        <div class="ld-trow"><span class="ld-tlabel">Workspace ready ✓</span><span class="ld-tpct">0%</span></div>
-        <div class="ld-bar"><div class="ld-fill"></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="ld-bottom" aria-hidden="true">
-    <span>Version 1.89.0</span>
-    <span class="ld-bsep">·</span>
-    <span>© 2024 Microsoft Corporation</span>
-    <span class="ld-bsep">·</span>
-    <span>Kishan Kumar Singh — Senior Full Stack Engineer</span>
-  </div>
-</div>
 
-<div class="app">
+    <!-- 1. NAVIGATION -->
+    <nav class="nav-glass">
+        <div class="nav-container">
+            <a href="#" class="logo">KS</a>
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
 
-<!-- TITLE BAR -->
-<div class="titlebar">
-  <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
-  <div class="title-c"><span class="mod"></span>kishan-singh — portfolio.dev — Visual Studio</div>
-  <button class="tbtn" id="theme-btn" onclick="toggleTheme()">
-    <svg id="theme-ico" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    <span id="theme-lbl">Dark</span>
-  </button>
-</div>
-
-<div class="body">
-
-<!-- ACTIVITY BAR -->
-<div class="activity">
-  <div class="act on" onclick="goTo('s-readme')" title="Explorer">
-    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="7" height="7" rx="1"/><rect x="15" y="3" width="7" height="7" rx="1"/><rect x="2" y="14" width="7" height="7" rx="1"/><rect x="15" y="14" width="7" height="7" rx="1"/></svg>
-  </div>
-  <div class="act" onclick="goTo('s-experience')" title="Experience">
-    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-  </div>
-  <div class="act" onclick="goTo('s-projects')" title="Projects">
-    <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-  </div>
-  <div class="act" onclick="goTo('s-skills')" title="Skills">
-    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-  </div>
-  
-  <div class="gap"></div>
-  <div class="act" id="btn-ai" title="Cursor AI Chat">
-    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-  </div>
-  <div class="act" onclick="goTo('s-contact')" title="Contact">
-
-    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  </div>
-</div>
-
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <div class="side-h">Explorer</div>
-  <div class="tree">
-    <div class="folder-row">
-      <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-      SHUBHAM-SHARMA
-    </div>
-    <div class="nest">
-      <div class="file active" data-sec="s-readme"><span class="ic md-ic">M</span>README.md</div>
-
-      <!-- career/ -->
-      <div class="sub-folder" onclick="toggleSub(this,'career-nest')">
-        <svg class="sf-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-        <span class="sf-ic">📁</span> career
-      </div>
-      <div class="sub-nest" id="career-nest">
-        <div class="file" data-sec="s-experience"><span class="ic json-ic">{}</span>experience.json</div>
-        <div class="file" data-sec="s-awards"><span class="ic md-ic">M</span>awards.md</div>
-        <div class="file" data-sec="s-education"><span class="ic md-ic">M</span>education.md</div>
-      </div>
-
-      <!-- projects/ -->
-      <div class="sub-folder" onclick="toggleSub(this,'proj-nest')">
-        <svg class="sf-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-        <span class="sf-ic">📁</span> projects
-      </div>
-      <div class="sub-nest" id="proj-nest">
-        <div class="file" data-sec="s-projects"><span class="ic ts-ic">TS</span>projects.ts</div>
-      </div>
-
-      <!-- skills/ -->
-      <div class="sub-folder" onclick="toggleSub(this,'skills-nest')">
-        <svg class="sf-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-        <span class="sf-ic">📁</span> skills
-      </div>
-      <div class="sub-nest" id="skills-nest">
-        <div class="file" data-sec="s-skills"><span class="ic json-ic">{}</span>skills.json</div>
-        <div class="file" data-sec="s-cloud"><span class="ic json-ic">{}</span>cloud.json</div>
-      </div>
-
-      <div class="file" data-sec="s-contact"><span class="ic sh-ic">$</span>contact.sh</div>
-    </div>
-  </div>
-
-  <!-- SIDEBAR TERMINAL -->
-  <div class="side-term" id="side-term">
-    <div class="side-term-bar">
-      <span class="st-dot" style="background:#fb7185"></span>
-      <span class="st-dot" style="background:#fbbf24"></span>
-      <span class="st-dot" style="background:#34d399"></span>
-      &nbsp;terminal &nbsp;<span style="color:#414e63;font-size:9px">click to type</span>
-    </div>
-    <div class="side-term-body" id="side-term-body"></div>
-    <div class="term-input-row" id="term-input-row" style="display:none">
-      <span class="st-pr" id="term-prompt">~</span><span class="st-sep"> % </span><span id="term-typed-span" class="st-cmd"></span><span class="st-cur"></span>
-    </div>
-  </div>
-  <input id="term-hidden" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" style="position:fixed;opacity:0;pointer-events:none;left:-9999px;top:-9999px">
-</aside>
-
-<!-- EDITOR -->
-<main class="editor">
-
-  <!-- MOBILE FILE BAR -->
-  <div class="mobile-files">
-    <div class="mf-inner">
-      <button class="mf-btn active" data-sec="s-readme">README.md</button>
-      <button class="mf-btn" data-sec="s-experience">experience.json</button>
-      <button class="mf-btn" data-sec="s-projects">projects.ts</button>
-      <button class="mf-btn" data-sec="s-skills">skills.json</button>
-      <button class="mf-btn" data-sec="s-cloud">cloud.json</button>
-      <button class="mf-btn" data-sec="s-awards">awards.md</button>
-      <button class="mf-btn" data-sec="s-education">education.md</button>
-      <button class="mf-btn" data-sec="s-contact">contact.sh</button>
-    </div>
-  </div>
-
-  <!-- TABS -->
-  <div class="tabs" id="tabs">
-    <div class="tab active" data-sec="s-readme"><span class="ic md-ic">M</span>README.md</div>
-    <div class="tab" data-sec="s-experience"><span class="ic json-ic">{}</span>experience.json</div>
-    <div class="tab" data-sec="s-projects"><span class="ic ts-ic">TS</span>projects.ts</div>
-    <div class="tab" data-sec="s-skills"><span class="ic json-ic">{}</span>skills.json</div>
-    <div class="tab" data-sec="s-cloud"><span class="ic json-ic">{}</span>cloud.json</div>
-    <div class="tab" data-sec="s-awards"><span class="ic md-ic">M</span>awards.md</div>
-    <div class="tab" data-sec="s-education"><span class="ic md-ic">M</span>education.md</div>
-    <div class="tab" data-sec="s-contact"><span class="ic sh-ic">$</span>contact.sh</div>
-  </div>
-
-  <!-- SCROLL CONTENT -->
-  <div class="scroll" id="scroll">
-
-    <!-- ═══ README.md / HERO ═══ -->
-    <section id="s-readme">
-      <div class="sec-path"><span class="crumb">kishan-singh</span><span class="sep"> › </span>README.md</div>
-      <div class="hero">
-        <div class="hero-aurora" aria-hidden="true">
-          <div class="aurora-blob"></div>
-          <div class="aurora-blob"></div>
-          <div class="aurora-blob"></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-        <div class="hero-grid" style="position:relative;z-index:1">
-          <div>
-            <div class="badge reveal"><span class="pulse-dot"><i></i><i></i></span>Open to opportunities</div>
-            <p class="hero-label reveal">// hi, my name is <b>Kishan Kumar Singh</b></p>
-            <h1 class="hero-title reveal">Backend<br><span class="dim">Engineer.</span></h1>
-            <p class="hero-role">I <span class="tw-verb" id="tw-verb"></span><span class="tw-obj" id="tw-obj"></span><span class="tw-cur"></span></p>
-            <p class="hero-blurb reveal"><b>5+ years</b> architecting distributed systems, microservices &amp; AI-driven backends. Based in New Delhi, India — obsessed with performance, scale, and systems that just work.</p>
-            <div class="hero-cta">
-              <a class="btn btn-primary" href="#s-experience" onclick="goTo('s-experience');return false;">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-                View Work
-              </a>
-              <a class="btn btn-ghost" id="cv-btn" href="assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download CV
-              </a>
-              <a class="btn btn-ghost" href="mailto:kishansinghsw00@gmail.com">Contact Me</a>
-              <div class="socials">
-                <a class="soc github" href="https://github.com/KishanSinghsw20" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
-                <a class="soc linkedin" href="https://linkedin.com/in/iofficial-kishansingh" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                <a class="soc email" href="mailto:kishansinghsw00@gmail.com" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M61.4 64C27.5 64 0 91.5 0 125.4 0 126.3 0 127.1 .1 128L0 128 0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256-.1 0c0-.9 .1-1.7 .1-2.6 0-33.9-27.5-61.4-61.4-61.4L61.4 64zM464 192.3L464 384c0 8.8-7.2 16-16 16L64 400c-8.8 0-16-7.2-16-16l0-191.7 154.8 117.4c31.4 23.9 74.9 23.9 106.4 0L464 192.3zM48 125.4C48 118 54 112 61.4 112l389.2 0c7.4 0 13.4 6 13.4 13.4 0 4.2-2 8.2-5.3 10.7L280.2 271.5c-14.3 10.8-34.1 10.8-48.4 0L53.3 136.1c-3.3-2.5-5.3-6.5-5.3-10.7z"/></svg></a>
-                <a class="soc phone" href="tel:+918810592193" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.21-1.21a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-                <a class="soc whatsapp" href="https://wa.me/918810592193" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
-              </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <header id="home" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">
+                > Kishan Kumar Singh<span class="terminal-cursor">▌</span><br>
+                <span class="hero-role">Senior Software Engineer</span>
+            </h1>
+            <p class="hero-subline">
+                Building production systems that scale.<br>
+                <span class="tech-stack-line">PHP · Laravel · TypeScript · Node.js · React.js · Python</span>
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-pill tilt-effect">[ <span class="counter" data-target="99.8">0</span>% perf gain ]</div>
+                <div class="stat-pill tilt-effect">[ <span class="counter" data-target="10000">0</span>+ SMS/campaign ]</div>
+                <div class="stat-pill tilt-effect">[ <span class="counter" data-target="4">0</span> payment gateways ]</div>
+                <div class="stat-pill tilt-effect">[ <span class="counter" data-target="5">0</span>+ yrs ]</div>
             </div>
-          </div>
-          <div class="avatar-orbit-wrap">
-            <!-- Outer ring — 8 icons — clockwise 24s -->
-            <div class="o-ring o-ring-out" aria-hidden="true">
-              <div class="o-item" style="--ad:0s">   <span class="o-ic" style="--c:#339933"><span class="o-dot"></span>Node.js</span></div>
-              <div class="o-item" style="--ad:-3s">  <span class="o-ic" style="--c:#3178c6"><span class="o-dot"></span>TypeScript</span></div>
-              <div class="o-item" style="--ad:-6s">  <span class="o-ic" style="--c:#3776ab"><span class="o-dot"></span>Python</span></div>
-              <div class="o-item" style="--ad:-9s">  <span class="o-ic" style="--c:#ff9900"><span class="o-dot"></span>AWS</span></div>
-              <div class="o-item" style="--ad:-12s"> <span class="o-ic" style="--c:#336791"><span class="o-dot"></span>PostgreSQL</span></div>
-              <div class="o-item" style="--ad:-15s"> <span class="o-ic" style="--c:#47a248"><span class="o-dot"></span>MongoDB</span></div>
-              <div class="o-item" style="--ad:-18s"> <span class="o-ic" style="--c:#dc382d"><span class="o-dot"></span>Redis</span></div>
-              <div class="o-item" style="--ad:-21s"> <span class="o-ic" style="--c:#e0234e"><span class="o-dot"></span>NestJS</span></div>
-            </div>
-            <!-- Inner ring — 5 icons — counter-clockwise 17s -->
-            <div class="o-ring o-ring-in" aria-hidden="true">
-              <div class="o-item" style="--ad:0s">     <span class="o-ic" style="--c:#2496ed"><span class="o-dot"></span>Docker</span></div>
-              <div class="o-item" style="--ad:-3.4s">  <span class="o-ic" style="--c:#ff6600"><span class="o-dot"></span>RabbitMQ</span></div>
-              <div class="o-item" style="--ad:-6.8s">  <span class="o-ic" style="--c:#009688"><span class="o-dot"></span>FastAPI</span></div>
-              <div class="o-item" style="--ad:-10.2s"> <span class="o-ic" style="--c:#f05032"><span class="o-dot"></span>Git</span></div>
-              <div class="o-item" style="--ad:-13.6s"> <span class="o-ic" style="--c:#e535ab"><span class="o-dot"></span>GraphQL</span></div>
-            </div>
-            <!-- Avatar card -->
-            <div class="avatar-card">
-              <div class="avatar-glow"></div>
-              <div class="avatar-frame">
-                <div class="avatar-bar"><span class="dots" style="display:flex;gap:5px"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></span> assets/images/profile.png</div>
-                <div class="avatar-img" style="background-image:url('assets/images/profile.png')"></div>
-                <div class="avatar-meta">
-                  <div class="vrf"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
-                  <div><b>5+ Years Experience</b><span>Available · New Delhi, India</span></div>
+
+            <div class="hero-cta" style="display:flex; gap:1rem; flex-wrap:wrap; position:relative; z-index:50;">
+                <a href="#projects" class="btn btn-primary tilt-effect">[ View My Work ]</a>
+                <div class="resume-dropdown" style="position:relative;">
+                    <button class="btn btn-outline tilt-effect resume-btn" id="mainResumeBtn" aria-haspopup="true" aria-expanded="false" onclick="toggleMainDropdown(event)" style="cursor:pointer;">[ Download Resume ▼ ]</button>
+                    <div class="resume-dropdown-menu" id="mainResumeMenu" style="display:none; position:absolute; top:calc(100% + 0.5rem); left:0; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.5rem; min-width:200px; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:100; text-align:left;">
+                        <a href="assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" download="Kishan_Kumar_Singh_Senior_Software_Engineer.pdf" class="resume-dropdown-item dropdown-item-custom" style="display:flex; align-items:center; gap:0.5rem; padding:0.8rem 1rem; color:var(--text-primary); text-decoration:none; font-weight:500; transition:var(--transition); border-radius:4px; margin-bottom:0.2rem;"><img src="assets/icons/vscode-icons_file-type-pdf2.svg" width="20" height="20" alt="PDF"> Download PDF</a>
+                        <a href="assets/resume/Kishan_Kumar_Singh_Senior_Software_Engineer.docx" download="Kishan_Kumar_Singh_Senior_Software_Engineer.docx" class="resume-dropdown-item dropdown-item-custom" style="display:flex; align-items:center; gap:0.5rem; padding:0.8rem 1rem; color:var(--text-primary); text-decoration:none; font-weight:500; transition:var(--transition); border-radius:4px;"><img src="assets/icons/vscode-icons_file-type-word.svg" width="20" height="20" alt="DOCX"> Download DOCX</a>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-      <!-- Stats -->
-      <div class="sec" style="border-top:none;padding-top:36px;padding-bottom:36px">
-        <div class="stats-row reveal-stagger">
-          <div class="stat-card"><span class="stat-n">5+</span><span class="stat-l">Years Experience</span></div>
-          <div class="stat-card"><span class="stat-n">68%</span><span class="stat-l">Cloud Cost Cut</span></div>
-          <div class="stat-card"><span class="stat-n">80%</span><span class="stat-l">Dev Productivity</span></div>
-          <div class="stat-card"><span class="stat-n">95%</span><span class="stat-l">Manual Effort Cut</span></div>
+    </header>
+
+    <!-- 3. ABOUT SECTION -->
+    <section id="about" class="about-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// ABOUT.md</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-avatar tilt-effect">
+                    <div class="avatar-placeholder">
+                        <img src="assets/images/profile.png" alt="Kishan Kumar Singh Profile Image" class="profile-img">
+                    </div>
+                </div>
+                <div class="about-content">
+                    <p class="bio-text">
+                        > I'm a Senior Full Stack Engineer from New Delhi, India with 5+ years of experience shipping production-grade web systems. I've owned entire ecosystems solo — from architecting REST APIs to clearing 12-month bug backlogs, integrating payment gateways, and automating workflows for US enterprise clients. I don't just write code; I engineer solutions that hold under pressure.
+                    </p>
+                    <p class="bio-text">
+                        > Currently at <strong>Innostax Software Labs</strong>, I own a live SugarCRM ecosystem serving banking clients. Previously at <strong>Goolean Technologies</strong>, I built Clocktales HRMS and Oyly's full backend from scratch. I mentor developers and lead architecture decisions.
+                    </p>
+                    <p class="bio-text">
+                        > When I'm not engineering at scale, I'm building <strong>JobPilot AI</strong> (autonomous job-hunting automation) and my cinematic portfolio — because side projects reveal who an engineer really is.
+                    </p>
+                    
+                    <div class="quick-facts">
+                        <span class="fact-pill"><img src="assets/icons/mdi_map-marker-outline.svg" class="invert-dark" width="16" height="16" alt="Location"> New Delhi</span>
+                        <span class="fact-pill"><img src="assets/icons/mdi_school-outline.svg" class="invert-dark" width="16" height="16" alt="Education"> MCA '25</span>
+                        <span class="fact-pill"><img src="assets/icons/mdi_robot-outline.svg" class="invert-dark" width="16" height="16" alt="AI"> AI Workflow</span>
+                        <span class="fact-pill"><img src="assets/icons/mdi_rocket-launch-outline.svg" class="invert-dark" width="16" height="16" alt="Rocket"> Agency Builder</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- ═══ experience.json ═══ -->
-    <section id="s-experience">
-      <div class="sec-path"><span class="crumb">kishan-singh</span><span class="sep"> › </span>experience.json</div>
-      <div class="sec alt">
-        <div class="sec-label">// work history</div>
-        <div class="sec-h">Experience</div>
-        <p class="sec-sub">5+ years at Innostax Software Labs, growing from Associate to SDE-I — building platforms that scale.</p>
-        <div class="exp-list reveal-stagger">
-          <div class="exp-card open">
-            <div class="exp-head" onclick="toggleExp(this)">
-              <div>
-                <div class="exp-co">Innostax Software Labs · New Delhi</div>
-                <div class="exp-role">Senior Software Development Engineer</div>
-                <div class="exp-period">Oct 2025 – Present</div>
-              </div>
-              <div class="exp-toggle">+</div>
+    <!-- 4. KEY ACHIEVEMENTS -->
+    <section id="achievements" class="achievements-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// IMPACT.LOG</h2>
             </div>
-            <div class="exp-body">
-              <div class="exp-inner">
-                <ul class="exp-pts">
-                  <li>Owned SugarCRM v6.5 production ecosystem for major banking clients.</li>
-                  <li><b>Cleared 12+ month production bug backlog</b> solo, dramatically improving system stability.</li>
-                  <li>Enforced strict Git Flow processes for full deployment auditability and team consistency.</li>
-                </ul>
-                <div class="exp-tags">
-                  <span class="exp-tag">PHP</span><span class="exp-tag">SugarCRM</span><span class="exp-tag">MySQL</span><span class="exp-tag">Git</span>
+            
+            <div class="achievements-grid">
+                <div class="terminal-card tilt-effect">
+                    <div class="metric"><span class="counter" data-target="99.8">0</span>%</div>
+                    <div class="label">Performance Gain</div>
+                    <div class="description">Refactored SugarCRM SQL loops — 22s → 0.044s</div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="exp-card">
-            <div class="exp-head" onclick="toggleExp(this)">
-              <div>
-                <div class="exp-co">Goolean Technologies · New Delhi</div>
-                <div class="exp-role">Software Developer</div>
-                <div class="exp-period">Aug 2024 – Oct 2025</div>
-              </div>
-              <div class="exp-toggle">+</div>
-            </div>
-            <div class="exp-body">
-              <div class="exp-inner">
-                <ul class="exp-pts">
-                  <li>Led modernisation pilot <b>migrating a legacy PHP monolith to a microservices architecture</b>.</li>
-                  <li>Built the full REST API backend for the <b>Oyly dine-in platform</b>, ensuring real-time order sync.</li>
-                  <li>Mentored junior developers on FastAPI and React.js best practices.</li>
-                </ul>
-                <div class="exp-tags">
-                  <span class="exp-tag">Node.js</span><span class="exp-tag">FastAPI</span><span class="exp-tag">React.js</span><span class="exp-tag">Microservices</span>
+                <div class="terminal-card tilt-effect">
+                    <div class="metric"><span class="counter" data-target="10000">0</span>+</div>
+                    <div class="label">SMS Leads / Campaign</div>
+                    <div class="description">Queue-based Twilio engine, zero timeouts</div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="exp-card">
-            <div class="exp-head" onclick="toggleExp(this)">
-              <div>
-                <div class="exp-co">Nablasol Digital Service · New Delhi</div>
-                <div class="exp-role">Junior Software Developer</div>
-                <div class="exp-period">Aug 2022 – Jul 2024</div>
-              </div>
-              <div class="exp-toggle">+</div>
-            </div>
-            <div class="exp-body">
-              <div class="exp-inner">
-                <ul class="exp-pts">
-                  <li>Launched MS Teams Connector for SugarCRM utilizing the MS Graph API.</li>
-                  <li>Engineered a high-volume SMS campaign system successfully <b>processing 10k+ leads</b>.</li>
-                </ul>
-                <div class="exp-tags">
-                  <span class="exp-tag">PHP</span><span class="exp-tag">MS Graph API</span><span class="exp-tag">Twilio</span><span class="exp-tag">Cron</span>
+                <div class="terminal-card tilt-effect">
+                    <div class="metric"><span class="counter" data-target="4">0</span></div>
+                    <div class="label">Payment Gateways</div>
+                    <div class="description">Razorpay, PhonePe, Cashfree, PayU — dynamic routing</div>
                 </div>
-              </div>
+                <div class="terminal-card tilt-effect">
+                    <div class="metric">~<span class="counter" data-target="0">100</span>%</div>
+                    <div class="label">Client No-Show Rate</div>
+                    <div class="description">Automated MS Teams reminders via Microsoft Graph API</div>
+                </div>
+                <div class="terminal-card tilt-effect">
+                    <div class="metric"><span class="counter" data-target="25">0</span>%</div>
+                    <div class="label">Dev-Time Saved</div>
+                    <div class="description">AI-assisted coding (Copilot, Claude, ChatGPT)</div>
+                </div>
+                <div class="terminal-card tilt-effect">
+                    <div class="metric"><span class="counter" data-target="12">0</span>+ months</div>
+                    <div class="label">Bug Backlog Cleared</div>
+                    <div class="description">Solo. Including a Froala Editor failure blocking all users</div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- ═══ projects.ts ═══ -->
-    <section id="s-projects">
-      <div class="sec-path"><span class="crumb">kishan-singh</span><span class="sep"> › </span>projects.ts</div>
-      <div class="sec">
-        <div class="sec-label">// selected projects</div>
-        <div class="sec-h">Projects</div>
-        <p class="sec-sub">Platforms and systems built across AI, travel tech, healthcare, and job matching.</p>
-        <div class="proj-grid reveal-stagger">
-          <div class="proj">
-            <div class="proj-top"><div class="proj-ic vi"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><span class="proj-tag">Live</span></div>
-            <h4>Business Leads UK</h4>
-            <p>UK business mobile quote comparison platform for B2B telecommunications. Complex pricing engine and lead generation pipeline.</p>
-            <div class="proj-impact">⚡ High-conversion pipeline</div>
-            <div class="proj-techs"><span class="proj-tech">CodeIgniter</span><span class="proj-tech">PHP</span><span class="proj-tech">MySQL</span></div>
-          </div>
-          <div class="proj">
-            <div class="proj-top"><div class="proj-ic cy"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span class="proj-tag">Live</span></div>
-            <h4>Allegan Global Solutions</h4>
-            <p>Global event management platform scaling to support 15,000+ visitors concurrently across healthcare and AI sectors.</p>
-            <div class="proj-impact">⚡ Handled 15k+ concurrent users</div>
-            <div class="proj-techs"><span class="proj-tech">Laravel</span><span class="proj-tech">PHP</span><span class="proj-tech">REST API</span></div>
-          </div>
-          <div class="proj">
-            <div class="proj-top"><div class="proj-ic gr"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="proj-tag">Live</span></div>
-            <h4>Clocktales HRMS</h4>
-            <p>Multi-company HR system with complex role-based attendance, shift tracking, and automated leave calculations.</p>
-            <div class="proj-impact">⚡ Multi-tenant architecture</div>
-            <div class="proj-techs"><span class="proj-tech">React.js</span><span class="proj-tech">Microservices</span></div>
-          </div>
+    <!-- 5. WORK EXPERIENCE -->
+    <section id="experience" class="experience-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// WORK_HISTORY.log</h2>
+            </div>
+            
+            <div class="timeline-layout">
+                <div class="timeline-bar"></div>
+                <div class="experience-cards">
+                    
+                    <div class="exp-card tilt-effect">
+                        <div class="node"></div>
+                        <div class="exp-header">
+                            <h3>[1] Senior Software Development Engineer</h3>
+                            <div class="exp-meta">
+                                <span class="company">Innostax Software Labs Pvt. Ltd.</span>
+                                <span class="period">Oct 2025 – Present | Gurugram, IN</span>
+                            </div>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Sole engineer owning a business-critical SugarCRM v6.5 production ecosystem serving banking clients via realwired.com</li>
+                            <li>Cleared 12+ month backlog of unresolved production bugs solo, including Froala Editor failure blocking all users</li>
+                            <li>Integrated AI-powered Review Forms across subdomains — automating client workflows for banking customers</li>
+                            <li>Enforced Git Flow (Feature Branching → PR → Admin Review) for clean deployment auditability</li>
+                            <li>Used Claude, ChatGPT, Ollama for root cause analysis and documenting undocumented system behaviour</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-card tilt-effect">
+                        <div class="node"></div>
+                        <div class="exp-header">
+                            <h3>[2] Software Developer</h3>
+                            <div class="exp-meta">
+                                <span class="company">Goolean Technologies Pvt. Ltd.</span>
+                                <span class="period">Aug 2024 – Oct 2025 | Gurugram, IN</span>
+                            </div>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Mentored 2 Senior Developers + 2 Interns on FastAPI and React.js</li>
+                            <li>Led PHP monolith → microservices migration pilot</li>
+                            <li>Built Clocktales HRMS from scratch — attendance, shift management, leave engine</li>
+                            <li>Architected full REST API backend for Oyly (oyly.in) — real-time order sync between customer app and kitchen terminals</li>
+                            <li>Integrated 4 payment gateways with dynamic routing and unique booking slug generation</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-card tilt-effect">
+                        <div class="node"></div>
+                        <div class="exp-header">
+                            <h3>[3] Junior Software Developer</h3>
+                            <div class="exp-meta">
+                                <span class="company">Nablasol Digital Service Pvt. Ltd.</span>
+                                <span class="period">Aug 2022 – Jul 2024 | New Delhi, IN</span>
+                            </div>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Built a commercial Microsoft Teams Connector for SugarCRM via Microsoft Graph API — near-zero no-show rates for US legal clients</li>
+                            <li>Engineered high-volume SMS campaign system (Twilio + CodeIgniter) handling 10,000+ leads per run</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-card tilt-effect">
+                        <div class="node"></div>
+                        <div class="exp-header">
+                            <h3>[4] Software Developer (Intern)</h3>
+                            <div class="exp-meta">
+                                <span class="company">Nablasol Digital Service Pvt. Ltd.</span>
+                                <span class="period">Aug 2021 – Aug 2022 | New Delhi, IN</span>
+                            </div>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>99.8% performance improvement — raw SQL loops → optimised SugarBean queries (22s → 0.044s)</li>
+                            <li>Developed 3 custom SugarCRM modules, enhanced 10+ core modules using Backbone.js and PHP</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-card tilt-effect">
+                        <div class="node"></div>
+                        <div class="exp-header">
+                            <h3>[5] Web Developer (Intern)</h3>
+                            <div class="exp-meta">
+                                <span class="company">Achiever Solutions Pvt. Ltd.</span>
+                                <span class="period">Feb 2021 – Jul 2021 | New Delhi, IN</span>
+                            </div>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Built full-stack Core PHP 7 apps with custom Admin Panels and optimised SQL</li>
+                            <li>Implemented AJAX for real-time content updates across multiple client websites</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- ═══ skills.json ═══ -->
-    <section id="s-skills">
-      <div class="sec-path"><span class="crumb">kishan-singh</span><span class="sep"> › </span>skills.json</div>
-      <div class="sec alt">
-        <div class="sec-label">// technical stack</div>
-        <div class="sec-h">Skills</div>
-        <p class="sec-sub">Languages, frameworks, databases, cloud platforms, and architecture patterns.</p>
-        <div class="skills-grid reveal-stagger">
-          <div class="skill-group">
-            <div class="skill-group-title">Languages</div>
-            <div class="chips">
-              <span class="chip"><span class="b"></span>JavaScript</span>
-              <span class="chip"><span class="b"></span>TypeScript</span>
-              <span class="chip"><span class="b"></span>Python</span>
-              <span class="chip"><span class="b"></span>C# / .NET</span>
+    <!-- 6. LIVE PROJECTS SHOWCASE -->
+    <section id="projects" class="projects-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// PRODUCTION.LIVE</h2>
             </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Frameworks</div>
-            <div class="chips">
-              <span class="chip"><span class="b"></span>Node.js</span>
-              <span class="chip"><span class="b"></span>Express.js</span>
-              <span class="chip"><span class="b"></span>NestJS</span>
-              <span class="chip"><span class="b"></span>FastAPI</span>
-              <span class="chip"><span class="b"></span>Flask</span>
-              <span class="chip"><span class="b"></span>.NET</span>
+            
+            <div class="featured-projects">
+                <div class="featured-card tilt-effect">
+                    <div class="card-content">
+                        <div class="badge">LIVE · Production</div>
+                        <h3>Clocktales HRMS</h3>
+                        <a href="https://clocktales.com" target="_blank" class="project-url">clocktales.com</a>
+                        <p>Multi-company HRMS built from scratch. Role-based attendance, automated leave calculation engine, and complex shift management serving live production users across multiple companies.</p>
+                        <div class="stack-strip">PHP · CodeIgniter · React.js · MySQL · REST API · Microservices</div>
+                    </div>
+                </div>
+
+                <div class="featured-card tilt-effect">
+                    <div class="card-content">
+                        <div class="badge">LIVE · Production</div>
+                        <h3>Oyly — Dine-In Ordering App</h3>
+                        <a href="https://oyly.in" target="_blank" class="project-url">oyly.in</a>
+                        <p>Full backend API layer with high-frequency polling schema enabling live order sync between customer app and kitchen terminals. Every order update in real time.</p>
+                        <div class="stack-strip">PHP · CodeIgniter · MySQL · REST API · Real-Time Polling</div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Databases &amp; Messaging</div>
-            <div class="chips">
-              <span class="chip"><span class="b"></span>PostgreSQL</span>
-              <span class="chip"><span class="b"></span>MongoDB</span>
-              <span class="chip"><span class="b"></span>Redis</span>
-              <span class="chip"><span class="b"></span>MySQL</span>
-              <span class="chip"><span class="b"></span>RabbitMQ</span>
-              <span class="chip"><span class="b"></span>CockroachDB</span>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <div class="small-project-card tilt-effect">
+                            <h4>India Pharma Global Expo</h4>
+                            <a href="https://indiapharmaglobalexpo.com" target="_blank" class="project-url">indiapharmaglobalexpo.com</a>
+                            <div class="stack-tags">CodeIgniter · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://indiapharmaglobalexpo.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect">
+                            <h4>PharmaNext Global Summit</h4>
+                            <a href="https://pharmanextglobalsummit.com" target="_blank" class="project-url">pharmanextglobalsummit.com</a>
+                            <div class="stack-tags">CodeIgniter · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://pharmanextglobalsummit.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect">
+                            <h4>Allegan Global Solutions</h4>
+                            <a href="https://alleganglobalsolutions.com" target="_blank" class="project-url">alleganglobalsolutions.com</a>
+                            <div class="stack-tags">Laravel · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://alleganglobalsolutions.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect">
+                            <h4>Business Leads UK</h4>
+                            <a href="https://businessleadsuk.com" target="_blank" class="project-url">businessleadsuk.com</a>
+                            <div class="stack-tags">CodeIgniter · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://businessleadsuk.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect">
+                            <h4>Apna Dental</h4>
+                            <a href="https://apnadental.com" target="_blank" class="project-url">apnadental.com</a>
+                            <div class="stack-tags">Core PHP · MySQL · JS</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://apnadental.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect">
+                            <h4>SugarCRM Consumer Law</h4>
+                            <a href="https://sugar.consumerlaw.com" target="_blank" class="project-url">sugar.consumerlaw.com</a>
+                            <div class="stack-tags">SugarCRM · PHP · MS Graph API</div>
+                            <p>Enterprise</p>
+                            <a href="https://sugar.consumerlaw.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                    </div>
+                    <div class="marquee-group" aria-hidden="true">
+                        <div class="small-project-card tilt-effect" aria-hidden="true">
+                            <h4>India Pharma Global Expo</h4>
+                            <a href="https://indiapharmaglobalexpo.com" target="_blank" class="project-url">indiapharmaglobalexpo.com</a>
+                            <div class="stack-tags">CodeIgniter · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://indiapharmaglobalexpo.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect" aria-hidden="true">
+                            <h4>PharmaNext Global Summit</h4>
+                            <a href="https://pharmanextglobalsummit.com" target="_blank" class="project-url">pharmanextglobalsummit.com</a>
+                            <div class="stack-tags">CodeIgniter · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://pharmanextglobalsummit.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect" aria-hidden="true">
+                            <h4>Allegan Global Solutions</h4>
+                            <a href="https://alleganglobalsolutions.com" target="_blank" class="project-url">alleganglobalsolutions.com</a>
+                            <div class="stack-tags">Laravel · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://alleganglobalsolutions.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect" aria-hidden="true">
+                            <h4>Business Leads UK</h4>
+                            <a href="https://businessleadsuk.com" target="_blank" class="project-url">businessleadsuk.com</a>
+                            <div class="stack-tags">CodeIgniter · PHP · MySQL</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://businessleadsuk.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect" aria-hidden="true">
+                            <h4>Apna Dental</h4>
+                            <a href="https://apnadental.com" target="_blank" class="project-url">apnadental.com</a>
+                            <div class="stack-tags">Core PHP · MySQL · JS</div>
+                            <p>Freelance Delivery</p>
+                            <a href="https://apnadental.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                        <div class="small-project-card tilt-effect" aria-hidden="true">
+                            <h4>SugarCRM Consumer Law</h4>
+                            <a href="https://sugar.consumerlaw.com" target="_blank" class="project-url">sugar.consumerlaw.com</a>
+                            <div class="stack-tags">SugarCRM · PHP · MS Graph API</div>
+                            <p>Enterprise</p>
+                            <a href="https://sugar.consumerlaw.com" target="_blank" class="btn-visit">→ Visit Live</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Cloud &amp; DevOps</div>
-            <div class="chips">
-              <span class="chip"><span class="b"></span>AWS</span>
-              <span class="chip"><span class="b"></span>Azure</span>
-              <span class="chip"><span class="b"></span>Git</span>
-              <span class="chip"><span class="b"></span>Postman</span>
-              <span class="chip"><span class="b"></span>Jira</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Architecture</div>
-            <div class="chips">
-              <span class="chip"><span class="b"></span>Microservices</span>
-              <span class="chip"><span class="b"></span>Event-Driven</span>
-              <span class="chip"><span class="b"></span>Distributed Systems</span>
-              <span class="chip"><span class="b"></span>REST API Design</span>
-              <span class="chip"><span class="b"></span>System Design</span>
-              <span class="chip"><span class="b"></span>API Integration</span>
-              <span class="chip"><span class="b"></span>Scalability</span>
-              <span class="chip"><span class="b"></span>Performance Optimization</span>
-            </div>
-          </div>
-          <div class="skill-group" style="grid-column:1/-1">
-            <div class="skill-group-title">AI / ML</div>
-            <div class="chips">
-              <span class="chip" style="border-color:#ff9900;color:#ff9900;font-weight:700"><span class="b" style="background:#ff9900"></span>AWS Bedrock</span>
-              <span class="chip"><span class="b"></span>Hugging Face Transformers</span>
-              <span class="chip"><span class="b"></span>Vector Search</span>
-              <span class="chip"><span class="b"></span>Semantic Search</span>
-              <span class="chip"><span class="b"></span>LLM Orchestration</span>
-            </div>
-          </div>
         </div>
-
-        <!-- Cloud platform detail cards -->
-        <div id="s-cloud" style="margin-top:32px">
-          <div class="sec-label" style="margin-bottom:6px">// cloud platforms</div>
-          <div class="cloud-grid">
-
-            <!-- AWS -->
-            <div class="cloud-card">
-              <div class="cloud-header">
-                <span class="cloud-badge aws">AWS</span>
-                <p>Amazon Web Services — primary cloud provider across production projects</p>
-              </div>
-              <div class="cloud-body">
-                <div>
-                  <div class="svc-group-title">Compute</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag hi">EC2</span>
-                    <span class="svc-tag hi">Lambda</span>
-                    <span class="svc-tag">ECS</span>
-                    <span class="svc-tag">Elastic Beanstalk</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="svc-group-title">Storage &amp; Database</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag hi">S3</span>
-                    <span class="svc-tag hi">RDS</span>
-                    <span class="svc-tag">ElastiCache</span>
-                    <span class="svc-tag">DynamoDB</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="svc-group-title">Messaging &amp; API</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag hi">SQS</span>
-                    <span class="svc-tag">SNS</span>
-                    <span class="svc-tag hi">API Gateway</span>
-                    <span class="svc-tag">EventBridge</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="svc-group-title">AI &amp; Observability</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag bold">AWS Bedrock</span>
-                    <span class="svc-tag hi">CloudWatch</span>
-                    <span class="svc-tag">CloudFront</span>
-                    <span class="svc-tag">IAM</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Azure -->
-            <div class="cloud-card">
-              <div class="cloud-header">
-                <span class="cloud-badge azure">Azure</span>
-                <p>Microsoft Azure — used for enterprise integrations and client deployments</p>
-              </div>
-              <div class="cloud-body">
-                <div>
-                  <div class="svc-group-title">Compute</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag hi">Azure Functions</span>
-                    <span class="svc-tag hi">App Service</span>
-                    <span class="svc-tag">Container Instances</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="svc-group-title">Storage &amp; Database</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag hi">Azure SQL Database</span>
-                    <span class="svc-tag hi">Blob Storage</span>
-                    <span class="svc-tag">Cosmos DB</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="svc-group-title">Messaging &amp; API</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag hi">Service Bus</span>
-                    <span class="svc-tag">Event Hub</span>
-                    <span class="svc-tag hi">API Management</span>
-                  </div>
-                </div>
-                <div>
-                  <div class="svc-group-title">Observability</div>
-                  <div class="svc-tags">
-                    <span class="svc-tag hi">Azure Monitor</span>
-                    <span class="svc-tag hi">Application Insights</span>
-                    <span class="svc-tag">Log Analytics</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- ═══ awards.md ═══ -->
-    <section id="s-awards">
-      <div class="sec-path"><span class="crumb">kishan-singh</span><span class="sep"> › </span>career / awards.md</div>
-      <div class="sec alt">
-        <div class="sec-label">// recognition</div>
-        <div class="sec-h">Awards</div>
-        <p class="sec-sub">Multiple recognitions from Innostax for client delivery, mentoring, and team leadership.</p>
-        <div class="awards-list reveal-stagger">
-          <div class="award"><div class="award-ic">🏆</div><div><div class="award-name">Client's Hero of the Quarter</div><div class="award-org">Innostax Software Labs · June 2025</div></div></div>
-          <div class="award"><div class="award-ic">🥇</div><div><div class="award-name">Mentor of the Year</div><div class="award-org">Innostax Annual Awards · 2024</div></div></div>
-          <div class="award"><div class="award-ic">⭐</div><div><div class="award-name">Mentor of the Quarter</div><div class="award-org">Innostax Software Labs · Dec 2024</div></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ education.md ═══ -->
-    <section id="s-education">
-      <div class="sec-path"><span class="crumb">kishan-singh</span><span class="sep"> › </span>career / education.md</div>
-      <div class="sec">
-        <div class="sec-label">// academic background</div>
-        <div class="sec-h">Education</div>
-        <p class="sec-sub">Post-graduate degree in Computer Applications with university-topper performance.</p>
-        <div class="edu-card">
-          <div class="edu-left">
-            <div class="edu-deg">Master of Computer Applications</div>
-            <div class="edu-uni">Dr. APJ Abdul Kalam Technical University (AKTU)</div>
-            <div class="edu-loc">Lucknow, Uttar Pradesh, India · Graduated 2021</div>
-            <div class="edu-tags" style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-              <span class="exp-tag">Distributed Systems</span>
-              <span class="exp-tag">Algorithms</span>
-              <span class="exp-tag">Database Management</span>
-              <span class="exp-tag">Software Engineering</span>
+    <!-- 7. GITHUB REPOSITORIES -->
+    <section id="opensource" class="github-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// OPEN_SOURCE.repos</h2>
             </div>
-          </div>
-          <div class="edu-right">
-            <div class="edu-stat">
-              <span class="edu-num">8.6</span>
-              <span class="edu-lbl">CGPA</span>
+
+            <div class="pinned-repos">
+                <div class="repo-card pinned tilt-effect">
+                    <div class="repo-header">
+                        <div class="special-badge">🏁 Origin Story — 2021</div>
+                        <h3><a href="https://github.com/KishanSinghsw20/AS_PHP" target="_blank">AS_PHP</a></h3>
+                    </div>
+                    <p class="repo-desc">My first dynamic full-stack PHP project — custom Admin Panel, CRUD, optimised SQL, AJAX interactions. The project where it all started.</p>
+                    <div class="repo-tags">
+                        <span>PHP</span><span>MySQL</span><span>Admin Panel</span><span>AJAX</span><span>Core PHP</span>
+                    </div>
+                </div>
+                
+                <div class="repo-card pinned tilt-effect">
+                    <div class="repo-header">
+                        <div class="special-badge">🎓 MCA Final Year Project</div>
+                        <h3><a href="https://github.com/KishanSinghsw20/smart_bid_and_buy" target="_blank">Smart Bid & Buy</a></h3>
+                    </div>
+                    <p class="repo-desc">MCA Final Year Project — full-stack e-commerce auction platform with real-time bidding logic, user authentication, and admin dashboard.</p>
+                    <div class="repo-tags">
+                        <span>Python</span><span>Django</span><span>MySQL</span><span>JavaScript</span><span>Auction</span><span>E-commerce</span>
+                    </div>
+                </div>
+
+                <div class="repo-card pinned tilt-effect">
+                    <div class="repo-header">
+                        <div class="special-badge">⚡ Cross-Stack — .NET</div>
+                        <h3><a href="https://github.com/KishanSinghsw20/SchoolManagement" target="_blank">School Management System</a></h3>
+                    </div>
+                    <p class="repo-desc">School management system built with ASP.NET MVC framework (not .NET Core) — demonstrates polyglot engineering capability across PHP, Python, AND .NET.</p>
+                    <div class="repo-tags">
+                        <span>C#</span><span>ASP.NET MVC</span><span>SQL Server</span>
+                    </div>
+                </div>
             </div>
-            <div class="edu-badge" style="margin-top:8px;">🥇 1st Rank</div>
-          </div>
+
+            <div id="dynamic-repos" class="repos-grid">
+                <!-- Fetched via JS -->
+            </div>
+            
+            <div class="github-cta">
+                <a href="https://github.com/KishanSinghsw20" target="_blank" class="btn btn-outline tilt-effect">View All on GitHub →</a>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- ═══ contact.sh ═══ -->
-    <section id="s-contact">
-      <div class="sec-path"><span class="crumb">kishan-singh</span><span class="sep"> › </span>contact.sh</div>
-      <div class="sec alt">
-        <div class="sec-label">// let's connect</div>
-        <div class="sec-h">Get in Touch</div>
-        <p class="sec-sub">Currently open to new opportunities. Let's build something great together.</p>
-        <div class="term">
-          <div class="term-bar"><span class="dots" style="display:flex;gap:5px"><span class="dot r" style="width:9px;height:9px"></span><span class="dot y" style="width:9px;height:9px"></span><span class="dot g" style="width:9px;height:9px"></span></span> &nbsp; zsh — contact.sh</div>
-          <div class="term-body">
-            <div><span class="pr">kishan@dev</span> ~/portfolio % <span class="out">bash contact.sh</span></div>
-            <div><span class="out">Hi! I'm Kishan Kumar Singh (Senior Full Stack Engineer)</span></div>
-            <div><span class="out">Status:   Open to opportunities</span></div>
-            <div><span class="out">Location: New Delhi, India</span></div>
-            <div>&nbsp;</div>
-            <div>📧 &nbsp;<a class="lk" href="mailto:kishansinghsw00@gmail.com">kishansinghsw00@gmail.com</a></div>
-            <div>📞 &nbsp;<a class="lk" href="tel:+918810592193">+91 88105 92193</a></div>
-            <div>💼 &nbsp;<a class="lk" href="https://linkedin.com/in/iofficial-kishansingh" target="_blank">linkedin.com/in/iofficial-kishansingh</a></div>
-            <div>💬 &nbsp;<a class="lk" href="https://wa.me/918810592193" target="_blank">wa.me/918810592193</a></div>
-            <div>🐙 &nbsp;<a class="lk" href="https://github.com/KishanSinghsw20" target="_blank">github.com/KishanSinghsw20</a></div>
-            <div>&nbsp;</div>
-            <div><span class="pr">kishan@dev</span> ~/portfolio % <span class="cur"></span></div>
-          </div>
+    <!-- 8. SKILLS MATRIX -->
+    <section id="skills" class="skills-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// TECH_STACK.init()</h2>
+            </div>
+            
+            <div class="skills-container premium-glass">
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">Languages</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="PHP"><img src="assets/icons/logos_php.svg" height="48" alt="PHP">
+<span class="tag-name">PHP</span></span>
+                        <span class="skill-tag premium-tag" title="JavaScript"><img src="assets/icons/logos_javascript.svg" height="48" alt="JavaScript">
+<span class="tag-name">JavaScript</span></span>
+                        <span class="skill-tag premium-tag" title="Python"><img src="assets/icons/logos_python.svg" height="48" alt="Python">
+<span class="tag-name">Python</span></span>
+                        <span class="skill-tag premium-tag" title="C#"><img src="assets/icons/logos_c-sharp.svg" height="48" alt="C#">
+<span class="tag-name">C#</span></span>
+                        <span class="skill-tag premium-tag" title="HTML5"><img src="assets/icons/logos_html-5.svg" height="48" alt="HTML5">
+<span class="tag-name">HTML5</span></span>
+                        <span class="skill-tag premium-tag" title="CSS3"><img src="assets/icons/logos_css-3.svg" height="48" alt="CSS3">
+<span class="tag-name">CSS3</span></span>
+                    </div>
+                </div>
+                
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">Frameworks</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="Laravel"><img src="assets/icons/logos_laravel.svg" height="48" alt="Laravel">
+<span class="tag-name">Laravel</span></span>
+                        <span class="skill-tag premium-tag" title="CodeIgniter"><img src="assets/icons/logos_codeigniter-icon.svg" height="48" alt="CodeIgniter">
+<span class="tag-name">CodeIgniter</span></span>
+                        <span class="skill-tag premium-tag" title="Node.js"><img src="assets/icons/logos_nodejs-icon.svg" height="48" alt="Node.js">
+<span class="tag-name">Node.js</span></span>
+                        <span class="skill-tag premium-tag" title="FastAPI"><img src="assets/icons/logos_fastapi.svg" height="48" alt="FastAPI">
+<span class="tag-name">FastAPI</span></span>
+                        <span class="skill-tag premium-tag" title="Django"><img src="assets/icons/logos_django-icon.svg" height="48" alt="Django">
+<span class="tag-name">Django</span></span>
+                        <span class="skill-tag premium-tag" title="Backbone.js"><img src="assets/icons/logos_backbone-icon.svg" height="48" alt="Backbone">
+<span class="tag-name">Backbone.js</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">Backend Architecture</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="REST API Design"><img class="invert-dark" src="assets/icons/dashicons_rest-api.svg" alt="rest-api" width="48" height="48" alt="REST API Design" />
+<span class="tag-name">REST API</span></span>
+                        <span class="skill-tag premium-tag" title="Microservices"><img src="assets/icons/logos_kubernetes.svg" alt="Microservices" width="48" height="48" />
+<span class="tag-name">Microservice</span></span>
+                        <span class="skill-tag premium-tag" title="System Design"><img class="invert-dark" src="assets/icons/tdesign_system-code.svg" alt="System Design" width="48" height="48" />
+<span class="tag-name">Sys Design</span></span>
+                        <span class="skill-tag premium-tag" title="SugarCRM"><img src="assets/icons/sugarcrm-logo.svg" height="48" alt="SugarCRM">
+<span class="tag-name">SugarCRM</span></span>
+                        <span class="skill-tag premium-tag" title=".NET Framework"><img src="assets/icons/logos_dotnet.svg" height="48" alt=".NET">
+<span class="tag-name">.NET</span></span>
+                        <span class="skill-tag premium-tag" title="Express.js"><img src="assets/icons/skill-icons_expressjs-dark.svg" height="48" alt="Express.js">
+<span class="tag-name">Express.js</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">Databases</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="MySQL"><img src="assets/icons/logos_mysql.svg" height="48" alt="MySQL">
+<span class="tag-name">MySQL</span></span>
+                        <span class="skill-tag premium-tag" title="PostgreSQL"><img src="assets/icons/logos_postgresql.svg" height="48" alt="PostgreSQL">
+<span class="tag-name">PostgreSQL</span></span>
+                        <span class="skill-tag premium-tag" title="MSSQL"><img src="assets/icons/devicon_microsoftsqlserver-wordmark.svg" alt="MSSQL" width="48" height="48" />
+<span class="tag-name">MSSQL</span></span>
+                        <span class="skill-tag premium-tag" title="Redis"><img src="assets/icons/logos_redis.svg" height="48" alt="Redis">
+<span class="tag-name">Redis</span></span>
+                        <span class="skill-tag premium-tag" title="MongoDB"><img src="assets/icons/logos_mongodb.svg" height="48" alt="MongoDB">
+<span class="tag-name">MongoDB</span></span>
+                        <span class="skill-tag premium-tag" title="SQLite"><img src="assets/icons/devicon_sqlite.svg" height="48" alt="SQLite">
+<span class="tag-name">SQLite</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">Frontend</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="React.js"><img src="assets/icons/logos_react.svg" height="48" alt="React">
+<span class="tag-name">React.js</span></span>
+                        <span class="skill-tag premium-tag" title="TypeScript"><img src="assets/icons/logos_typescript-icon.svg" height="48" alt="TypeScript">
+<span class="tag-name">TypeScript</span></span>
+                        <span class="skill-tag premium-tag" title="Responsive UI"><img class="invert-dark" src="assets/icons/mdi_responsive.svg" height="48" alt="Responsive">
+<span class="tag-name">ResponsiveUI</span></span>
+                        <span class="skill-tag premium-tag" title="Bootstrap"><img src="assets/icons/logos_bootstrap.svg" height="48" alt="Bootstrap">
+<span class="tag-name">Bootstrap</span></span>
+                        <span class="skill-tag premium-tag" title="jQuery"><img src="assets/icons/logos_jquery.svg" height="48" alt="jQuery">
+<span class="tag-name">jQuery</span></span>
+                        <span class="skill-tag premium-tag" title="TailwindCSS"><img src="assets/icons/devicon_tailwindcss.svg" height="48" alt="TailwindCSS">
+<span class="tag-name">TailwindCSS</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">DevOps & Tools</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="Git"><img src="assets/icons/logos_git-icon.svg" height="48" alt="Git">
+<span class="tag-name">Git</span></span>
+                        <span class="skill-tag premium-tag" title="Docker"><img src="assets/icons/logos_docker-icon.svg" height="48" alt="Docker">
+<span class="tag-name">Docker</span></span>
+                        <span class="skill-tag premium-tag" title="CI/CD"><img class="invert-dark" src="assets/icons/mdi_infinity.svg" height="48" alt="CI/CD">
+<span class="tag-name">CI/CD</span></span>
+                        <span class="skill-tag premium-tag" title="Linux/SSH"><img src="assets/icons/logos_linux-tux.svg" height="48" alt="Linux">
+<span class="tag-name">Linux/SSH</span></span>
+                        <span class="skill-tag premium-tag" title="AWS"><img src="assets/icons/skill-icons_aws-dark.svg" height="48" alt="AWS">
+<span class="tag-name">AWS</span></span>
+                        <span class="skill-tag premium-tag" title="Postman"><img src="assets/icons/logos_postman-icon.svg" height="48" alt="Postman">
+<span class="tag-name">Postman</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">Security</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="JWT"><img src="assets/icons/logos_jwt-icon.svg" height="48" alt="JWT">
+<span class="tag-name">JWT</span></span>
+                        <span class="skill-tag premium-tag" title="OAuth 2.0"><img src="assets/icons/logos_oauth.svg" height="48" alt="OAuth">
+<span class="tag-name">OAuth 2.0</span></span>
+                        <span class="skill-tag premium-tag" title="RBAC"><img class="invert-dark" src="assets/icons/mdi_shield-account.svg" height="48" alt="RBAC">
+<span class="tag-name">RBAC</span></span>
+                        <span class="skill-tag premium-tag" title="API Rate Limiting"><img class="invert-dark" src="assets/icons/mdi_traffic-light.svg" height="48" alt="API Rate Limiting">
+<span class="tag-name">Rate Limiting</span></span>
+                        <span class="skill-tag premium-tag" title="SSL/TLS"><img class="invert-dark" src="assets/icons/mdi_shield-lock.svg" height="48" alt="SSL/TLS">
+<span class="tag-name">SSL/TLS</span></span>
+                        <span class="skill-tag premium-tag" title="OWASP"><img src="assets/icons/logos_owasp.svg" height="48" alt="OWASP">
+<span class="tag-name">OWASP</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">Integrations</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="Microsoft Graph API"><img src="assets/icons/logos_microsoft-icon.svg" height="48" alt="Microsoft">
+<span class="tag-name">Graph API</span></span>
+                        <span class="skill-tag premium-tag" title="Twilio"><img src="assets/icons/logos_twilio-icon.svg" height="48" alt="Twilio">
+<span class="tag-name">Twilio</span></span>
+                        <span class="skill-tag premium-tag" title="Razorpay"><img src="assets/icons/simple-icons_razorpay.svg" height="48" alt="Razorpay">
+<span class="tag-name">Razorpay</span></span>
+                        <span class="skill-tag premium-tag" title="PhonePe"><img src="assets/icons/simple-icons_phonepe.svg" height="48" alt="PhonePe">
+<span class="tag-name">PhonePe</span></span>
+                        <span class="skill-tag premium-tag" title="Cashfree"><img src="assets/icons/cashfreeLogo.png" height="48" alt="Cashfree">
+<span class="tag-name">Cashfree</span></span>
+                        <span class="skill-tag premium-tag" title="PayU"><img src="assets/icons/fontisto_payu.svg" alt="payu" width="48" height="48" alt="PayU" />
+<span class="tag-name">PayU</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-group stagger-group tilt-effect">
+                    <div class="group-label">AI Tools</div>
+                    <div class="tags-cloud">
+                        <span class="skill-tag premium-tag" title="Claude (Anthropic)"><img src="assets/icons/logos_anthropic-icon.svg" height="48" alt="Claude">
+<span class="tag-name">Claude</span></span>
+                        <span class="skill-tag premium-tag" title="GitHub Copilot"><img class="invert-dark" src="assets/icons/logos_github-copilot.svg" height="48" alt="Copilot">
+<span class="tag-name">Copilot</span></span>
+                        <span class="skill-tag premium-tag" title="ChatGPT"><img class="invert-dark" src="assets/icons/logos_openai-icon.svg" height="48" alt="ChatGPT">
+<span class="tag-name">ChatGPT</span></span>
+                        <span class="skill-tag premium-tag" title="Ollama"><img class="invert-dark" src="assets/icons/simple-icons_ollama.svg" height="48" alt="Ollama">
+<span class="tag-name">Ollama</span></span>
+                        <span class="skill-tag premium-tag" title="Gemini"><img src="assets/icons/logos_google-gemini.svg" height="48" alt="Gemini">
+<span class="tag-name">Gemini</span></span>
+                        <span class="skill-tag premium-tag" title="Open Router"><img class="invert-dark" src="assets/icons/simple-icons_openrouter.svg" height="48" alt="Open Router">
+<span class="tag-name">Open Router</span></span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <footer style="padding:24px 52px;font-family:var(--mono);font-size:12px;color:var(--tx-3);border-top:1px solid var(--border)">
-        © 2025 Kishan Kumar Singh — <span style="color:var(--vio-2)">$ engineered for scale</span>
-      </footer>
     </section>
 
-  
-  </div><!-- /scroll -->
-</main>
+    <!-- 9. EDUCATION -->
+    <section id="education" class="education-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// EDUCATION.json</h2>
+            </div>
+            
+            <div class="json-blocks-container tilt-effect ide-window">
+                <div class="ide-header">
+                    <div class="ide-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="ide-title">education.json</div>
+                </div>
+                <pre class="json-block ide-body"><code>{
+  <span class="json-key">"MCA"</span>: {
+    <span class="json-key">"institution"</span>: <span class="json-string">"Indira Gandhi National Open University (IGNOU)"</span>,
+    <span class="json-key">"period"</span>: <span class="json-string">"2023 - 2025"</span>,
+    <span class="json-key">"location"</span>: <span class="json-string">"New Delhi, IN"</span>,
+    <span class="json-key">"note"</span>: <span class="json-string">"Concurrent with full-time engineering career"</span>
+  },
+  <span class="json-key">"BCA"</span>: {
+    <span class="json-key">"institution"</span>: <span class="json-string">"Indira Gandhi National Open University (IGNOU)"</span>,
+    <span class="json-key">"period"</span>: <span class="json-string">"2020 – 2023"</span>,
+    <span class="json-key">"location"</span>: <span class="json-string">"New Delhi, IN"</span>
+  }
+}</code></pre>
+            </div>
+        </div>
+    </section>
 
-<!-- AI Panel (Right) -->
-<div class="ai-panel collapsed" id="ai-panel">
-  <div class="ai-header">
-    <span>Cursor AI Chat</span>
-    <svg id="close-ai" style="cursor:pointer;" width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-  </div>
-  <div class="ai-body" id="chat-box">
-    <div class="chat-msg chat-sys">
-      Hi! I am Kishan's AI Agent powered by OpenRouter. 
-      <br><br>
-      <em>Ask me anything about his resume!</em>
-    </div>
-  </div>
-  <div class="ai-input-area">
-    <select class="ai-model-select" id="model-select">
-      <option value="openai/gpt-oss-120b:free">openai/gpt-oss-120b:free</option>
-      <option value="meta-llama/llama-3-8b-instruct:free">meta-llama/llama-3-8b-instruct:free</option>
-      <option value="mistralai/mistral-7b-instruct:free">mistralai/mistral-7b-instruct:free</option>
-      <option value="google/gemma-7b-it:free">google/gemma-7b-it:free</option>
-    </select>
-    <textarea class="ai-input" id="ai-input" placeholder="Ask about Kishan's experience... (Press Enter)"></textarea>
-    <div class="ai-controls">
-      <button class="ai-btn" id="send-btn">Send to AI Agent</button>
-    </div>
-  </div>
-</div>
+    <!-- 10. CONTACT SECTION -->
+    <section id="contact" class="contact-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">// CONNECT.init()</h2>
+            </div>
+            
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <h3 class="contact-headline">> Open to Senior SDE roles, freelance projects, and interesting collaborations.</h3>
+                    <ul class="contact-links">
+                        <li>
+                            <a href="mailto:kishansinghsw00@gmail.com" class="contact-card">
+                                <span class="icon">
+                                    <img src="assets/icons/logos_google-gmail.svg" alt="Email" />
+                                </span> 
+                                <span class="contact-text">kishansinghsw00@gmail.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+918810592193" target="_blank" class="contact-card">
+                                <span class="icon">
+                                    <img class="invert-dark" src="assets/icons/mdi_phone.svg" alt="Call" />
+                                </span> 
+                                <span class="contact-text">+91 88105 92193</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank" class="contact-card">
+                                <span class="icon">
+                                    <img src="assets/icons/logos_linkedin-icon.svg" alt="LinkedIn" />
+                                </span> 
+                                <span class="contact-text">linkedin.com/in/iofficial-kishansingh</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/KishanSinghsw20" target="_blank" class="contact-card">
+                                <span class="icon">
+                                    <img class="invert-dark" src="assets/icons/mdi_github.svg" alt="GitHub" />
+                                </span> 
+                                <span class="contact-text">github.com/KishanSinghsw20</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/918810592193" target="_blank" class="contact-card">
+                                <span class="icon">
+                                    <img src="assets/icons/logos_whatsapp-icon.svg" alt="WhatsApp" />
+                                </span> 
+                                <span class="contact-text">+91 88105 92193</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form-container tilt-effect">
+                    <form action="mailto:kishansinghsw00@gmail.com" method="POST" enctype="text/plain" class="terminal-form">
+                        <div class="form-group">
+                            <label for="name">> Name:</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">> Email:</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">> Message:</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="How can we collaborate?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">[ Send Message ]</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- 11. AWESOME FOOTER -->
+    <footer class="site-footer awesome-footer">
+        <div class="footer-gradient-divider"></div>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo footer-logo">KS</a>
+                <p class="footer-tagline">Building production systems that scale.</p>
+            </div>
+            
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://wa.me/918810592193" target="_blank" aria-label="WhatsApp" class="tilt-effect"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+                    <a href="https://linkedin.com/in/iofficial-kishansingh" target="_blank" aria-label="LinkedIn" class="tilt-effect"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                    <a href="https://github.com/KishanSinghsw20" target="_blank" aria-label="GitHub" class="tilt-effect"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                </div>
+            </div>
+            
+            <div class="footer-system">
+                <div class="glowing-status">
+                    <span class="pulse-dot"></span> All systems operational
+                </div>
+                <p class="copyright">© <span id="current-year">2026</span> Kishan Kumar Singh</p>
+                <p class="built-with">Built with vanilla HTML, CSS & JS</p>
+            </div>
+        </div>
+    </footer>
 
-</div><!-- /body -->
-
-<!-- STATUS BAR -->
-<div class="statusbar">
-  <span class="s">
-    <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M6 8.5v7"/><circle cx="18" cy="8" r="2.5"/><path d="M18 10.5c0 4-6 2.5-6 7.5"/></svg>
-    main
-  </span>
-  <span class="s">⊗ 0 &nbsp; ⚠ 0</span>
-  <span class="s-grow"></span>
-  <span class="s" id="s-lang">Markdown</span>
-  <span class="s">UTF-8</span>
-  <span class="s">JetBrains Mono</span>
-  <span class="s s-av" onclick="goTo('s-contact')">● Open to hire</span>
-</div>
-
-<!-- DOWNLOAD TOAST -->
-<div class="dl-toast" id="dl-toast">
-  <div class="dl-toast-hd">
-    <span class="dl-toast-cmd">$ wget Kishan_Sharma.pdf</span>
-    <span class="dl-toast-sz">111 KB</span>
-  </div>
-  <div class="dl-toast-msg" id="dl-msg">Preparing download...</div>
-  <div class="dl-bar-track"><div class="dl-bar-fill" id="dl-fill"></div></div>
-</div>
-
-</div><!-- /app -->
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
 
 <script>
-// sections map → label
-const SEC_LANG = {
-  's-readme':     'Markdown',
-  's-experience': 'JSON',
-  's-projects':   'TypeScript',
-  's-skills':     'JSON',
-  's-cloud':      'JSON',
-  's-awards':     'Markdown',
-  's-education':  'Markdown',
-  's-contact':    'Shell Script'
-};
-
-const scroll = document.getElementById('scroll');
-
-function goTo(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  scroll.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
-  setActive(id);
-}
-
-function setActive(id) {
-  document.querySelectorAll('.file').forEach(f => f.classList.toggle('active', f.dataset.sec === id));
-  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.sec === id));
-  document.querySelectorAll('.mf-btn').forEach(b => b.classList.toggle('active', b.dataset.sec === id));
-  const lang = document.getElementById('s-lang');
-  if (lang) lang.textContent = SEC_LANG[id] || 'Text';
-  // auto-expand the parent folder of the active file
-  const activeFile = document.querySelector(`.file[data-sec="${id}"]`);
-  if (activeFile) {
-    const nest = activeFile.closest('.sub-nest');
-    if (nest && nest.classList.contains('closed')) {
-      const row = nest.previousElementSibling;
-      if (row) toggleSub(row, nest.id);
-    }
-  }
-}
-
-// File → terminal filename map (matches explorer file labels exactly)
-const SEC_FILE = {
-  's-readme':     'README.md',
-  's-experience': 'experience.json',
-  's-projects':   'projects.ts',
-  's-skills':     'skills.json',
-  's-cloud':      'cloud.json',
-  's-awards':     'awards.md',
-  's-education':  'education.md',
-  's-contact':    'contact.sh',
-};
-
-// Click nav items
-document.querySelectorAll('[data-sec]').forEach(el => {
-  el.addEventListener('click', () => {
-    const sec = el.dataset.sec;
-    goTo(sec);
-    // Sidebar file clicks auto-type cat command in terminal
-    if (el.classList.contains('file') && Term && Term.typeIntroCmd) {
-      const fname = SEC_FILE[sec];
-      if (fname) setTimeout(() => Term.typeIntroCmd('cat ' + fname), 200);
-    }
-  });
-});
-
-// Scroll spy — highlight active section
-const sections = ['s-readme','s-experience','s-projects','s-skills','s-cloud','s-awards','s-education','s-contact'];
-scroll.addEventListener('scroll', () => {
-  const sy = scroll.scrollTop;
-  let active = sections[0];
-  for (const id of sections) {
-    const el = document.getElementById(id);
-    if (el && el.offsetTop <= sy + 80) active = id;
-  }
-  setActive(active);
-}, { passive: true });
-
-// Sub-folder toggle
-function toggleSub(row, nestId) {
-  const nest = document.getElementById(nestId);
-  if (!nest) return;
-  const isOpen = !row.classList.contains('closed');
-  row.classList.toggle('closed', isOpen);
-  nest.classList.toggle('closed', isOpen);
-  if (!isOpen) {
-    nest.style.maxHeight = nest.scrollHeight + 'px';
-    requestAnimationFrame(() => nest.style.maxHeight = nest.scrollHeight + 'px');
-  } else {
-    nest.style.maxHeight = nest.scrollHeight + 'px';
-    requestAnimationFrame(() => nest.style.maxHeight = '0');
-  }
-}
-// Init sub-nest max-heights so CSS transitions work
-document.querySelectorAll('.sub-nest').forEach(n => {
-  n.style.maxHeight = n.scrollHeight + 'px';
-});
-
-// Accordion
-function toggleExp(head) {
-  const card = head.closest('.exp-card');
-  const wasOpen = card.classList.contains('open');
-  document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('open'));
-  if (!wasOpen) card.classList.add('open');
-}
-
-// Theme toggle
-function toggleTheme() {
-  const html = document.documentElement;
-  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('ss-theme', next);
-  updateThemeBtn(next);
-}
-function updateThemeBtn(t) {
-  const ico = document.getElementById('theme-ico');
-  const lbl = document.getElementById('theme-lbl');
-  if (lbl) lbl.textContent = t === 'dark' ? 'Dark' : 'Light';
-  if (ico) ico.innerHTML = t === 'dark'
-    ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
-    : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>';
-}
-// init
-updateThemeBtn(document.documentElement.getAttribute('data-theme') || 'dark');
-
-// ══════════════════════════════════════
-// ANIMATIONS
-// ══════════════════════════════════════
-
-// 1. Scroll reveal
-(function(){
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      if (el.classList.contains('reveal-stagger')) {
-        el.classList.add('revealed');
-        [...el.children].forEach((ch, i) => {
-          setTimeout(() => { ch.style.opacity='1'; ch.style.transform='none'; }, i * 90);
-        });
-      } else {
-        el.classList.add('revealed');
-      }
-      io.unobserve(el);
-    });
-  }, { threshold: 0.1, rootMargin:'0px 0px -40px 0px' });
-
-  function observe() {
-    document.querySelectorAll('.reveal,.reveal-stagger').forEach(el => io.observe(el));
-  }
-  observe();
-  const sc = document.getElementById('scroll');
-  if (sc) sc.addEventListener('scroll', observe, { once: true });
-})();
-
-// 2. Typewriter role text
-(function(){
-  const verbEl = document.getElementById('tw-verb');
-  const objEl  = document.getElementById('tw-obj');
-  if (!verbEl || !objEl) return;
-  const phrases = [
-    { verb:'build ',    obj:'distributed systems.' },
-    { verb:'architect ',obj:'microservices at scale.' },
-    { verb:'ship ',     obj:'AI-driven backends.' },
-    { verb:'optimize ', obj:'for performance & cost.' },
-    { verb:'design ',   obj:'cloud-native solutions.' },
-  ];
-  let pi=0, ci=0, deleting=false;
-  function tick() {
-    const {verb,obj} = phrases[pi];
-    const full = verb+obj, vl = verb.length;
-    if (!deleting) {
-      ci++;
-      verbEl.textContent = full.slice(0, Math.min(ci,vl));
-      objEl.textContent  = full.slice(vl, Math.max(ci,vl));
-      if (ci>=full.length){ setTimeout(()=>{ deleting=true; }, 1800); setTimeout(tick,1900); return; }
-    } else {
-      ci--;
-      verbEl.textContent = full.slice(0, Math.min(ci,vl));
-      objEl.textContent  = full.slice(vl, Math.max(ci,vl));
-      if (ci<=0){ deleting=false; pi=(pi+1)%phrases.length; setTimeout(tick,380); return; }
-    }
-    setTimeout(tick, deleting ? 28 : 52);
-  }
-  setTimeout(tick, 1200);
-})();
-
-// 3. Counter animation
-(function(){
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if (!e.isIntersecting) return;
-      const numEl = e.target.querySelector('.stat-n');
-      if (!numEl) return;
-      const m = numEl.textContent.trim().match(/^(\d+)(.*)$/);
-      if (!m) return;
-      const target=parseInt(m[1]), suf=m[2];
-      let cur=0;
-      e.target.classList.add('counted');
-      const iv=setInterval(()=>{
-        cur=Math.min(cur+Math.ceil(target/30),target);
-        numEl.textContent=cur+suf;
-        if(cur>=target) clearInterval(iv);
-      },35);
-      io.unobserve(e.target);
-    });
-  },{ threshold:0.5 });
-  document.querySelectorAll('.stat-card').forEach(c=>io.observe(c));
-})();
-
-// 4. 3D tilt on project cards
-(function(){
-  document.querySelectorAll('.proj').forEach(card=>{
-    card.addEventListener('mousemove', e=>{
-      const r=card.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-0.5;
-      const y=(e.clientY-r.top)/r.height-0.5;
-      card.style.transform=`perspective(700px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateY(-4px)`;
-    });
-    card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
-  });
-})();
-
-// 5. Staggered chip entrance
-(function(){
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting) return;
-      e.target.querySelectorAll('.chip').forEach((ch,i)=>{
-        setTimeout(()=>{ ch.style.opacity='1'; ch.style.transform='none'; }, i*55);
-      });
-      e.target.classList.add('chipped');
-      io.unobserve(e.target);
-    });
-  },{ threshold:0.2 });
-  document.querySelectorAll('.chips').forEach(g=>io.observe(g));
-})();
-
-// ── INTERACTIVE SIDEBAR TERMINAL ──
-const Term = (function() {
-  const body    = document.getElementById('side-term-body');
-  const iRow    = document.getElementById('term-input-row');
-  const prSpan  = document.getElementById('term-prompt');
-  const typSpan = document.getElementById('term-typed-span');
-  const inp     = document.getElementById('term-hidden');
-  const termEl  = document.getElementById('side-term');
-  if (!body || !inp) return {};
-
-  let cwd = '~';
-  let hist = [], hIdx = -1;
-  let busy = false; // true during auto-type
-
-  // File system mirror of the explorer
-  const FS = {
-    '~': ['README.md','career/','projects/','skills/','contact.sh'],
-    '~/career':   ['experience.json','awards.md','education.md'],
-    '~/projects': ['projects.ts'],
-    '~/skills':   ['skills.json','cloud.json'],
-  };
-  const CAT = {
-    'README.md':       'Kishan Kumar Singh — Senior Full Stack Engineer\n5+ years | New Delhi, India',
-    'experience.json': 'SDE-I @ Innostax      Nov 2021 – Present\nAssociate @ Innostax  May 2021 – Nov 2021',
-    'projects.ts':     'AI Appraisal System   Python, AWS Bedrock\nEnergyHire            .NET, Python\nTavaTrip              Node.js, AWS\nYokeru                Node.js, Event-Driven\nAI Voice Notif.       Node.js, Express',
-    'skills.json':     'Languages:  JS · TS · Python · C#\nFrameworks: Node.js · NestJS · FastAPI\nDBs:        PostgreSQL · MongoDB · Redis',
-    'cloud.json':      'AWS:   EC2 · Lambda · S3 · RDS · Bedrock\nAzure: Functions · Service Bus · SQL DB',
-    'awards.md':       "Client's Hero of the Quarter  Jun 2025\nMentor of the Year            2024\nMentor of the Quarter         Dec 2024",
-    'education.md':    'MCA — AKTU | CGPA 8.6 | 1st Rank\n2019 – 2021 · Lucknow, UP',
-    'contact.sh':      'email: kishansinghsw00@gmail.com\nphone: +91 88105 92193\nwa:    wa.me/918810592193\ngh:    github.com/KishanSinghsw20',
-  };
-  const GIT_LOG = [
-    'a3f1c2 feat: integrate AWS Bedrock AI pipeline',
-    'b8e2d4 perf: reduce cloud costs by 68%',
-    'c9d3e5 feat: semantic search w/ Hugging Face',
-    'd4f2a1 fix: optimize API response latency',
-    'e5b3c8 feat: no-code backend platform v2',
-    'f6c4d9 docs: update README and portfolio',
-  ];
-
-  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-  function emit(html) {
-    const d = document.createElement('div');
-    d.innerHTML = html;
-    body.appendChild(d);
-    body.scrollTop = body.scrollHeight;
-  }
-  function emitText(text, cls) {
-    String(text).split('\n').forEach(l => emit(`<span class="${cls||'st-out'}">${esc(l)}</span>`));
-  }
-
-  function updatePrompt() { if (prSpan) prSpan.textContent = cwd; }
-
-  function run(cmd) {
-    cmd = cmd.trim();
-    if (!cmd) return;
-    hist.push(cmd); hIdx = hist.length;
-
-    const parts = cmd.split(/\s+/), verb = parts[0].toLowerCase();
-    emit(`<span class="st-pr">${esc(cwd)}</span><span class="st-sep"> % </span><span class="st-cmd">${esc(cmd)}</span>`);
-
-    switch(verb) {
-      case 'clear': body.innerHTML = ''; break;
-
-      case 'help':
-        emitText('ls  cat  nano  cd  pwd  whoami  echo  date\ngit log  git status  node -v  python --version\nclear  history', 'st-out');
-        break;
-
-      case 'pwd':
-        emitText(cwd.replace('~','/home/shubham'), 'st-out'); break;
-
-      case 'whoami':
-        emitText('Kishan Kumar Singh — Senior Full Stack Engineer', 'st-out'); break;
-
-      case 'ls': {
-        const list = FS[cwd] || FS['~'];
-        emit(`<span class="st-out">${list.map(esc).join('  ')}</span>`); break;
-      }
-
-      case 'cd': {
-        const t = parts[1]||'~';
-        if (t==='~'||t==='/'||t==='/home/shubham') { cwd='~'; break; }
-        if (t==='..') { cwd='~'; break; }
-        const k = '~/'+t.replace(/\/$/,'');
-        if (FS[k]) cwd=k;
-        else emitText(`cd: ${t}: No such directory`,'st-out');
-        break;
-      }
-
-      case 'cat': case 'nano': {
-        const f = parts[1];
-        if (!f) { emitText(`${verb}: missing filename`,'st-out'); break; }
-        const c = CAT[f];
-        c ? emitText(c,'st-out') : emitText(`${verb}: ${f}: No such file`,'st-out');
-        break;
-      }
-
-      case 'git': {
-        const sub = parts[1];
-        if (sub==='log') {
-          const nFlag = parts.find(p=>/^-\d+$/.test(p));
-          const n = nFlag ? Math.abs(parseInt(nFlag)) : 4;
-          emitText(GIT_LOG.slice(0,Math.min(n,GIT_LOG.length)).join('\n'),'st-out');
-        } else if (sub==='status') {
-          emitText('On branch main\nNothing to commit, working tree clean','st-out');
-        } else if (sub==='branch') {
-          emitText('* main','st-out');
+    function toggleResumeDropdown() {
+        const menu = document.getElementById('resumeDropdownMenu');
+        const btn = document.getElementById('resumeDropdownBtn');
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        
+        if (isExpanded) {
+            menu.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
         } else {
-          emitText(`git: '${sub||''}' is not a recognised subcommand`,'st-out');
+            menu.style.display = 'block';
+            btn.setAttribute('aria-expanded', 'true');
         }
-        break;
-      }
-
-      case 'node':
-        emitText(parts[1]==='-v'||parts[1]==='--version' ? 'v20.11.0' : 'use node -v for version','st-out'); break;
-
-      case 'npm':
-        emitText(parts[1]==='-v'||parts[1]==='--version' ? '10.2.4' : '','st-out'); break;
-
-      case 'python': case 'python3':
-        emitText(parts[1]==='--version' ? 'Python 3.11.5' : 'Python 3.11.5','st-out'); break;
-
-      case 'echo':
-        emitText(parts.slice(1).join(' ').replace(/^["']|["']$/g,''),'st-out'); break;
-
-      case 'date':
-        emitText(new Date().toLocaleString(),'st-out'); break;
-
-      case 'history':
-        emitText(hist.slice(-10).map((c,i)=>`  ${String(i+1).padStart(3)}  ${c}`).join('\n'),'st-out'); break;
-
-      default:
-        emitText(`${verb}: command not found — try 'help'`,'st-out');
     }
-    updatePrompt();
-    body.scrollTop = body.scrollHeight;
-  }
-
-  // Keyboard handling
-  if (termEl) termEl.addEventListener('click', ()=>{ if(!busy) inp.focus(); });
-  inp.addEventListener('input', ()=>{ if(typSpan) typSpan.textContent = inp.value; });
-  inp.addEventListener('keydown', e=>{
-    if (e.key==='Enter') {
-      const cmd = inp.value; inp.value=''; if(typSpan) typSpan.textContent='';
-      run(cmd);
-    } else if (e.key==='ArrowUp') {
-      e.preventDefault();
-      if (hIdx>0) hIdx--;
-      inp.value = hist[hIdx]||''; if(typSpan) typSpan.textContent=inp.value;
-    } else if (e.key==='ArrowDown') {
-      e.preventDefault();
-      if (hIdx<hist.length-1) hIdx++; else hIdx=hist.length;
-      inp.value = hist[hIdx]||''; if(typSpan) typSpan.textContent=inp.value;
-    }
-  });
-
-  // Auto-type an intro sequence then unlock interactive mode
-  const INTRO = [
-    { cmd:'cd kishan_singh/' },
-    { cmd:'ls' },
-    { cmd:'cat README.md' },
-    { cmd:'git log -4' },
-    { cmd:'node -v' },
-    { cmd:'python --version' },
-    { cmd:'cd career/' },
-    { cmd:'ls' },
-    { cmd:'cat experience.json' },
-    { cmd:'cd ..' },
-    { cmd:'cd skills/' },
-    { cmd:'cat cloud.json' },
-    { cmd:'cd ..' },
-    { cmd:'git status' },
-    { cmd:'whoami' },
-    { cmd:'cat projects.ts' },
-    { cmd:'npm -v' },
-  ];
-  let si=0;
-  function typeIntro() {
-    if (si>=INTRO.length) {
-      busy=false;
-      if(iRow) iRow.style.display='flex';
-      updatePrompt();
-      return;
-    }
-    const {cmd} = INTRO[si++];
-    // show typed prompt line
-    const line = document.createElement('div');
-    line.innerHTML=`<span class="st-pr">${esc(cwd)}</span><span class="st-sep"> % </span><span class="st-cmd"></span><span class="st-cur"></span>`;
-    body.appendChild(line);
-    const cs=line.querySelector('.st-cmd'), cr=line.querySelector('.st-cur');
-    let ci=0;
-    const iv=setInterval(()=>{
-      if(ci<cmd.length){ cs.textContent+=cmd[ci++]; body.scrollTop=body.scrollHeight; }
-      else {
-        clearInterval(iv); cr.remove();
-        setTimeout(()=>{
-          // execute silently (no re-echo of prompt)
-          const parts=cmd.trim().split(/\s+/), verb=parts[0];
-          if(verb==='cd'){ const k='~/'+((parts[1]||'').replace(/\/$/,'')); if(FS[k])cwd=k; }
-          else if(verb==='ls'){ const list=FS[cwd]||FS['~']; emit(`<span class="st-out">${list.map(esc).join('  ')}</span>`); }
-          else if(verb==='cat'||verb==='nano'){ const c=CAT[parts[1]]; if(c)emitText(c,'st-out'); }
-          else if(verb==='git'){ const nF=parts.find(p=>/^-\d+$/.test(p)); const n=nF?Math.abs(parseInt(nF)):3; emitText(GIT_LOG.slice(0,n).join('\n'),'st-out'); }
-          else if(verb==='node'){ emitText('v20.11.0','st-out'); }
-          body.scrollTop=body.scrollHeight;
-          setTimeout(typeIntro, 750);
-        },300);
-      }
-    },52);
-  }
-  busy=true;
-  setTimeout(typeIntro, 500);
-
-  // Expose for explorer file-click integration
-  return { runCmd: run, typeCmd: function(cmd){ if(!busy){ inp.focus(); typeIntroCmd(cmd); } },
-    typeIntroCmd: function(cmd) {
-      busy=true;
-      if(iRow) iRow.style.display='none';
-      const line=document.createElement('div');
-      line.innerHTML=`<span class="st-pr">${esc(cwd)}</span><span class="st-sep"> % </span><span class="st-cmd"></span><span class="st-cur"></span>`;
-      body.appendChild(line);
-      const cs=line.querySelector('.st-cmd'), cr=line.querySelector('.st-cur');
-      let ci=0;
-      const iv=setInterval(()=>{
-        if(ci<cmd.length){ cs.textContent+=cmd[ci++]; body.scrollTop=body.scrollHeight; }
-        else {
-          clearInterval(iv); cr.remove();
-          setTimeout(()=>{ run(cmd); busy=false; if(iRow)iRow.style.display='flex'; },280);
+    
+    function toggleMainDropdown(event) {
+        event.stopPropagation();
+        const menu = document.getElementById('mainResumeMenu');
+        const btn = document.getElementById('mainResumeBtn');
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        
+        if (isExpanded) {
+            menu.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        } else {
+            menu.style.display = 'block';
+            btn.setAttribute('aria-expanded', 'true');
         }
-      },52);
     }
-  };
-})();
 
-// ── DOWNLOAD CV PROGRESS ──
-(function() {
-  const btn = document.getElementById('cv-btn');
-  const toast = document.getElementById('dl-toast');
-  const fill = document.getElementById('dl-fill');
-  const msg = document.getElementById('dl-msg');
-  if (!btn || !toast) return;
-
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    toast.classList.add('show');
-    fill.style.width = '0%';
-    msg.textContent = 'Connecting to server...';
-
-    let pct = 0;
-    const msgs = [
-      [15,  'Resolving host...'],
-      [35,  'Downloading Kishan_Sharma.pdf...'],
-      [60,  'Downloading Kishan_Sharma.pdf...'],
-      [80,  'Downloading Kishan_Sharma.pdf...'],
-      [95,  'Verifying integrity...'],
-      [100, '✓ Saved — Kishan_Sharma.pdf (111 KB)'],
-    ];
-    let mi = 0;
-
-    const iv = setInterval(() => {
-      pct = Math.min(pct + (Math.random() * 5 + 2), 100);
-      fill.style.width = pct + '%';
-
-      if (mi < msgs.length && pct >= msgs[mi][0]) {
-        msg.textContent = msgs[mi][1];
-        mi++;
-      }
-
-      if (pct >= 100) {
-        clearInterval(iv);
-        // trigger real download
-        const a = document.createElement('a');
-        a.href = 'Kishan_Sharma.pdf';
-        a.download = 'Kishan_Sharma.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        setTimeout(() => {
-          toast.classList.remove('show');
-          setTimeout(() => { fill.style.width = '0%'; }, 300);
-        }, 2000);
-      }
-    }, 70);
-  });
-})();
-
-// ── IDE LOADER ──
-(function() {
-  const loader = document.getElementById('ide-loader');
-  if (!loader) return;
-
-  const tasks = loader.querySelectorAll('.ld-task');
-
-  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-  async function animateTask(task) {
-    const dur   = parseInt(task.dataset.dur) || 400;
-    const fill  = task.querySelector('.ld-fill');
-    const pctEl = task.querySelector('.ld-tpct');
-
-    task.classList.add('ld-show');
-    await sleep(60);
-
-    // tick percentage counter in parallel with CSS transition
-    fill.style.transition = 'width ' + dur + 'ms linear';
-    fill.style.width = '100%';
-
-    const start = performance.now();
-    const tick = () => {
-      const elapsed = performance.now() - start;
-      const pct = Math.min(Math.round((elapsed / dur) * 100), 100);
-      if (pctEl) pctEl.textContent = pct + '%';
-      if (pct < 100) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-
-    await sleep(dur + 40);
-    if (pctEl) pctEl.textContent = '100%';
-    task.classList.add('ld-done-t');
-  }
-
-  async function runLoader() {
-    await sleep(80); // tiny pause so browser paints the loader first
-    for (let i = 0; i < tasks.length; i++) {
-      await animateTask(tasks[i]);
-      await sleep(i < tasks.length - 1 ? 30 : 320);
-    }
-    loader.classList.add('ld-done');
-    setTimeout(() => { loader.remove(); }, 600);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', runLoader);
-  } else {
-    runLoader();
-  }
-})();
-</script>
-
-<script>
-// AI Toggle Logic
-const aiBtn = document.getElementById('btn-ai');
-const aiPanel = document.getElementById('ai-panel');
-const closeAi = document.getElementById('close-ai');
-
-if(aiBtn && aiPanel && closeAi) {
-  aiBtn.addEventListener('click', function() {
-    aiPanel.classList.toggle('collapsed');
-    this.classList.toggle('on');
-  });
-  closeAi.addEventListener('click', () => {
-    aiPanel.classList.add('collapsed');
-    aiBtn.classList.remove('on');
-  });
-}
-
-// OpenRouter AI Engine
-const p1 = "c2stb3It"; const p2 = "djEtZmU5"; const p3 = "N2Q4MDY1"; const p4 = "NWNkOTk4"; const p5 = "ZmFiZjk4"; const p6 = "YmI4ZWJi"; const p7 = "OGFkYjk0"; const p8 = "ZDYzODcy"; const p9 = "NTRhMDQx"; const p10 = "MjliNmMw"; const p11 = "ZDQ2NmE5"; const p12 = "ODM2MDY0"; const p13 = "MQ==";
-const sysKey = atob(p1+p2+p3+p4+p5+p6+p7+p8+p9+p10+p11+p12+p13);
-
-const chatInput = document.getElementById('ai-input');
-const chatBox = document.getElementById('chat-box');
-const sendBtn = document.getElementById('send-btn');
-const modelSelect = document.getElementById('model-select');
-
-const systemContext = `You are the strict, professional AI assistant integrated into Kishan Kumar Singh's portfolio website.
-CRITICAL INSTRUCTIONS:
-1. Speak exclusively in plain text. DO NOT use markdown, bold (**), asterisks, bullet points, or any special formatting. Just talk like a normal human in plain text.
-2. Only answer questions related to Kishan Kumar Singh's resume. If asked about anything else, politely decline and say you can only discuss Kishan's professional profile.
-3. Keep answers concise, human-like, and conversational.
-
-KISHAN'S RESUME DATA:
-- Role: Senior Software Development Engineer (Full Stack)
-- Experience: 5+ years. Currently at Innostax Software Labs. Previously at Goolean Technologies and Nablasol Digital Service.
-- Tech Stack: PHP, Laravel, TypeScript, Node.js, Python, React.js. MySQL, Docker, AWS.
-- Key Projects: Business Leads UK, Allegan Global Solutions, Clocktales HRMS, Oyly Dine-in.
-- Key Achievements: Cleared 12+ month production bug backlog solo. Optimized SQL query time from 22s to 0.044s. Handled 10k+ SMS leads via Twilio cron.
-- Contact: kishansinghsw00@gmail.com, Phone: +91 88105 92193.`;
-
-let messages = [
-  { role: "system", content: systemContext }
-];
-
-function appendChat(text, isUser) {
-  if(!chatBox) return;
-  const div = document.createElement('div');
-  div.className = `chat-msg ${isUser ? 'chat-user' : 'chat-sys'}`;
-  div.textContent = text;
-  chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-async function sendToOpenRouter(msg) {
-  appendChat(msg, true);
-  messages.push({ role: "user", content: msg });
-  if(chatInput) chatInput.value = '';
-  
-  appendChat("Thinking...", false);
-  const thinkingNode = chatBox.lastChild;
-
-  const selectedModel = modelSelect ? modelSelect.value : 'openai/gpt-oss-120b:free';
-
-  try {
-    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${sysKey}`,
-        "HTTP-Referer": "https://kishansinghsw20.github.io/",
-        "X-Title": "Kishan Portfolio AI",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: selectedModel,
-        messages: messages
-      })
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        // Handle first dropdown
+        const dropdown1 = document.querySelector('.ide-header .resume-dropdown');
+        if (dropdown1 && !dropdown1.contains(event.target)) {
+            const menu = document.getElementById('resumeDropdownMenu');
+            const btn = document.getElementById('resumeDropdownBtn');
+            if (menu) menu.style.display = 'none';
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+        
+        // Handle main hero dropdown
+        const menu2 = document.getElementById('mainResumeMenu');
+        const btn2 = document.getElementById('mainResumeBtn');
+        if (menu2 && btn2 && !btn2.contains(event.target) && !menu2.contains(event.target)) {
+            menu2.style.display = 'none';
+            btn2.setAttribute('aria-expanded', 'false');
+        }
     });
-    
-    const data = await res.json();
-    thinkingNode.remove();
-    
-    if(data.error) {
-      appendChat(`API Error: ${data.error.message}`, false);
-    } else {
-      const reply = data.choices[0].message.content;
-      messages.push({ role: "assistant", content: reply });
-      appendChat(reply, false);
-    }
-  } catch(err) {
-    thinkingNode.remove();
-    appendChat(`Network Error: Failed to reach OpenRouter.`, false);
-  }
-}
-
-if(sendBtn) {
-  sendBtn.addEventListener('click', () => {
-    if(chatInput && chatInput.value.trim()) sendToOpenRouter(chatInput.value.trim());
-  });
-}
-
-if(chatInput) {
-  chatInput.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      if(chatInput.value.trim()) sendToOpenRouter(chatInput.value.trim());
-    }
-  });
-}
 </script>
 </body>
 
