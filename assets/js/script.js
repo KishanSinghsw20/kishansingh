@@ -257,3 +257,88 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize tilt effect on load
     initTiltEffect();
 });
+
+// Carousel Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.carousel-card');
+    if(cards.length === 0) return;
+
+    const btnPrev = document.querySelector('.carousel-nav.prev');
+    const btnNext = document.querySelector('.carousel-nav.next');
+    const container = document.querySelector('.carousel-container');
+    
+    let currentIndex = 0;
+    let autoplayInterval;
+
+    function updateCarousel() {
+        cards.forEach((card, index) => {
+            card.classList.remove('active', 'prev', 'next');
+            if (index === currentIndex) {
+                card.classList.add('active');
+            } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+                card.classList.add('prev');
+            } else if (index === (currentIndex + 1) % cards.length) {
+                card.classList.add('next');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel();
+    }
+
+    if(btnNext) {
+        btnNext.addEventListener('click', () => {
+            nextSlide();
+        });
+    }
+
+    if(btnPrev) {
+        btnPrev.addEventListener('click', () => {
+            prevSlide();
+        });
+    }
+
+    // Allow clicking on prev/next cards to navigate
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            if (card.classList.contains('prev')) {
+                prevSlide();
+            } else if (card.classList.contains('next')) {
+                nextSlide();
+            }
+        });
+    });
+
+    // Auto-play logic
+    function startAutoplay() {
+        // Clear any existing interval to prevent multiple intervals running
+        stopAutoplay();
+        autoplayInterval = setInterval(nextSlide, 3500); // swipe every 3.5 seconds
+    }
+
+    function stopAutoplay() {
+        if(autoplayInterval) {
+            clearInterval(autoplayInterval);
+        }
+    }
+
+    // Pause on hover
+    if(container) {
+        container.addEventListener('mouseenter', stopAutoplay);
+        container.addEventListener('mouseleave', startAutoplay);
+        // Pause on touch for mobile devices
+        container.addEventListener('touchstart', stopAutoplay);
+        container.addEventListener('touchend', startAutoplay);
+    }
+
+    updateCarousel();
+    startAutoplay(); // start the carousel when page loads
+});
+
