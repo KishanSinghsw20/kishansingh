@@ -1512,8 +1512,29 @@ html:not([data-theme="light"]) .invert-dark {
     .featured-projects {
         grid-template-columns: 1fr;
     }
+    .pinned-repos, .repos-grid {
+        grid-template-columns: 1fr;
+    }
     .timeline-layout {
         padding-left: 1rem;
+    }
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .skill-group {
+        padding: 1.5rem;
+    }
+    .tags-cloud {
+        justify-content: center;
+    }
+    .premium-tag {
+        min-width: 80px;
+        padding: 0.8rem 0.4rem;
+    }
+    .premium-tag img {
+        width: 36px;
+        height: 36px;
     }
 }
 
